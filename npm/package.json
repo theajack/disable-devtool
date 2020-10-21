@@ -1,0 +1,28 @@
+{
+    "name": "disable-devtool",
+    "version": "0.0.1",
+    "description": "Ebuild project",
+    "main": "ebuild.min.js",
+    "scripts": {
+        "build": "webpack --config webpack-config/build.js",
+        "publish": "npm publish npm",
+        "dev": "webpack-dev-server --open --config webpack-config/dev.js",
+        "lint": "eslint src --ext js"
+    },
+    "unpkg": "ebuild.min.js",
+    "jsdelivr": "ebuild.min.js",
+    "typings": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/theajack/ebuild-cli"
+    },
+    "keywords": [
+        "ebuild-cli"
+    ],
+    "author": "theajack",
+    "license": "MIT",
+    "bugs": {
+        "url": ""
+    },
+    "homepage": ""
+}

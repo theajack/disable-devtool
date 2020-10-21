@@ -1,0 +1,29 @@
+{
+    "editor.formatOnSave": false, // 每次保存的时候将代码按eslint格式进行修复
+    "eslint.validate": [
+      //开启对.vue文件中错误的检查
+      "javascript",
+      "javascriptreact",
+      "html",
+      "vue",
+      {
+        "language": "html",
+        "autoFix": true
+      },
+      {
+        "language": "vue",
+        "autoFix": true
+      }
+    ],
+    "search.exclude": {        
+      "**/node_modules": true,
+      "**/cdn": true,
+      "**/npm": true
+    },
+    "eslint.autoFixOnSave": true,
+    "typescript.validate.enable": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  }
+  
