@@ -1,4 +1,5 @@
 import disableDevtool from '../src';
+// import disableDevtool from '../npm';
 
 disableDevtool({
     md5: 'd4de605ccb923b7e876b3218a1474653',

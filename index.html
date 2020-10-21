@@ -58,7 +58,12 @@
                 href="https://theajack.gitee.io/disable-devtool">online trial/document</a> | <a
                 href="https://gitee.com/theajack/disable-devtool">Gitee</a></strong></p>
 
+    <p>
+        Now that the devtool on this page has been disabled, use the <a href='https://theajack.gitee.io/disable-devtool?ddtk=dd'>?ddtk=dd</a> url parameter to un-disable (ddtk value is configurable)
+    </p>
+
     <h2>1. Quick use</h2>
+
 
     <h3>1.1 npm reference</h3>
 
@@ -128,6 +133,13 @@ disableDevtool(options);</code></p>
 
     <p><code>disableDevtool.md5(&#39;xxx&#39;);</code></p>
 
+    <div>
+        TOOL:
+        <input type="text" id='md5_key' placeholder="Enter a key">
+        <button onclick="generateMd5()">Generate md5</button>
+        <span id='md5_value'></span>
+    </div>
+
     <h3>3.2 script uses attribute configuration</h3>
 
     <p><code>&lt;script
@@ -156,7 +168,22 @@ disableDevtool(options);</code></p>
         // The parameters are the same as in 3.1
     })
 &lt;/script&gt;</code></p>
-    <script id='disable-devtool' src='https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'></script>
+    <script id='disable-devtool' md5='1aabac6d068eef6a7bad3fdf50a05cc8' src='https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'></script>
+    <!-- <script id='disable-devtool' md5='1aabac6d068eef6a7bad3fdf50a05cc8' src='./npm/disable-devtool.min.js'></script> -->
+    <script>
+        function generateMd5(){
+            if(!window.DisableDevtool){
+                alert('DisableDevtool not ready');
+                return;
+            }
+            let key = document.getElementById('md5_key').value;
+            if(!key){
+                alert('Key is empty');
+                return;
+            }
+            document.getElementById('md5_value').innerText = DisableDevtool.md5(key);
+        }
+    </script>
 </body>
 
 </html>
