@@ -1,12 +1,16 @@
+import {config} from './config';
+
 export function isPC () {
     return !/(iphone|ipad|ipod|ios|android)/i.test(navigator.userAgent.toLowerCase());
 }
 
-export function closeWindow (url = 'https://localhost') {
+export function closeWindow () {
+    // 需要是有js跳转到这个页面才可以关闭这个页面
     window.opener = null;
     window.open('', '_self');
     window.close();
-    window.location.href = url;
+    // 否则执行跳转到 url
+    window.location.href = config.url;
 }
 
 export function getNowTime () {
@@ -23,4 +27,22 @@ export function getUrlParam (name) {
         }
     }
     return '';
+}
+
+export function formatName (name) {
+    if (name.indexOf('-') === -1) {
+        return name;
+    }
+    var flag = false;
+    return name.split('').map(c => {
+        if (c === '-') {
+            flag = true;
+            return '';
+        }
+        if (flag) {
+            flag = false;
+            return c.toUpperCase();
+        }
+        return c;
+    }).join('');
 }

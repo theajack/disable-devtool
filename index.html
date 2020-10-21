@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一行代码搞定禁用web开发者工具</title>
+    <style>
+        code{
+            white-space: pre;
+            font-family: Consolas, "Courier New", monospace;
+            color: #fff;
+            background-color: #444;
+            display: block;
+            overflow-x: auto;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        body{
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1><a style='color:#222' href='https://www.github.com/theajack/disable-devtool'>Disable-devtool</a></h1>
+
+    <h2>🚀 Disable web developer tools with one line </h2>
+
+
+    <p>
+        <a href="https://www.github.com/theajack/disable-devtool"><img
+                src="https://img.shields.io/github/stars/theajack/disable-devtool.svg?style=social" alt="star"></a>
+        <a href="https://theajack.gitee.io"><img
+                src="https://img.shields.io/badge/author-theajack-blue.svg?style=social" alt="Author"></a>
+    </p>
+
+    <p>
+        <a href="https://www.npmjs.com/package/disable-devtool"><img
+                src="https://img.shields.io/npm/v/disable-devtool.svg" alt="Version"></a>
+        <a href="https://npmcharts.com/compare/disable-devtool?minimal=true"><img
+                src="https://img.shields.io/npm/dm/disable-devtool.svg" alt="Downloads"></a>
+        <a href="https://cdn.jsdelivr.net/gh/theajack/disable-devtool/dist/disable-devtool.latest.min.js"><img
+                src="https://img.shields.io/bundlephobia/minzip/disable-devtool.svg" alt="Size"></a>
+        <a href="https://github.com/theajack/disable-devtool/blob/master/LICENSE"><img
+                src="https://img.shields.io/npm/l/disable-devtool.svg" alt="License"></a>
+        <a href="https://github.com/theajack/disable-devtool/search?l=javascript"><img
+                src="https://img.shields.io/github/languages/top/theajack/disable-devtool.svg" alt="TopLang"></a>
+        <a href="https://github.com/theajack/disable-devtool/issues"><img
+                src="https://img.shields.io/github/issues-closed/theajack/disable-devtool.svg" alt="issue"></a>
+        <a href="https://www.github.com/theajack/disable-devtool"><img
+                src="https://img.shields.io/librariesio/dependent-repos/npm/disable-devtool.svg" alt="Dependent"></a>
+    </p>
+
+    <p><strong><a href="https://github.com/theajack/disable-devtool/blob/master/README.cn.md">中文</a> | <a
+                href="https://theajack.gitee.io/disable-devtool">online trial/document</a> | <a
+                href="https://gitee.com/theajack/disable-devtool">Gitee</a></strong></p>
+
+    <h2>1. Quick use</h2>
+
+    <h3>1.1 npm reference</h3>
+
+    <p><code>npm i disable-devtool</code></p>
+
+    <p>
+        <code>import disableDevtool from&#39;disable-devtool&#39;;
+disableDevtool();</code>
+    </p>
+
+    <h3>1.2 script attribute configuration</h3>
+
+    <p><code>&lt;script id=&#39;disable-devtool&#39; src=&#39;https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js&#39;&gt;&lt;/script&gt;</code></p>
+
+    <h2>2. Function</h2>
+
+    <p>disable-devtool can disable all the methods that can enter the developer tools to prevent ‘code handling’ through
+        the developer tools</p>
+
+    <p>The library has the following features:</p>
+
+    <ol>
+        <li>Support configurable whether to disable the right-click menu</li>
+        <li>Disable f12 and ctrl+shift+i shortcuts</li>
+        <li>Support recognition to open the developer tools from the browser menu bar and close the current page</li>
+        <li>Developers can bypass the disablement (use tk and md5 encryption for url parameters)</li>
+        <li>Support almost all browsers</li>
+        <li>Highly configurable</li>
+        <li>Minimal use, small size (only 6kb)</li>
+        <li>Support npm reference and script tag reference (attribute configuration)</li>
+    </ol>
+
+    <h2>3. Use</h2>
+
+    <h3>3.1 Configuration parameters when using npm</h3>
+
+    <p>Install disable-devtool</p>
+
+    <p><code>npm i disable-devtool</code></p>
+
+    <p><code>import disableDevtool from&#39;disable-devtool&#39;;
+disableDevtool(options);</code></p>
+
+    <p>The parameters and descriptions in options are as follows:</p>
+
+    <p><code>declare interface optionStatic {
+    md5?: string; // Bypass the disabled md5 value, see 3.2 for details, the bypass disable is not enabled by default
+    url?: string; // Jump to the page when closing the page fails, the default value is localhost
+    tkName?: string; // Bypass the url parameter name when disabled, the default is ddtk
+    ondevtoolopen?(): void; // Callback for opening the developer panel, the url parameter is invalid when enabled
+    debugDelay?: number; // The delay in debug mode is 200ms by default
+    interval?: number; // Timer interval is 200ms by default
+    disableMenu?: boolean; // Whether to disable the right-click menu The default is true
+}</code></p>
+
+    <h3>3.2 md5 and tk bypass disable</h3>
+
+    <p>The combination of key and md5 in the library allows developers to bypass the disabling online.</p>
+
+    <p>The process is as follows:</p>
+
+    <p>First specify a key a (the value should not be recorded in the code), use md5 encryption to obtain a value b, and
+        pass in b as the md5 parameter. Developers only need to bring the url parameter ddtk=a when accessing the url.
+        Bypass disabled.</p>
+
+    <p>The disableDevtool object exposes the md5 method, which can be used by developers when encrypting:</p>
+
+    <p><code>disableDevtool.md5(&#39;xxx&#39;);</code></p>
+
+    <h3>3.2 script uses attribute configuration</h3>
+
+    <p><code>&lt;script
+    id=&#39;disable-devtool&#39;
+    src=&#39;https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js&#39;
+    md5=&#39;xxx&#39;
+    url=&#39;xxx&#39;
+    tk-name=&#39;xxx&#39;
+    debug-delay=&#39;xxx&#39;
+    interval=&#39;xxx&#39;
+    disable-menu=&#39;xxx&#39;>
+&lt;/script&gt;</code></p>
+    </blockquote>
+
+    <p>Note:<br>
+        1. You must bring the id=&#39;disable-devtool&#39;` attribute when configuring attributes<br>
+        2.Attribute configuration is optional, the fields are the same as in 3.1, the difference is that the hump form is
+        changed to horizontal line division <br>
+        3. The script tag is recommended to be placed at the bottom of the body</p>
+
+    <h3>3.3 script does not use attribute configuration</h3>
+
+    <p><code>&lt;script src=&#39;https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js&#39;&gt;&lt;/script&gt;
+&lt;script&gt;
+    DisableDevtool({
+        // The parameters are the same as in 3.1
+    })
+&lt;/script&gt;</code></p>
+    <script id='disable-devtool' src='https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'></script>
+</body>
+
+</html>

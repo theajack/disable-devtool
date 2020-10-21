@@ -1,13 +1,13 @@
 {
     "name": "disable-devtool",
     "version": "0.0.1",
-    "description": "Ebuild project",
-    "main": "ebuild.min.js",
-    "unpkg": "ebuild.min.js",
-    "jsdelivr": "ebuild.min.js",
+    "description": "Disable web developer tools from the f12 button, right-click and browser ",
+    "main": "disable-devtool.min.js",
+    "unpkg": "disable-devtool.min.js",
+    "jsdelivr": "disable-devtool.min.js",
     "typings": "index.d.ts",
     "bugs": {
-        "url": ""
+        "url": "https://github.com/theajack/disable-devtool/issues"
     },
     "homepage": "",
     "scripts": {
@@ -20,7 +20,7 @@
     "author": "theajack",
     "repository": {
         "type": "git",
-        "url": "https://github.com/theajack/ebuild-cli"
+        "url": "https://github.com/theajack/disable-devtool"
     },
     "keywords": [
         "ebuild-cli"

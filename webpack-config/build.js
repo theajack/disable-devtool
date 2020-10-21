@@ -6,8 +6,8 @@ module.exports = {
     entry: path.resolve('./', 'src/index.js'),
     output: {
         path: path.resolve('./', 'npm'),
-        filename: 'ebuild.min.js',
-        library: 'ebuild',
+        filename: 'disable-devtool.min.js',
+        library: 'DisableDevtool',
         libraryTarget: 'umd',
         umdNamedDefine: true,
         globalObject: 'this'

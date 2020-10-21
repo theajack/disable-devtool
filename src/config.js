@@ -2,9 +2,12 @@ import {closeWindow} from './util';
 
 export let config = {
     md5: '',
-    ondevtoolopen: closeWindow,
-    homeUrl: 'http://localhost',
+    ondevtoolopen: closeWindow, // ondevtoolopen 优先级高于 url
+    url: 'http://localhost',
     tkName: 'ddtk',
+    debugDelay: 200,
+    interval: 200,
+    disableMenu: true
 };
 
 export function mergeConfig (opts = {}) {
