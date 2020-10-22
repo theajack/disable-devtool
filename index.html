@@ -171,17 +171,20 @@ disableDevtool(options);</code></p>
     <script id='disable-devtool' md5='1aabac6d068eef6a7bad3fdf50a05cc8' src='https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'></script>
     <!-- <script id='disable-devtool' md5='1aabac6d068eef6a7bad3fdf50a05cc8' src='./npm/disable-devtool.min.js'></script> -->
     <script>
+        function setText(text){
+            document.getElementById('md5_value').innerText = 
+        }
         function generateMd5(){
             if(!window.DisableDevtool){
-                alert('DisableDevtool not ready');
+                setText('DisableDevtool not ready');
                 return;
             }
             let key = document.getElementById('md5_key').value;
             if(!key){
-                alert('Key is empty');
+                setText('Key is empty');
                 return;
             }
-            document.getElementById('md5_value').innerText = DisableDevtool.md5(key);
+            setText(DisableDevtool.md5(key));
         }
     </script>
 </body>
