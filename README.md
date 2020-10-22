@@ -19,7 +19,7 @@
     <a href="https://www.github.com/theajack/disable-devtool"><img src="https://img.shields.io/librariesio/dependent-repos/npm/disable-devtool.svg" alt="Dependent"></a>
 </p>
 
-**[中文](https://github.com/theajack/disable-devtool/blob/master/README.cn.md) | <a href='javascript:window.open("https://theajack.gitee.io/disable-devtool")'>online trial/document</a> | [Gitee](https://gitee.com/theajack/disable-devtool)**
+**[中文](https://github.com/theajack/disable-devtool/blob/master/README.cn.md) | <a target="view_window" href="https://theajack.gitee.io/disable-devtool">online trial/document</a> | [Gitee](https://gitee.com/theajack/disable-devtool)**
 
 ## 1. Quick use
 
