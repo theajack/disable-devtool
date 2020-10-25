@@ -78,6 +78,13 @@ disableDevtool();</code>
 
     <p><code>&lt;script id=&#39;disable-devtool&#39; src=&#39;https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js&#39;&gt;&lt;/script&gt;</code></p>
 
+    <p>Or use cdn with version:</p>
+
+    <p><code>&lt;!--Use a specific version-->
+&lt;script id='disable-devtool' src='https://cdn.jsdelivr.net/npm/disable-devtool@x.x.x/disable-devtool.min.js'>&lt;/script>
+&lt;!--Use latest version-->
+&lt;script id='disable-devtool' src='https://cdn.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js'>&lt;/script></code></p>
+
     <h2>2. Function</h2>
 
     <p>disable-devtool can disable all the methods that can enter the developer tools to prevent ‘code handling’ through
@@ -90,10 +97,11 @@ disableDevtool();</code>
         <li>Disable f12 and ctrl+shift+i shortcuts</li>
         <li>Support recognition to open the developer tools from the browser menu bar and close the current page</li>
         <li>Developers can bypass the disablement (use tk and md5 encryption for url parameters)</li>
-        <li>Support almost all browsers</li>
+        <li>Support almost all browsers (Include IE)</li>
         <li>Highly configurable</li>
         <li>Minimal use, small size (only 6kb)</li>
         <li>Support npm reference and script tag reference (attribute configuration)</li>
+        <li>Identify the real mobile terminal and browser developer tool settings plug-in forged mobile terminal, saving performance for the mobile terminal</li>
     </ol>
 
     <h2>3. Use</h2>
