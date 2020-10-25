@@ -180,16 +180,16 @@ disableDevtool(options);</code></p>
     <!-- <script id='disable-devtool' md5='1aabac6d068eef6a7bad3fdf50a05cc8' src='./npm/disable-devtool.min.js'></script> -->
     <script>
         function setText(text){
-            document.getElementById('md5_value').innerText = 
+            document.getElementById('md5_value').innerText = text;
         }
         function generateMd5(){
             if(!window.DisableDevtool){
-                setText('DisableDevtool not ready');
+                alert('DisableDevtool not ready');
                 return;
             }
             let key = document.getElementById('md5_key').value;
             if(!key){
-                setText('Key is empty');
+                alert('Key is empty');
                 return;
             }
             setText(DisableDevtool.md5(key));
