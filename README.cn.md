@@ -42,6 +42,15 @@ disableDevtool();
 <script id='disable-devtool' src='https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'></script>
 ```
 
+或者通过版本引用:
+
+```html
+<!--使用指定版本-->
+<script id='disable-devtool' src='https://cdn.jsdelivr.net/npm/disable-devtool@x.x.x/disable-devtool.min.js'></script>
+<!--使用最新版本-->
+<script id='disable-devtool' src='https://cdn.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js'></script>
+```
+
 ## 2.功能
 
 disable-devtool 可以禁用所有一切可以进入开发者工具的方法，防止通过开发者工具进行的 ‘代码搬运’
