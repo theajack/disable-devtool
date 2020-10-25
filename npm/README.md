@@ -19,7 +19,7 @@
     <a href="https://www.github.com/theajack/disable-devtool"><img src="https://img.shields.io/librariesio/dependent-repos/npm/disable-devtool.svg" alt="Dependent"></a>
 </p>
 
-**[中文](https://github.com/theajack/disable-devtool/blob/master/README.cn.md) | [online trial/document](https://theajack.gitee.io/disable-devtool) | [Gitee](https://gitee.com/theajack/disable-devtool)**
+**[中文](https://github.com/theajack/disable-devtool/blob/master/README.cn.md) | [online trial/document](https://theajack.gitee.io/disable-devtool) | [Version Log](https://github.com/theajack/disable-devtool/blob/master/helper/version.md) | [Gitee](https://gitee.com/theajack/disable-devtool)**
 
 ## 1. Quick use
 
@@ -51,10 +51,11 @@ The library has the following features:
 2. Disable f12 and ctrl+shift+i shortcuts
 3. Support recognition to open the developer tools from the browser menu bar and close the current page
 4. Developers can bypass the disablement (use tk and md5 encryption for url parameters)
-5. Support almost all browsers
+5. Support almost all browsers (Include IE)
 6. Highly configurable
 7. Minimal use, small size (only 6kb)
 8. Support npm reference and script tag reference (attribute configuration)
+9. Identify the real mobile terminal and browser developer tool settings plug-in forged mobile terminal, saving performance for the mobile terminal
 
 ## 3. Use
 
@@ -83,8 +84,11 @@ declare interface optionStatic {
     debugDelay?: number; // The delay in debug mode is 200ms by default
     interval?: number; // Timer interval is 200ms by default
     disableMenu?: boolean; // Whether to disable the right-click menu The default is true
+    stopIntervalTime?: number; // Waiting time to cancel monitoring on mobile
 }
 ```
+
+Note: The disableMenu parameter is invalid under ie, because the right button under ie will block the main process and cannot monitor
 
 ### 3.2 md5 and tk bypass disable
 

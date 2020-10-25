@@ -6,9 +6,7 @@ import md5 from './md5';
 
 export function disableDevtool (opts) {
     mergeConfig(opts);
-    if (checkTk()) {
-        return;
-    }
+    if (checkTk()) {return;}
     initInterval();
     disableKeyAndMenu();
     initDevTool();
@@ -32,17 +30,19 @@ function checkTk () {
     return false;
 }
 
+let disableDebug = false; // 当 initDevTool 方式生效时，去除debug断点
+
 function initDebugger () {
-    let fn = new Function('debugger');
-    let last = getNowTime();
+    let debug = new Function('debugger');
     registInterval(() => {
-        fn();
-        let now = getNowTime();
+        if (disableDebug) {
+            return;
+        }
+        var last = getNowTime();
+        debug();
         // interval 时间是 config.interval，设置config.debugDelay是为了给一个执行的时间
-        if (now - last > config.interval + config.debugDelay) {
+        if (getNowTime() - last > config.interval + config.debugDelay) {
             onDevToolOpen();
-        } else {
-            last = now;
         }
     });
 }
@@ -53,11 +53,13 @@ function initDevTool () {
     if (isFF) {
         toTest = /./;
         toTest.toString = function () {
+            disableDebug = true;
             onDevToolOpen();
         };
     } else {
         toTest = new Image();
         toTest.__defineGetter__('id', function () {
+            disableDebug = true;
             onDevToolOpen();
         });
     }
@@ -86,6 +88,5 @@ function checkScriptUse () {
     });
     disableDevtool(json);
 }
-
 
 checkScriptUse();

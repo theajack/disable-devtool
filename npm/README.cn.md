@@ -20,7 +20,7 @@
     <a href="https://www.github.com/theajack/disable-devtool"><img src="https://img.shields.io/librariesio/dependent-repos/npm/disable-devtool.svg" alt="Dependent"></a>
 </p>
 
-**[English](https://github.com/theajack/disable-devtool/blob/master/helper/README.en.md) | [在线试用/文档](https://theajack.gitee.io/disable-devtool) | [Gitee](https://gitee.com/theajack/disable-devtool)**
+**[English](https://github.com/theajack/disable-devtool/blob/master/README.md) | [在线试用/文档](https://theajack.gitee.io/disable-devtool) | [更新日志](https://github.com/theajack/disable-devtool/blob/master/helper/version.md) | [Gitee](https://gitee.com/theajack/disable-devtool)**
 
 ## 1. 快速使用
 
@@ -52,10 +52,11 @@ disable-devtool 可以禁用所有一切可以进入开发者工具的方法，�
 2. 禁用 f12 和 ctrl+shift+i 快捷键
 3. 支持识别从浏览器菜单栏打开开发者工具并关闭当前页面
 4. 开发者可以绕过禁用 (url参数使用tk配合md5加密)
-5. 支持几乎所有浏览器
+5. 支持几乎所有浏览器（包含IE）
 6. 高度可配置
 7. 使用极简、体积小巧 (仅6kb)
 8. 支持npm引用和script标签引用(属性配置)
+9. 识别真移动端与浏览器开发者工具设置插件伪造的移动端，为移动端节省性能
 
 ## 3. 使用
 
@@ -84,8 +85,11 @@ declare interface optionStatic {
     debugDelay?: number; // debug模式时的延迟 默认200ms
     interval?: number; // 定时器的时间间隔 默认200ms
     disableMenu?: boolean; // 是否禁用右键菜单 默认为true
+    stopIntervalTime?: number; // 在移动端时取消监视的等待时长
 }
 ```
+
+备注：disableMenu参数在ie下无效，因为ie下右键会阻塞主进程，且无法监听
 
 ### 3.2 md5 与 tk 绕过禁用
 
