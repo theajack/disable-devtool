@@ -3,6 +3,7 @@ import {initInterval, registInterval, clearTimeout} from './interval';
 import {formatName, getNowTime, getUrlParam} from './util';
 import {mergeConfig, config} from './config';
 import md5 from './md5';
+import version from './version';
 
 export function disableDevtool (opts) {
     mergeConfig(opts);
@@ -14,6 +15,7 @@ export function disableDevtool (opts) {
 }
 
 disableDevtool.md5 = md5;
+disableDevtool.version = version;
 
 export function onDevToolOpen () {
     clearTimeout();

@@ -10,3 +10,6 @@ disableDevtool({
     interval: 1000,
     tkName: 'xx',
 });
+
+console.log(disableDevtool.version);
+console.log(disableDevtool.md5('theajack'));

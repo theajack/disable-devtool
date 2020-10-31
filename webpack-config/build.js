@@ -1,5 +1,6 @@
 const path = require('path');
 require('../helper/copy-to-npm');
+require('../helper/copy-version');
 
 module.exports = {
     mode: 'production',
