@@ -41,6 +41,15 @@ disableDevtool();
 <script id='disable-devtool' src='https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'></script>
 ```
 
+Or use cdn with version:
+
+```html
+<!--Use a specific version-->
+<script id='disable-devtool' src='https://cdn.jsdelivr.net/npm/disable-devtool@x.x.x/disable-devtool.min.js'></script>
+<!--Use latest version-->
+<script id='disable-devtool' src='https://cdn.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js'></script>
+```
+
 ## 2. Function
 
 disable-devtool can disable all the methods that can enter the developer tools to prevent ‘code handling’ through the developer tools

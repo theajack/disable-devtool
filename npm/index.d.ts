@@ -11,6 +11,7 @@ declare interface optionStatic {
 declare interface DDTStatic {
     (option?: optionStatic): void;
     md5(text?: string): string;
+    version: string;
 }
 
 declare const ddt: DDTStatic;
