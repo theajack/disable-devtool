@@ -17,7 +17,10 @@ export function disableDevtool (opts) {
 disableDevtool.md5 = md5;
 disableDevtool.version = version;
 
+let hasOpened = false;
 export function onDevToolOpen () {
+    if (hasOpened) {return;}
+    hasOpened = true;
     clearTimeout();
     config.ondevtoolopen();
 }

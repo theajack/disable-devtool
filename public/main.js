@@ -1,5 +1,5 @@
-import disableDevtool from '../src';
-// import disableDevtool from '../npm';
+// import disableDevtool from '../src';
+import disableDevtool from '../npm';
 
 disableDevtool({
     md5: 'd4de605ccb923b7e876b3218a1474653',
@@ -9,6 +9,7 @@ disableDevtool({
     // },
     interval: 1000,
     tkName: 'xx',
+    // url: 'https://www.baidu.com'
 });
 
 console.log(disableDevtool.version);
