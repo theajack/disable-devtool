@@ -1,6 +1,6 @@
 {
     "name": "disable-devtool",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "Disable web developer tools from the f12 button, right-click and browser ",
     "main": "disable-devtool.min.js",
     "unpkg": "disable-devtool.min.js",
@@ -13,7 +13,7 @@
     "scripts": {
         "dev": "webpack-dev-server --open --config webpack-config/dev.js",
         "start": "npm run dev",
-        "build": "webpack --config webpack-config/build.js && node helper/mod-minjs.js",
+        "build": "webpack --config webpack-config/build.js",
         "publish": "npm publish npm",
         "lint": "eslint src --ext js"
     },

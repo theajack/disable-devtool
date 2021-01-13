@@ -10,8 +10,9 @@ module.exports = {
         filename: 'disable-devtool.min.js',
         library: 'DisableDevtool',
         libraryTarget: 'umd',
-        umdNamedDefine: true, // 这个地方暂时有问题 打包出来的时 {default: DisableDevtool} 临时解决是直接修改打包后的文件
-        globalObject: 'this'
+        // umdNamedDefine: true, // 这个地方暂时有问题 打包出来的时 {default: DisableDevtool} 临时解决是直接修改打包后的文件
+        globalObject: 'this',
+        libraryExport: 'default',
     },
     module: {
         rules: [{
