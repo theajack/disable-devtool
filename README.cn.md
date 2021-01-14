@@ -114,11 +114,11 @@ disableDevtool对象暴露了 md5 方法，可供开发者加密时使用：
 disableDevtool.md5('xxx');
 ```
 
-### 3.2 script使用属性配置
+### 3.3 script使用属性配置
 
 ```html
 <script 
-    id='disable-devtool'
+    disable-devtool-auto
     src='https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'
     md5='xxx'
     url='xxx'
@@ -131,11 +131,11 @@ disableDevtool.md5('xxx');
 
 注：
 
-1. 属性配置时必须要带上 `id='disable-devtool'` 属性
+1. 如希望自动禁用，属性配置时必须要带上 `disable-devtool-auto` 属性
 2. 属性配置都是可选的，字段与3.1中一致，区别是将驼峰形式改成横线分割
 3. 该script标签建议放在body最底部
 
-### 3.3 script不使用属性配置
+### 3.4 script不使用属性配置
 
 ```html
 <script src='https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'></script>

@@ -113,11 +113,11 @@ The disableDevtool object exposes the md5 method, which can be used by developer
 disableDevtool.md5('xxx');
 ```
 
-### 3.2 script uses attribute configuration
+### 3.3 script uses attribute configuration
 
 ```html
 <script
-    id='disable-devtool'
+    disable-devtool-auto
     src='https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'
     md5='xxx'
     url='xxx'
@@ -130,11 +130,11 @@ disableDevtool.md5('xxx');
 
 Note:
 
-1. You must bring the id='disable-devtool'` attribute when configuring attributes
+1. If you want to automatically disable,you must bring the `disable-devtool-auto` attribute when configuring attributes
 2. Attribute configuration is optional, the fields are the same as in 3.1, the difference is that the hump form is changed to horizontal line division
 3. The script tag is recommended to be placed at the bottom of the body
 
-### 3.3 script does not use attribute configuration
+### 3.4 script does not use attribute configuration
 
 ```html
 <script src='https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'></script>

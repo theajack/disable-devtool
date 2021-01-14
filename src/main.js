@@ -75,7 +75,7 @@ function initDevTool () {
 }
 
 function checkScriptUse () {
-    let dom = document.getElementById('disable-devtool');
+    let dom = document.querySelector('[disable-devtool-auto]');
     if (!dom) {
         return;
     }
