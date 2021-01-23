@@ -39,16 +39,16 @@ disableDevtool();
 ### 1.2 script属性配置
 
 ```html
-<script id='disable-devtool' src='https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'></script>
+<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'></script>
 ```
 
 或者通过版本引用:
 
 ```html
 <!--使用指定版本-->
-<script id='disable-devtool' src='https://cdn.jsdelivr.net/npm/disable-devtool@x.x.x/disable-devtool.min.js'></script>
+<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@x.x.x/disable-devtool.min.js'></script>
 <!--使用最新版本-->
-<script id='disable-devtool' src='https://cdn.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js'></script>
+<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js'></script>
 ```
 
 ## 2.功能

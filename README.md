@@ -38,16 +38,16 @@ disableDevtool();
 ### 1.2 script attribute configuration
 
 ```html
-<script id='disable-devtool' src='https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'></script>
+<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'></script>
 ```
 
 Or use cdn with version:
 
 ```html
 <!--Use a specific version-->
-<script id='disable-devtool' src='https://cdn.jsdelivr.net/npm/disable-devtool@x.x.x/disable-devtool.min.js'></script>
+<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@x.x.x/disable-devtool.min.js'></script>
 <!--Use latest version-->
-<script id='disable-devtool' src='https://cdn.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js'></script>
+<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js'></script>
 ```
 
 ## 2. Function
