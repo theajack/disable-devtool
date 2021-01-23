@@ -76,14 +76,14 @@ disableDevtool();</code>
 
     <h3>1.2 script attribute configuration</h3>
 
-    <p><code>&lt;script id=&#39;disable-devtool&#39; src=&#39;https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js&#39;&gt;&lt;/script&gt;</code></p>
+    <p><code>&lt;script disable-devtool-auto src=&#39;https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js&#39;&gt;&lt;/script&gt;</code></p>
 
     <p>Or use cdn with version:</p>
 
     <p><code>&lt;!--Use a specific version-->
-&lt;script id='disable-devtool' src='https://cdn.jsdelivr.net/npm/disable-devtool@x.x.x/disable-devtool.min.js'>&lt;/script>
+&lt;script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@x.x.x/disable-devtool.min.js'>&lt;/script>
 &lt;!--Use latest version-->
-&lt;script id='disable-devtool' src='https://cdn.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js'>&lt;/script></code></p>
+&lt;script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js'>&lt;/script></code></p>
 
     <h2>2. Function</h2>
 
@@ -151,7 +151,7 @@ disableDevtool(options);</code></p>
     <h3>3.2 script uses attribute configuration</h3>
 
     <p><code>&lt;script
-    id=&#39;disable-devtool&#39;
+    disable-devtool-auto 
     src=&#39;https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js&#39;
     md5=&#39;xxx&#39;
     url=&#39;xxx&#39;
@@ -163,7 +163,7 @@ disableDevtool(options);</code></p>
     </blockquote>
 
     <p>Note:<br>
-        1. You must bring the id=&#39;disable-devtool&#39;` attribute when configuring attributes<br>
+        1. You must bring the <strong>disable-devtool-auto</strong> attribute when configuring attributes<br>
         2.Attribute configuration is optional, the fields are the same as in 3.1, the difference is that the hump form is
         changed to horizontal line division <br>
         3. The script tag is recommended to be placed at the bottom of the body</p>
@@ -176,8 +176,13 @@ disableDevtool(options);</code></p>
         // The parameters are the same as in 3.1
     })
 &lt;/script&gt;</code></p>
-    <script id='disable-devtool' md5='1aabac6d068eef6a7bad3fdf50a05cc8' src='https://cdn.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js'></script>
-    <!-- <script id='disable-devtool' md5='1aabac6d068eef6a7bad3fdf50a05cc8' src='./npm/disable-devtool.min.js'></script> -->
+    <script 
+        disable-devtool-auto 
+        md5='1aabac6d068eef6a7bad3fdf50a05cc8' 
+        src='https://cdn.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js'
+        url='https://github.com/theajack/disable-devtool'
+    ></script>
+    <!-- <script disable-devtool-auto md5='1aabac6d068eef6a7bad3fdf50a05cc8' src='./npm/disable-devtool.min.js'></script> -->
     <script>
         function setText(text){
             document.getElementById('md5_value').innerText = text;

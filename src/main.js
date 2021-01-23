@@ -1,6 +1,6 @@
 import {disableKeyAndMenu} from './key-menu';
 import {initInterval, registInterval, clearTimeout} from './interval';
-import {formatName, getNowTime, getUrlParam} from './util';
+import {formatName, getUrlParam} from './util';
 import {mergeConfig, config} from './config';
 import md5 from './md5';
 import version from './version';
@@ -11,7 +11,7 @@ export function disableDevtool (opts) {
     initInterval();
     disableKeyAndMenu();
     initDevTool();
-    initDebugger();
+    // initDebugger();
 }
 
 disableDevtool.md5 = md5;
@@ -35,22 +35,22 @@ function checkTk () {
     return false;
 }
 
-let disableDebug = false; // 当 initDevTool 方式生效时，去除debug断点
-
-function initDebugger () {
-    let debug = new Function('debugger');
-    registInterval(() => {
-        if (disableDebug) {
-            return;
-        }
-        var last = getNowTime();
-        debug();
-        // interval 时间是 config.interval，设置config.debugDelay是为了给一个执行的时间
-        if (getNowTime() - last > config.interval + config.debugDelay) {
-            onDevToolOpen();
-        }
-    });
-}
+// let disableDebug = false; // 当 initDevTool 方式生效时，去除debug断点
+// 去除debug的逻辑
+// function initDebugger () {
+// let debug = new Function('debugger');
+// registInterval(() => {
+//     if (disableDebug) {
+//         return;
+//     }
+//     var last = getNowTime();
+//     // debug();
+//     // interval 时间是 config.interval，设置config.debugDelay是为了给一个执行的时间
+//     if (getNowTime() - last > config.interval + config.debugDelay) {
+//         onDevToolOpen();
+//     }
+// });
+// }
 
 function initDevTool () {
     const isFF = ~navigator.userAgent.indexOf('Firefox');
@@ -58,13 +58,13 @@ function initDevTool () {
     if (isFF) {
         toTest = /./;
         toTest.toString = function () {
-            disableDebug = true;
+            // disableDebug = true;
             onDevToolOpen();
         };
     } else {
         toTest = new Image();
         toTest.__defineGetter__('id', function () {
-            disableDebug = true;
+            // disableDebug = true;
             onDevToolOpen();
         });
     }
