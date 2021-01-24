@@ -14,7 +14,7 @@ export function closeWindow () {
         window.close();
         window.history.back();
         setTimeout(() => {
-            window.location.href = 'http://localhost';
+            window.location.href = `https://tackchen.gitee.io/404.html?h=${encodeURIComponent(location.host)}`;
         }, 100);
     }
     // 否则执行跳转到 url
@@ -129,4 +129,16 @@ export function isIE () {
     // } else {
     //     return -1;// 不是ie浏览器
     // }
+}
+
+export function isQQBrowser () {
+    return hasUaName('qqbrowser');
+}
+
+export function isFirefox () {
+    return hasUaName('firefox');
+}
+
+function hasUaName (name) {
+    return navigator.userAgent.toLocaleLowerCase().indexOf(name) !== -1;
 }

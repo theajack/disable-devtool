@@ -60,9 +60,9 @@ The library has the following features:
 2. Disable f12 and ctrl+shift+i shortcuts
 3. Support recognition to open the developer tools from the browser menu bar and close the current page
 4. Developers can bypass the disablement (use tk and md5 encryption for url parameters)
-5. Support almost all browsers (Include IE)
+5. Support almost all browsers (IE,360,qq browser,FireFox,Chrome,Edge...)
 6. Highly configurable
-7. Minimal use, small size (only 6kb)
+7. Minimal use, small size (only 7kb)
 8. Support npm reference and script tag reference (attribute configuration)
 9. Identify the real mobile terminal and browser developer tool settings plug-in forged mobile terminal, saving performance for the mobile terminal
 
@@ -90,14 +90,11 @@ declare interface optionStatic {
     url?: string; // Jump to the page when closing the page fails, the default value is localhost
     tkName?: string; // Bypass the url parameter name when disabled, the default is ddtk
     ondevtoolopen?(): void; // Callback for opening the developer panel, the url parameter is invalid when enabled
-    debugDelay?: number; // The delay in debug mode is 200ms by default
     interval?: number; // Timer interval is 200ms by default
     disableMenu?: boolean; // Whether to disable the right-click menu The default is true
     stopIntervalTime?: number; // Waiting time to cancel monitoring on mobile
 }
 ```
-
-Note: The disableMenu parameter is invalid under ie, because the right button under ie will block the main process and cannot monitor
 
 ### 3.2 md5 and tk bypass disable
 
@@ -122,7 +119,6 @@ disableDevtool.md5('xxx');
     md5='xxx'
     url='xxx'
     tk-name='xxx'
-    debug-delay='xxx'
     interval='xxx'
     disable-menu='xxx'
 ></script>

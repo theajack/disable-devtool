@@ -1,6 +1,6 @@
 import {disableKeyAndMenu} from './key-menu';
 import {initInterval, registInterval, clearTimeout} from './interval';
-import {formatName, getUrlParam} from './util';
+import {formatName, getUrlParam, isFirefox, isQQBrowser} from './util';
 import {mergeConfig, config} from './config';
 import md5 from './md5';
 import version from './version';
@@ -11,7 +11,6 @@ export function disableDevtool (opts) {
     initInterval();
     disableKeyAndMenu();
     initDevTool();
-    // initDebugger();
 }
 
 disableDevtool.md5 = md5;
@@ -19,10 +18,16 @@ disableDevtool.version = version;
 
 let hasOpened = false;
 export function onDevToolOpen () {
-    if (hasOpened) {return;}
-    hasOpened = true;
-    clearTimeout();
-    config.ondevtoolopen();
+    let time = new Date().getTime();
+    console.log('You ar not allow to use DEVTOOL!', time);
+    if (!isQQBrowser()) {
+        if (hasOpened) {return {time, next () {}};}
+        hasOpened = true;
+    }
+    return {time, next () {
+        clearTimeout();
+        config.ondevtoolopen();
+    }};
 }
 
 function checkTk () {
@@ -35,42 +40,39 @@ function checkTk () {
     return false;
 }
 
-// let disableDebug = false; // 当 initDevTool 方式生效时，去除debug断点
-// 去除debug的逻辑
-// function initDebugger () {
-// let debug = new Function('debugger');
-// registInterval(() => {
-//     if (disableDebug) {
-//         return;
-//     }
-//     var last = getNowTime();
-//     // debug();
-//     // interval 时间是 config.interval，设置config.debugDelay是为了给一个执行的时间
-//     if (getNowTime() - last > config.interval + config.debugDelay) {
-//         onDevToolOpen();
-//     }
-// });
-// }
-
 function initDevTool () {
-    const isFF = ~navigator.userAgent.indexOf('Firefox');
+    const isQQ = isQQBrowser();
+    const isFF = isFirefox();
     let toTest = '';
-    if (isFF) {
+    if (isQQ) {
+        let lastTime = 0;
         toTest = /./;
+        console.log(toTest);
         toTest.toString = function () {
-            // disableDebug = true;
-            onDevToolOpen();
+            let {time, next} = onDevToolOpen();
+            if (lastTime && time - lastTime < 100) {
+                next();
+            } else {
+                lastTime = time;
+            }
+            return '';
+        };
+    } else if (isFF) {
+        toTest = /./;
+        console.log(toTest);
+        toTest.toString = function () {
+            onDevToolOpen().next();
+            return '';
         };
     } else {
         toTest = new Image();
         toTest.__defineGetter__('id', function () {
-            // disableDebug = true;
-            onDevToolOpen();
+            onDevToolOpen().next();
         });
     }
     registInterval(() => {
         console.log(toTest);
-        console.clear && console.clear();
+        console.clear();
     });
 }
 
@@ -80,10 +82,10 @@ function checkScriptUse () {
         return;
     }
     let json = {};
-    ['md5', 'url', 'tk-name', 'debug-delay', 'interval', 'disable-menu'].forEach(name => {
+    ['md5', 'url', 'tk-name', 'interval', 'disable-menu'].forEach(name => {
         let value = dom.getAttribute(name);
         if (value !== null) {
-            if (name === 'debug-delay' || name === 'interval') {
+            if (name === 'interval') {
                 value = parseInt(value);
             } else if (name === 'disable-menu') {
                 value = value === 'false' ? false : true;

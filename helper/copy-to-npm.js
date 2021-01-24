@@ -13,7 +13,7 @@ function copyPkg () {
     let npmPkg = util.pick({
         target: pkg,
         attrs: [
-            'name', 'version', 'description', 'main', 'scripts', 'unpkg', 'jsdelivr',
+            'name', 'version', 'description', 'main', 'unpkg', 'jsdelivr',
             'typings', 'repository', 'keywords', 'author', 'license', 'bugs', 'homepage'
         ]
     });

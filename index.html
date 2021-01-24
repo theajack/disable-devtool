@@ -97,9 +97,9 @@ disableDevtool();</code>
         <li>Disable f12 and ctrl+shift+i shortcuts</li>
         <li>Support recognition to open the developer tools from the browser menu bar and close the current page</li>
         <li>Developers can bypass the disablement (use tk and md5 encryption for url parameters)</li>
-        <li>Support almost all browsers (Include IE)</li>
+        <li>Support almost all browsers (IE,360,qq browser,FireFox,Chrome,Edge...)</li>
         <li>Highly configurable</li>
-        <li>Minimal use, small size (only 6kb)</li>
+        <li>Minimal use, small size (only 7kb)</li>
         <li>Support npm reference and script tag reference (attribute configuration)</li>
         <li>Identify the real mobile terminal and browser developer tool settings plug-in forged mobile terminal, saving performance for the mobile terminal</li>
     </ol>
@@ -122,9 +122,9 @@ disableDevtool(options);</code></p>
     url?: string; // Jump to the page when closing the page fails, the default value is localhost
     tkName?: string; // Bypass the url parameter name when disabled, the default is ddtk
     ondevtoolopen?(): void; // Callback for opening the developer panel, the url parameter is invalid when enabled
-    debugDelay?: number; // The delay in debug mode is 200ms by default
     interval?: number; // Timer interval is 200ms by default
     disableMenu?: boolean; // Whether to disable the right-click menu The default is true
+    stopIntervalTime?: number; // Waiting time to cancel monitoring on mobile
 }</code></p>
 
     <h3>3.2 md5 and tk bypass disable</h3>
@@ -156,7 +156,6 @@ disableDevtool(options);</code></p>
     md5=&#39;xxx&#39;
     url=&#39;xxx&#39;
     tk-name=&#39;xxx&#39;
-    debug-delay=&#39;xxx&#39;
     interval=&#39;xxx&#39;
     disable-menu=&#39;xxx&#39;>
 &lt;/script&gt;</code></p>

@@ -12,7 +12,6 @@ export function initInterval () {
     onPageShowHide(goon, pause); // 防止切后台触发了debug延迟计算
 
     interval = window.setInterval(() => {
-        console.log(1);
         if (_pause) return;
         calls.forEach(fn => {fn();});
     }, config.interval);

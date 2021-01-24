@@ -1,5 +1,4 @@
 import {config} from './config';
-import {isIE} from './util';
 
 export function disableKeyAndMenu () {
     window.addEventListener('keydown', (e) => {
@@ -12,7 +11,7 @@ export function disableKeyAndMenu () {
             return false;
         }
     }, false);
-    if (config.disableMenu || isIE()) { // ie 右键菜单会阻塞线程影响debug延迟计算 禁用右键菜单
+    if (config.disableMenu) {
         window.addEventListener('contextmenu', (e) => {
             e = e || window.event;
             e.returnValue = false;

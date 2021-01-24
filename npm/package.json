@@ -1,14 +1,9 @@
 {
     "name": "disable-devtool",
-    "version": "0.0.8",
+    "version": "0.1.0",
     "description": "Disable web developer tools from the f12 button, right-click and browser ",
     "main": "disable-devtool.min.js",
     "scripts": {
-        "dev": "webpack-dev-server --open --config webpack-config/dev.js",
-        "start": "npm run dev",
-        "build": "webpack --config webpack-config/build.js",
-        "publish": "npm publish npm",
-        "lint": "eslint src --ext js"
     },
     "unpkg": "disable-devtool.min.js",
     "jsdelivr": "disable-devtool.min.js",
@@ -18,7 +13,9 @@
         "url": "https://github.com/theajack/disable-devtool"
     },
     "keywords": [
-        "disable-devtool"
+        "disable-devtool",
+        "禁用F12",
+        "禁用开发者工具"
     ],
     "author": "theajack",
     "license": "MIT",
