@@ -15,7 +15,8 @@
         "start": "npm run dev",
         "build": "webpack --config webpack-config/build.js",
         "publish": "npm publish npm",
-        "lint": "eslint src --ext js"
+        "lint": "eslint src --ext js",
+        "sync-version": "node helper/mod-index-html-version.js"
     },
     "author": "theajack",
     "repository": {

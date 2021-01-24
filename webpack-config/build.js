@@ -1,6 +1,7 @@
 const path = require('path');
 require('../helper/copy-to-npm');
 require('../helper/copy-version');
+require('../helper/mod-index-html-version');
 
 module.exports = {
     mode: 'production',
