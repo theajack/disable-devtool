@@ -1,10 +1,8 @@
 {
     "name": "disable-devtool",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Disable web developer tools from the f12 button, right-click and browser ",
     "main": "disable-devtool.min.js",
-    "scripts": {
-    },
     "unpkg": "disable-devtool.min.js",
     "jsdelivr": "disable-devtool.min.js",
     "typings": "index.d.ts",

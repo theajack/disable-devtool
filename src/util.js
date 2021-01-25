@@ -9,13 +9,17 @@ export function closeWindow () {
     if (config.url) {
         window.location.href = config.url;
     } else {
-        window.opener = null;
-        window.open('', '_self');
-        window.close();
-        window.history.back();
+        try {
+            window.opener = null;
+            window.open('', '_self');
+            window.close();
+            window.history.back();
+        } catch (e) {
+            console.log(e);
+        }
         setTimeout(() => {
             window.location.href = `https://tackchen.gitee.io/404.html?h=${encodeURIComponent(location.host)}`;
-        }, 100);
+        }, 500);
     }
     // 否则执行跳转到 url
 }

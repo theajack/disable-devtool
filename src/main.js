@@ -20,11 +20,12 @@ let hasOpened = false;
 export function onDevToolOpen () {
     let time = new Date().getTime();
     console.log('You ar not allow to use DEVTOOL!', time);
+    if (hasOpened) {return {time, next () {}};}
     if (!isQQBrowser()) {
-        if (hasOpened) {return {time, next () {}};}
         hasOpened = true;
     }
     return {time, next () {
+        hasOpened = true;
         clearTimeout();
         config.ondevtoolopen();
     }};

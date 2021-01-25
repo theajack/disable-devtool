@@ -35,3 +35,7 @@
 2. 启用 disableMenu 配置
 3. 去除内部debug逻辑
 4. 增加默认跳转的404页面
+   
+## 0.1.1
+1. 增加history.back 之后跳转默认页的延迟
+2. 优化ondeltoolopen 逻辑
