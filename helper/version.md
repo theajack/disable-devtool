@@ -39,3 +39,6 @@
 ## 0.1.1
 1. 增加history.back 之后跳转默认页的延迟
 2. 优化ondeltoolopen 逻辑
+
+## 0.1.2
+1. 加上document的判断 以适应服务端渲染 npm 调用

@@ -78,6 +78,9 @@ function initDevTool () {
 }
 
 function checkScriptUse () {
+    if (typeof document === 'undefined') {
+        return;
+    }
     let dom = document.querySelector('[disable-devtool-auto]');
     if (!dom) {
         return;
