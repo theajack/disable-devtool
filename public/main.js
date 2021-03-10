@@ -11,6 +11,7 @@ disableDevtool({
     // },
     interval: 1000,
     tkName: 'xx',
+    // disableMenu: false
     // url: 'https://www.baidu.com'
 });
 

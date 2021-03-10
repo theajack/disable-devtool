@@ -12,7 +12,7 @@ export let config = {
 
 export function mergeConfig (opts = {}) {
     for (let k in config) {
-        if (opts[k] && typeof config[k] === typeof opts[k]) {
+        if (typeof opts[k] !== 'undefined' && typeof config[k] === typeof opts[k]) {
             config[k] = opts[k];
         }
     }

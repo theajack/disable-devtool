@@ -42,3 +42,6 @@
 
 ## 0.1.2
 1. 加上document的判断 以适应服务端渲染 npm 调用
+
+## 0.1.3
+1. 修复 disableMenu 参数无效的bug
