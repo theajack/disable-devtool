@@ -1,39 +1,26 @@
 import {disableKeyAndMenu} from './key-menu';
-import {initInterval, registInterval, clearTimeout} from './interval';
-import {formatName, getUrlParam, isFirefox, isQQBrowser} from './util';
+import {initInterval} from './interval';
+import {formatName, getUrlParam} from './util';
 import {mergeConfig, config} from './config';
 import md5 from './md5';
 import version from './version';
+import {DETECTOR_TYPE, initDetectors} from './detector/detector';
 
 export function disableDevtool (opts) {
     mergeConfig(opts);
     if (checkTk()) {return;}
     initInterval();
     disableKeyAndMenu();
-    initDevTool();
+    initDetectors();
 }
-
+ 
 disableDevtool.md5 = md5;
 disableDevtool.version = version;
-
-let hasOpened = false;
-export function onDevToolOpen () {
-    let time = new Date().getTime();
-    console.log('You ar not allow to use DEVTOOL!', time);
-    if (hasOpened) {return {time, next () {}};}
-    if (!isQQBrowser()) {
-        hasOpened = true;
-    }
-    return {time, next () {
-        hasOpened = true;
-        clearTimeout();
-        config.ondevtoolopen();
-    }};
-}
+disableDevtool.DETECTOR_TYPE = DETECTOR_TYPE;
 
 function checkTk () {
     if (config.md5) { // 启用了 md5
-        let tk = getUrlParam(config.tkName);
+        const tk = getUrlParam(config.tkName);
         if (md5(tk) === config.md5) { // 命中tk
             return true;
         }
@@ -41,51 +28,15 @@ function checkTk () {
     return false;
 }
 
-function initDevTool () {
-    const isQQ = isQQBrowser();
-    const isFF = isFirefox();
-    let toTest = '';
-    if (isQQ) {
-        let lastTime = 0;
-        toTest = /./;
-        console.log(toTest);
-        toTest.toString = function () {
-            let {time, next} = onDevToolOpen();
-            if (lastTime && time - lastTime < 100) {
-                next();
-            } else {
-                lastTime = time;
-            }
-            return '';
-        };
-    } else if (isFF) {
-        toTest = /./;
-        console.log(toTest);
-        toTest.toString = function () {
-            onDevToolOpen().next();
-            return '';
-        };
-    } else {
-        toTest = new Image();
-        toTest.__defineGetter__('id', function () {
-            onDevToolOpen().next();
-        });
-    }
-    registInterval(() => {
-        console.log(toTest);
-        console.clear();
-    });
-}
-
 function checkScriptUse () {
     if (typeof document === 'undefined') {
         return;
     }
-    let dom = document.querySelector('[disable-devtool-auto]');
+    const dom = document.querySelector('[disable-devtool-auto]');
     if (!dom) {
         return;
     }
-    let json = {};
+    const json = {};
     ['md5', 'url', 'tk-name', 'interval', 'disable-menu'].forEach(name => {
         let value = dom.getAttribute(name);
         if (value !== null) {

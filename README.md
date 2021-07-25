@@ -76,7 +76,7 @@ The library has the following features:
 2. Disable f12 and ctrl+shift+i shortcuts
 3. Support recognition to open the developer tools from the browser menu bar and close the current page
 4. Developers can bypass the disablement (use tk and md5 encryption for url parameters)
-5. Support almost all browsers (IE,360,qq browser,FireFox,Chrome,Edge...)
+5. Multiple monitoring modes, support almost all browsers (IE, 360, qq browser, FireFox, Chrome, Edge...)
 6. Highly configurable
 7. Minimal use, small size (only 7kb)
 8. Support npm reference and script tag reference (attribute configuration)
@@ -105,11 +105,14 @@ declare interface optionStatic {
     md5?: string; // Bypass the disabled md5 value, see 3.2 for details, the bypass disable is not enabled by default
     url?: string; // Jump to the page when closing the page fails, the default value is localhost
     tkName?: string; // Bypass the url parameter name when disabled, the default is ddtk
-    ondevtoolopen?(): void; // Callback for opening the developer panel, the url parameter is invalid when enabled
+    ondevtoolopen?(type: DetectorType): void; // Callback for opening the developer panel, the url parameter is invalid when it is enabled, and the type is the monitoring mode, see 3.5 for details
     interval?: number; // Timer interval is 200ms by default
     disableMenu?: boolean; // Whether to disable the right-click menu The default is true
     stopIntervalTime?: number; // Waiting time to cancel monitoring on mobile
+    clearIntervalWhenDevOpenTrigger?: boolean; // Whether to stop monitoring after triggering
 }
+
+declare type DETECTOR_TYPE = -1 | 0 | 1 | 2 | 3;
 ```
 
 ### 3.2 md5 and tk bypass disable
@@ -156,3 +159,19 @@ Note:
     })
 </script>
 ```
+
+### 3.5 Monitoring Mode
+
+Disable-Devtool has four monitoring modes, DisableDevtool.DETECTOR_TYPE is all monitoring modes
+
+```js
+const DETECTOR_TYPE = {
+     UNKONW: -1,
+     TO_STRING: 0,
+     DEFINE_ID: 1,
+     SIZE: 2,
+     LOG_TIME: 3,
+}
+```
+
+The callback parameter of the ondevtoolopen event is the triggered monitoring mode

@@ -3,7 +3,7 @@ import {config} from './config';
 export function disableKeyAndMenu () {
     window.addEventListener('keydown', (e) => {
         e = e || window.event;
-        let keyCode = e.keyCode || e.which;
+        const keyCode = e.keyCode || e.which;
         // alert(e.keyCode);
         if (keyCode === 123 || (e.shiftKey && e.ctrlKey && e.keyCode === 73)) {
             e.returnValue = false;

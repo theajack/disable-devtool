@@ -45,3 +45,9 @@
 
 ## 0.1.3
 1. 修复 disableMenu 参数无效的bug
+   
+## 0.1.4
+1. 增加 detector，增加多种监测模式
+2. 使用logTime模式兜底，兼容mac，linux
+3. 增加 clearIntervalWhenDevOpenTrigger 参数
+4. ondevtoolopen 增加 监测模式 回调参数

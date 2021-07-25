@@ -5,19 +5,35 @@
 
 ----
 
-<p align="">
-    <a href="https://www.github.com/theajack/disable-devtool"><img src="https://img.shields.io/github/stars/theajack/disable-devtool.svg?style=social" alt="star"></a>
-    <a href="https://theajack.gitee.io"><img src="https://img.shields.io/badge/author-theajack-blue.svg?style=social" alt="Author"></a>
-</p> 
-
-<p align="">
-    <a href="https://www.npmjs.com/package/disable-devtool"><img src="https://img.shields.io/npm/v/disable-devtool.svg" alt="Version"></a>
-    <a href="https://npmcharts.com/compare/disable-devtool?minimal=true"><img src="https://img.shields.io/npm/dm/disable-devtool.svg" alt="Downloads"></a>
-    <a href="https://cdn.jsdelivr.net/gh/theajack/disable-devtool/dist/disable-devtool.latest.min.js"><img src="https://img.shields.io/bundlephobia/minzip/disable-devtool.svg" alt="Size"></a>
-    <a href="https://github.com/theajack/disable-devtool/blob/master/LICENSE"><img src="https://img.shields.io/npm/l/disable-devtool.svg" alt="License"></a>
-    <a href="https://github.com/theajack/disable-devtool/search?l=javascript"><img src="https://img.shields.io/github/languages/top/theajack/disable-devtool.svg" alt="TopLang"></a>
+<p>
+    <a href="https://www.github.com/theajack/disable-devtool/stargazers" target="_black">
+        <img src="https://img.shields.io/github/stars/theajack/disable-devtool?logo=github" alt="stars" />
+    </a>
+    <a href="https://www.github.com/theajack/disable-devtool/network/members" target="_black">
+        <img src="https://img.shields.io/github/forks/theajack/disable-devtool?logo=github" alt="forks" />
+    </a>
+    <a href="https://www.npmjs.com/package/disable-devtool" target="_black">
+        <img src="https://img.shields.io/npm/v/disable-devtool?logo=npm" alt="version" />
+    </a>
+    <a href="https://www.npmjs.com/package/disable-devtool" target="_black">
+        <img src="https://img.shields.io/npm/dm/disable-devtool?color=%23ffca28&logo=npm" alt="downloads" />
+    </a>
+    <a href="https://www.jsdelivr.com/package/npm/disable-devtool" target="_black">
+        <img src="https://data.jsdelivr.com/v1/package/npm/disable-devtool/badge" alt="jsdelivr" />
+    </a>
     <a href="https://github.com/theajack/disable-devtool/issues"><img src="https://img.shields.io/github/issues-closed/theajack/disable-devtool.svg" alt="issue"></a>
+</p>
+<p>
+    <a href="https://github.com/theajack" target="_black">
+        <img src="https://img.shields.io/badge/Author-%20theajack%20-7289da.svg?&logo=github" alt="author" />
+    </a>
+    <a href="https://www.github.com/theajack/disable-devtool/blob/master/LICENSE" target="_black">
+        <img src="https://img.shields.io/github/license/theajack/disable-devtool?color=%232DCE89&logo=github" alt="license" />
+    </a>
+    <a href="https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js"><img src="https://img.shields.io/bundlephobia/minzip/disable-devtool.svg" alt="Size"></a>
+    <a href="https://github.com/theajack/disable-devtool/search?l=javascript"><img src="https://img.shields.io/github/languages/top/theajack/disable-devtool.svg" alt="TopLang"></a>
     <a href="https://www.github.com/theajack/disable-devtool"><img src="https://img.shields.io/librariesio/dependent-repos/npm/disable-devtool.svg" alt="Dependent"></a>
+    <a href="https://github.com/theajack/disable-devtool/blob/master/test/test-report.txt"><img src="https://img.shields.io/badge/test-passed-44BB44" alt="test"></a>
 </p>
 
 **[English](https://github.com/theajack/disable-devtool/blob/master/README.md) | [在线试用/文档](https://theajack.gitee.io/disable-devtool) | [更新日志](https://github.com/theajack/disable-devtool/blob/master/helper/version.md) | [Gitee](https://gitee.com/theajack/disable-devtool)**
@@ -61,7 +77,7 @@ disable-devtool 可以禁用所有一切可以进入开发者工具的方法，�
 2. 禁用 f12 和 ctrl+shift+i 快捷键
 3. 支持识别从浏览器菜单栏打开开发者工具并关闭当前页面
 4. 开发者可以绕过禁用 (url参数使用tk配合md5加密)
-5. 支持几乎所有浏览器（IE,360,qq浏览器,FireFox,Chrome,Edge...）
+5. 多种监测模式，支持几乎所有浏览器（IE,360,qq浏览器,FireFox,Chrome,Edge...）
 6. 高度可配置
 7. 使用极简、体积小巧 (仅7kb)
 8. 支持npm引用和script标签引用(属性配置)
@@ -90,11 +106,14 @@ declare interface optionStatic {
     md5?: string; // 绕过禁用的md5值，详情见3.2，默认不启用绕过禁用
     url?: string; // 关闭页面失败时的跳转页面，默认值为localhost
     tkName?: string; // 绕过禁用时的url参数名称，默认为 ddtk
-    ondevtoolopen?(): void; // 开发者面板打开的回调，启用时url参数无效
+    ondevtoolopen?(type: DetectorType): void; // 开发者面板打开的回调，启用时url参数无效，type 为监测模式，详见3.5
     interval?: number; // 定时器的时间间隔 默认200ms
     disableMenu?: boolean; // 是否禁用右键菜单 默认为true
     stopIntervalTime?: number; // 在移动端时取消监视的等待时长
+    clearIntervalWhenDevOpenTrigger?: boolean; // 是否在触发之后停止监控
 }
+
+declare type DETECTOR_TYPE = -1 | 0 | 1 | 2 | 3;
 ```
 
 ### 3.2 md5 与 tk 绕过禁用
@@ -141,3 +160,19 @@ disableDevtool.md5('xxx');
     })
 </script>
 ```
+
+### 3.5 监测模式
+
+Disable-Devtool 有四种监测模式, DisableDevtool.DETECTOR_TYPE 为所有的监测模式
+
+```js
+const DETECTOR_TYPE = {
+    UNKONW: -1,
+    TO_STRING: 0,
+    DEFINE_ID: 1,
+    SIZE: 2,
+    LOG_TIME: 3,
+}
+```
+
+ondevtoolopen 事件的回调参数就是被触发的监测模式

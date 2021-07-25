@@ -8,9 +8,9 @@ function main () {
     copyPkg();
     copyFiles();
 }
-
+ 
 function copyPkg () {
-    let npmPkg = util.pick({
+    const npmPkg = util.pick({
         target: pkg,
         attrs: [
             'name', 'version', 'description', 'main', 'unpkg', 'jsdelivr',

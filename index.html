@@ -97,7 +97,7 @@ disableDevtool();</code>
         <li>Disable f12 and ctrl+shift+i shortcuts</li>
         <li>Support recognition to open the developer tools from the browser menu bar and close the current page</li>
         <li>Developers can bypass the disablement (use tk and md5 encryption for url parameters)</li>
-        <li>Support almost all browsers (IE,360,qq browser,FireFox,Chrome,Edge...)</li>
+        <li>Multiple monitoring modes, support almost all browsers (IE, 360, qq browser, FireFox, Chrome, Edge...)</li>
         <li>Highly configurable</li>
         <li>Minimal use, small size (only 7kb)</li>
         <li>Support npm reference and script tag reference (attribute configuration)</li>
@@ -121,11 +121,14 @@ disableDevtool(options);</code></p>
     md5?: string; // Bypass the disabled md5 value, see 3.2 for details, the bypass disable is not enabled by default
     url?: string; // Jump to the page when closing the page fails, the default value is localhost
     tkName?: string; // Bypass the url parameter name when disabled, the default is ddtk
-    ondevtoolopen?(): void; // Callback for opening the developer panel, the url parameter is invalid when enabled
+    ondevtoolopen?(type: DetectorType): void; // Callback for opening the developer panel, the url parameter is invalid when it is enabled
     interval?: number; // Timer interval is 200ms by default
     disableMenu?: boolean; // Whether to disable the right-click menu The default is true
     stopIntervalTime?: number; // Waiting time to cancel monitoring on mobile
-}</code></p>
+    clearIntervalWhenDevOpenTrigger?: boolean; // Whether to stop monitoring after triggering
+}
+
+declare type DETECTOR_TYPE = -1 | 0 | 1 | 2 | 3;</code></p>
 
     <h3>3.2 md5 and tk bypass disable</h3>
 
@@ -178,7 +181,7 @@ disableDevtool(options);</code></p>
     <script 
         disable-devtool-auto 
         md5='1aabac6d068eef6a7bad3fdf50a05cc8' 
-        src='https://cdn.jsdelivr.net/npm/disable-devtool@0.1.3/disable-devtool.min.js#use'
+        src='https://cdn.jsdelivr.net/npm/disable-devtool@0.1.4/disable-devtool.min.js#use'
     ></script>
     <!-- <script disable-devtool-auto md5='1aabac6d068eef6a7bad3fdf50a05cc8' src='./npm/disable-devtool.min.js'></script> -->
     <script>
