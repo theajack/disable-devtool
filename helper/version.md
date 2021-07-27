@@ -51,3 +51,7 @@
 2. 使用logTime模式兜底，兼容mac，linux
 3. 增加 clearIntervalWhenDevOpenTrigger 参数
 4. ondevtoolopen 增加 监测模式 回调参数
+
+## 0.1.5
+
+1. 去掉log-time监测类型（因为不准确）

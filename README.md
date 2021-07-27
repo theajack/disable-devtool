@@ -170,7 +170,6 @@ const DETECTOR_TYPE = {
      TO_STRING: 0,
      DEFINE_ID: 1,
      SIZE: 2,
-     LOG_TIME: 3,
 }
 ```
 

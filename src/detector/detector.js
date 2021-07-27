@@ -2,7 +2,7 @@
  * @Author: theajack
  * @Date: 2021-07-24 23:16:34
  * @LastEditor: theajack
- * @LastEditTime: 2021-07-25 17:07:04
+ * @LastEditTime: 2021-07-27 23:36:44
  * @Description: Coding something
  */
 
@@ -10,7 +10,7 @@ import {config} from '../config';
 import ToStringDetector from './to-string';
 import DefineIdDetector from './define-id';
 import SizeDetector from './size';
-import LogTimeDetector from './log-time';
+// import LogTimeDetector from './log-time';
 import {clearDDInterval, clearDDTimeout} from '../interval';
 
 const detectorList = [];
@@ -20,7 +20,7 @@ export const DETECTOR_TYPE = {
     TO_STRING: 0,
     DEFINE_ID: 1,
     SIZE: 2,
-    LOG_TIME: 3,
+    // LOG_TIME: 3,
 };
 
 export function registDetector (detector) {
@@ -31,7 +31,7 @@ export function initDetectors () {
     ToStringDetector();
     DefineIdDetector();
     SizeDetector();
-    LogTimeDetector();
+    // LogTimeDetector();
 }
 
 export function triggerOnDevOpen (type = DETECTOR_TYPE.UNKONW) {
