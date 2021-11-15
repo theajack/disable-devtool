@@ -126,6 +126,7 @@ disableDevtool(options);</code></p>
     disableMenu?: boolean; // Whether to disable the right-click menu The default is true
     stopIntervalTime?: number; // Waiting time to cancel monitoring on mobile
     clearIntervalWhenDevOpenTrigger?: boolean; // Whether to stop monitoring after triggering
+    detactors?: Array; // Enabled detectors For details of detectors, see 3.5. The default is all, it is recommended to use all
 }
 
 declare type DETECTOR_TYPE = -1 | 0 | 1 | 2 | 3;</code></p>
@@ -160,7 +161,8 @@ declare type DETECTOR_TYPE = -1 | 0 | 1 | 2 | 3;</code></p>
     url=&#39;xxx&#39;
     tk-name=&#39;xxx&#39;
     interval=&#39;xxx&#39;
-    disable-menu=&#39;xxx&#39;>
+    disable-menu=&#39;xxx&#39;
+    detectors=&#39;xxx&#39;>
 &lt;/script&gt;</code></p>
     </blockquote>
 
@@ -168,7 +170,8 @@ declare type DETECTOR_TYPE = -1 | 0 | 1 | 2 | 3;</code></p>
         1. You must bring the <strong>disable-devtool-auto</strong> attribute when configuring attributes<br>
         2.Attribute configuration is optional, the fields are the same as in 3.1, the difference is that the hump form is
         changed to horizontal line division <br>
-        3. The script tag is recommended to be placed at the bottom of the body</p>
+        3. The script tag is recommended to be placed at the bottom of the body <br>
+        4. detectors Need to use spaces to separate, such as detectors='1 2 3'</p>
 
     <h3>3.3 script does not use attribute configuration</h3>
 
@@ -181,7 +184,7 @@ declare type DETECTOR_TYPE = -1 | 0 | 1 | 2 | 3;</code></p>
     <script 
         disable-devtool-auto 
         md5='1aabac6d068eef6a7bad3fdf50a05cc8' 
-        src='https://cdn.jsdelivr.net/npm/disable-devtool@0.1.5/disable-devtool.min.js#use'
+        src='https://cdn.jsdelivr.net/npm/disable-devtool@0.1.7/disable-devtool.min.js#use'
     ></script>
     <!-- <script disable-devtool-auto md5='1aabac6d068eef6a7bad3fdf50a05cc8' src='./npm/disable-devtool.min.js'></script> -->
     <script>

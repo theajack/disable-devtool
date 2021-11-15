@@ -17,7 +17,7 @@ export function initInterval () {
         calls.forEach(fn => {fn(time++);});
         console.clear();
     }, config.interval);
-    // 两秒之后判断 如果不是pc去掉定时器interval，为了优化移动端的性能
+    // stopIntervalTime 之后判断 如果不是pc去掉定时器interval，为了优化移动端的性能
     // 如果控制面板被打开了该定时器timer会被清除
     timer = setTimeout(() => {
         if (!isPC()) {

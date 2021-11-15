@@ -53,5 +53,10 @@
 4. ondevtoolopen 增加 监测模式 回调参数
 
 ## 0.1.5
-
 1. 去掉log-time监测类型（因为不准确）
+   
+## 0.1.6 - 0.1.7
+1. 增加 DateToString 监测类型
+2. 增加 FuncToString 监测类型
+3. 增加 detectors 配置
+4. 修复ios 15误伤问题 

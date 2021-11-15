@@ -13,7 +13,7 @@ export function disableDevtool (opts) {
     disableKeyAndMenu();
     initDetectors();
 }
- 
+
 disableDevtool.md5 = md5;
 disableDevtool.version = version;
 disableDevtool.DETECTOR_TYPE = DETECTOR_TYPE;
@@ -37,13 +37,17 @@ function checkScriptUse () {
         return;
     }
     const json = {};
-    ['md5', 'url', 'tk-name', 'interval', 'disable-menu'].forEach(name => {
+    ['md5', 'url', 'tk-name', 'interval', 'disable-menu', 'detectors'].forEach(name => {
         let value = dom.getAttribute(name);
         if (value !== null) {
             if (name === 'interval') {
                 value = parseInt(value);
             } else if (name === 'disable-menu') {
                 value = value === 'false' ? false : true;
+            } else if (name === 'detector') {
+                if (value !== 'all') {
+                    value = value.split(' ');
+                }
             }
             json[formatName(name)] = value;
         }

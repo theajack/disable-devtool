@@ -2,7 +2,7 @@
  * @Author: theajack
  * @Date: 2021-07-24 23:15:01
  * @LastEditor: theajack
- * @LastEditTime: 2021-07-25 16:54:13
+ * @LastEditTime: 2021-11-15 22:26:29
  * @Description: Coding something
  */
 
@@ -22,12 +22,12 @@ export default function detector () {
         if (isQQ) { // ! qq浏览器在控制台没有打开的时候也会触发 打开的时候会连续触发两次 使用这个来判断
             const time = new Date().getTime();
             if (lastTime && time - lastTime < 100) {
-                triggerOnDevOpen(DETECTOR_TYPE.TO_STRING);
+                triggerOnDevOpen(DETECTOR_TYPE.REG_TO_STRING);
             } else {
                 lastTime = time;
             }
         } else if (isFF) {
-            triggerOnDevOpen(DETECTOR_TYPE.TO_STRING);
+            triggerOnDevOpen(DETECTOR_TYPE.REG_TO_STRING);
         }
         return '';
     };

@@ -110,10 +110,11 @@ declare interface optionStatic {
     interval?: number; // 定时器的时间间隔 默认200ms
     disableMenu?: boolean; // 是否禁用右键菜单 默认为true
     stopIntervalTime?: number; // 在移动端时取消监视的等待时长
-    clearIntervalWhenDevOpenTrigger?: boolean; // 是否在触发之后停止监控
+    clearIntervalWhenDevOpenTrigger?: boolean; // 是否在触发之后停止监控 默认为false
+    detactors?: Array<DETECTOR_TYPE>; // 启用的检测器 检测器详情见 3.5 默认为全部，建议使用全部
 }
 
-declare type DETECTOR_TYPE = -1 | 0 | 1 | 2 | 3;
+declare type DETECTOR_TYPE = -1 | 0 | 1 | 2 | 3 | 4; // 检测器详情见 3.5
 ```
 
 ### 3.2 md5 与 tk 绕过禁用
@@ -141,6 +142,7 @@ disableDevtool.md5('xxx');
     tk-name='xxx'
     interval='xxx'
     disable-menu='xxx'
+    detectors='xxx'
 ></script>
 ```
 
@@ -149,6 +151,7 @@ disableDevtool.md5('xxx');
 1. 如希望自动禁用，属性配置时必须要带上 `disable-devtool-auto` 属性
 2. 属性配置都是可选的，字段与3.1中一致，区别是将驼峰形式改成横线分割
 3. 该script标签建议放在body最底部
+4. detectors 需要使用空格分割，如 detectors='1 2 3'
 
 ### 3.4 script不使用属性配置
 
@@ -163,14 +166,16 @@ disableDevtool.md5('xxx');
 
 ### 3.5 监测模式
 
-Disable-Devtool 有四种监测模式, DisableDevtool.DETECTOR_TYPE 为所有的监测模式
+Disable-Devtool 有五种监测模式, DisableDevtool.DETECTOR_TYPE 为所有的监测模式枚举
 
 ```js
 const DETECTOR_TYPE = {
     UNKONW: -1,
-    TO_STRING: 0,
-    DEFINE_ID: 1,
-    SIZE: 2,
+    REG_TO_STRING: 0, // 根据正则检测
+    DEFINE_ID: 1, // 根据dom id检测
+    SIZE: 2, // 根据窗口尺寸检测
+    DATE_TO_STRING: 3, // 根据Date.toString 检测
+    FUNC_TO_STRING: 4, // 根据Function.toString 检测
 }
 ```
 

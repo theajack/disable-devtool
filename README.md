@@ -35,7 +35,7 @@
     <a href="https://github.com/theajack/disable-devtool/blob/master/test/test-report.txt"><img src="https://img.shields.io/badge/test-passed-44BB44" alt="test"></a>
 </p>
 
-**[中文](https://github.com/theajack/disable-devtool/blob/master/README.cn.md) | [online trial/document](https://theajack.gitee.io/disable-devtool) | [Version Log](https://github.com/theajack/disable-devtool/blob/master/helper/version.md) | [Gitee](https://gitee.com/theajack/disable-devtool)**
+**[中文](https://github.com/theajack/disable-devtool/blob/master/README.cn.md) | [online trial/document](https://theajack.gitee.io/disable-devtool) | [Version Log](https://github.com/theajack/disable-devtool/blob/master/helper/version.en.md) | [Gitee](https://gitee.com/theajack/disable-devtool)**
 
 ## 1. Quick use
 
@@ -108,11 +108,11 @@ declare interface optionStatic {
     ondevtoolopen?(type: DetectorType): void; // Callback for opening the developer panel, the url parameter is invalid when it is enabled, and the type is the monitoring mode, see 3.5 for details
     interval?: number; // Timer interval is 200ms by default
     disableMenu?: boolean; // Whether to disable the right-click menu The default is true
-    stopIntervalTime?: number; // Waiting time to cancel monitoring on mobile
-    clearIntervalWhenDevOpenTrigger?: boolean; // Whether to stop monitoring after triggering
+    clearIntervalWhenDevOpenTrigger?: boolean; // Whether to stop monitoring after triggering The default is false
+    detactors?: Array<DETECTOR_TYPE>; // Enabled detectors For details of detectors, see 3.5. The default is all, it is recommended to use all
 }
 
-declare type DETECTOR_TYPE = -1 | 0 | 1 | 2 | 3;
+declare type DETECTOR_TYPE = -1 | 0 | 1 | 2 | 3 | 4; // For details of the detector, see 3.5
 ```
 
 ### 3.2 md5 and tk bypass disable
@@ -140,6 +140,7 @@ disableDevtool.md5('xxx');
     tk-name='xxx'
     interval='xxx'
     disable-menu='xxx'
+    detectors='xxx'
 ></script>
 ```
 
@@ -148,6 +149,7 @@ Note:
 1. If you want to automatically disable,you must bring the `disable-devtool-auto` attribute when configuring attributes
 2. Attribute configuration is optional, the fields are the same as in 3.1, the difference is that the hump form is changed to horizontal line division
 3. The script tag is recommended to be placed at the bottom of the body
+4. detectors Need to use spaces to separate, such as detectors='1 2 3'
 
 ### 3.4 script does not use attribute configuration
 
@@ -162,14 +164,16 @@ Note:
 
 ### 3.5 Monitoring Mode
 
-Disable-Devtool has four monitoring modes, DisableDevtool.DETECTOR_TYPE is all monitoring modes
+Disable-Devtool has five monitoring modes, DisableDevtool.DETECTOR_TYPE is an enumeration of all monitoring modes
 
 ```js
 const DETECTOR_TYPE = {
-     UNKONW: -1,
-     TO_STRING: 0,
-     DEFINE_ID: 1,
-     SIZE: 2,
+    UNKONW: -1,
+    REG_TO_STRING: 0, // According to regular detection
+    DEFINE_ID: 1, // Detect according to dom id
+    SIZE: 2, // Detect according to window size
+    DATE_TO_STRING: 3, // Check according to Date.toString
+    FUNC_TO_STRING: 4, // Detect according to Function.toString
 }
 ```
 
