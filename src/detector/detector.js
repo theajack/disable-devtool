@@ -2,7 +2,7 @@
  * @Author: theajack
  * @Date: 2021-07-24 23:16:34
  * @LastEditor: theajack
- * @LastEditTime: 2021-11-15 23:55:08
+ * @LastEditTime: 2021-11-16 08:48:48
  * @Description: Coding something
  */
 
@@ -55,7 +55,6 @@ export function initDetectors () {
 
 export function triggerOnDevOpen (type = DETECTOR_TYPE.UNKONW) {
     console.warn(`You ar not allow to use DEVTOOL! 【type = ${type}】`);
-    document.body.innerHTML = `You ar not allow to use DEVTOOL! 【type = ${type}】`;
     // alert(`You ar not allow to use DEVTOOL! 【type = ${type}】`);
     if (config.clearIntervalWhenDevOpenTrigger) {
         clearDDInterval();

@@ -60,3 +60,8 @@
 2. Add FuncToString monitoring type
 3. Add detectors configuration
 4. Fix ios 15 accidental injury problem
+
+## 0.1.8
+1. Disable macos option+commond+i
+2. Delete some debugging code and useless code
+3. Modify the event model

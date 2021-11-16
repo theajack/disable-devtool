@@ -60,3 +60,8 @@
 2. 增加 FuncToString 监测类型
 3. 增加 detectors 配置
 4. 修复ios 15误伤问题 
+
+## 0.1.8
+1. 禁用 macos option+commond+i
+2. 删除部分调试代码与无用代码
+3. 修改事件模型
