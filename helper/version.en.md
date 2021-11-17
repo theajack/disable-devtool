@@ -65,3 +65,6 @@
 1. Disable macos option+commond+i
 2. Delete some debugging code and useless code
 3. Modify the event model
+
+## 0.1.9
+1. Fix the bug of accidental injury in IFrame
