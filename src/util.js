@@ -122,3 +122,11 @@ export function isMacOs () {
 function hasUaName (name) {
     return navigator.userAgent.toLocaleLowerCase().indexOf(name) !== -1;
 }
+
+export function isInIframe () {
+    try {
+        return window.self !== window.top;
+    } catch (e) {
+        return true;
+    }
+}

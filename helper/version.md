@@ -65,3 +65,6 @@
 1. 禁用 macos option+commond+i
 2. 删除部分调试代码与无用代码
 3. 修改事件模型
+   
+## 0.1.9
+1. 修复IFrame中误伤的bug
