@@ -8,7 +8,8 @@ disableDevtool({
     // url: 'https://www.qq.com',
     ondevtoolopen: (type) => {
         // window.location.href = 'https://www.qq.com';
-        document.body.innerHTML = '1111' + type;
+        document.body.innerHTML = 'devtool opened!; type =' + type;
+        history.back();
     },
     interval: 1000,
     // tkName: 'ddtk',
