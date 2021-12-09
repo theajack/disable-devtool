@@ -7,6 +7,7 @@
  */
 import {DETECTOR_TYPE, triggerOnDevOpen} from './detector';
 import {registInterval} from '../interval';
+import {log} from '../util';
 
 export default function detector () {
     const div = document.createElement('div');
@@ -19,6 +20,6 @@ export default function detector () {
         },
     });
     registInterval(() => {
-        console.log(div);
+        log(div);
     });
 }

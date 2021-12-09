@@ -130,3 +130,5 @@ export function isInIframe () {
         return true;
     }
 }
+
+export const log = console.log;

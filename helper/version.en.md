@@ -70,4 +70,7 @@
 1. Fix the bug of accidental injury in IFrame
 
 ## 0.1.10
-3. Fix the problem that sizeDetector is accidentally injured in browser zoom mode
+1. Fix the problem that sizeDetector is accidentally injured in browser zoom mode
+
+## 0.1.11
+1. Fix the accidental injury caused by the third-party hack console.log method

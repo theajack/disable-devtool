@@ -21,7 +21,7 @@ function copyPkg () {
 }
 
 function copyFiles () {
-    gulp.src(['README.md', 'README.cn.md', 'LICENSE', 'src/index.d.ts'], {
+    gulp.src(['README.md', 'LICENSE', 'src/index.d.ts'], {
         allowEmpty: true
     })
         .pipe(gulp.dest('npm'));

@@ -9,6 +9,7 @@
 
 import {registInterval} from '../interval';
 import {DETECTOR_TYPE, triggerOnDevOpen} from './detector';
+import {log} from '../util';
  
 export default function detector () {
     let count = 0;
@@ -20,7 +21,7 @@ export default function detector () {
 
     const checkIsOpen = () => {
         count = 0;
-        console.log(date);
+        log(date);
         console.clear();
         if (count >= 2) {
             triggerOnDevOpen(DETECTOR_TYPE.DATE_TO_STRING);

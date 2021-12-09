@@ -2,17 +2,18 @@
  * @Author: theajack
  * @Date: 2021-07-24 23:15:22
  * @LastEditor: theajack
- * @LastEditTime: 2021-07-26 10:42:58
+ * @LastEditTime: 2021-12-09 08:00:47
  * @Description: Coding something
  */
 
 // import {DETECTOR_TYPE, triggerOnDevOpen} from './detector';
 // import {registInterval} from '../interval';
+// import {log} from '../util';
 
 // function logTime () {
 //     const d = new Date();
 //     for (let i = 0; i < 2000; i++) {
-//         console.log(1);
+//         log(1);
 //     }
 //     console.clear();
 //     if (new Date() - d > 100) {
