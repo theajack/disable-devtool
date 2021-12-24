@@ -2,12 +2,12 @@
  * @Author: theajack
  * @Date: 2021-07-24 23:15:54
  * @LastEditor: theajack
- * @LastEditTime: 2021-11-26 11:08:33
+ * @LastEditTime: 2021-12-24 15:18:29
  * @Description: Coding something
- * @FilePath: \disable-devtool\src\detector\size.js
+ * @FilePath: /disable-devtool/src/detector/size.js
  */
 
-import {isInIframe} from '../util';
+import {isInIframe} from '../utils/util';
 import {DETECTOR_TYPE, triggerOnDevOpen} from './detector';
 
 function checkWindowSizeUneven () {
@@ -39,7 +39,7 @@ function countScreenZoomRatio () {
 };
 
 export default function detector () {
-    if (isInIframe()) {
+    if (isInIframe) {
         console.warn('SizeDetector is disabled in IFrame');
         return;
     }

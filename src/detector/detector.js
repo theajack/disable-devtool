@@ -2,11 +2,11 @@
  * @Author: theajack
  * @Date: 2021-07-24 23:16:34
  * @LastEditor: theajack
- * @LastEditTime: 2021-11-16 08:48:48
+ * @LastEditTime: 2021-12-24 15:17:10
  * @Description: Coding something
  */
 
-import {config} from '../config';
+import {config} from '../utils/config';
 import RegToStringDetector from './reg-to-string';
 import DefineIdDetector from './define-id';
 import SizeDetector from './size';
@@ -14,7 +14,8 @@ import DateToStringDetector from './date-to-string';
 import FuncToStringDetector from './func-to-string';
 // import DebuggerDetector from './debugger'; // 会debuger显示devtool
 // import LogTimeDetector from './log-time'; // 不准确 容易误伤
-import {clearDDInterval, clearDDTimeout} from '../interval';
+import {clearDDInterval, clearDDTimeout} from '../utils/interval';
+import {closeWindow} from '../utils/close-window';
 
 const detectorList = [];
 
@@ -60,5 +61,5 @@ export function triggerOnDevOpen (type = DETECTOR_TYPE.UNKONW) {
         clearDDInterval();
     }
     clearDDTimeout();
-    config.ondevtoolopen(type);
+    config.ondevtoolopen(type, closeWindow);
 }

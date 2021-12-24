@@ -2,20 +2,20 @@
  * @Author: theajack
  * @Date: 2021-07-24 23:15:22
  * @LastEditor: theajack
- * @LastEditTime: 2021-12-09 08:00:47
+ * @LastEditTime: 2021-12-24 14:07:31
  * @Description: Coding something
  */
 
 // import {DETECTOR_TYPE, triggerOnDevOpen} from './detector';
-// import {registInterval} from '../interval';
-// import {log} from '../util';
+// import {registInterval} from '../utils/interval';
+// import {log, clearLog} from '../utils/log';
 
 // function logTime () {
 //     const d = new Date();
 //     for (let i = 0; i < 2000; i++) {
 //         log(1);
 //     }
-//     console.clear();
+//     clearLog();
 //     if (new Date() - d > 100) {
 //         console.warn(new Date() - d);
 //         triggerOnDevOpen(DETECTOR_TYPE.LOG_TIME);

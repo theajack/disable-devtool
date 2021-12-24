@@ -2,12 +2,12 @@
  * @Author: theajack
  * @Date: 2021-07-24 23:15:49
  * @LastEditor: theajack
- * @LastEditTime: 2021-07-25 16:46:36
+ * @LastEditTime: 2021-12-24 13:23:55
  * @Description: Coding something
  */
 import {DETECTOR_TYPE, triggerOnDevOpen} from './detector';
-import {registInterval} from '../interval';
-import {log} from '../util';
+import {registInterval} from '../utils/interval';
+import {log} from '../utils/log';
 
 export default function detector () {
     const div = document.createElement('div');

@@ -2,18 +2,19 @@
  * @Author: theajack
  * @Date: 2021-07-24 23:15:01
  * @LastEditor: theajack
- * @LastEditTime: 2021-12-09 07:58:29
+ * @LastEditTime: 2021-12-24 13:19:18
  * @Description: Coding something
  */
 
-import {registInterval} from '../interval';
-import {isFirefox, isQQBrowser, log} from '../util';
+import {registInterval} from '../utils/interval';
+import {isFirefox, isQQBrowser} from '../utils/util';
+import {log} from '../utils/log';
 import {DETECTOR_TYPE, triggerOnDevOpen} from './detector';
  
 // 这个方法在chrome 中无论是否打开都会触发
 export default function detector () {
-    const isQQ = isQQBrowser();
-    const isFF = isFirefox();
+    const isQQ = isQQBrowser;
+    const isFF = isFirefox;
     if (!isQQ && !isFF) return;
     let lastTime = 0;
     const reg = /./;

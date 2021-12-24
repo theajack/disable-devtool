@@ -1,29 +1,5 @@
-import {config} from './config';
-import {clearDDInterval} from './interval';
-
 export function isPC () {
     return !/(iphone|ipad|ipod|ios|android)/i.test(navigator.userAgent.toLowerCase());
-}
-
-export function closeWindow () {
-    clearDDInterval();
-    if (config.url) {
-        window.location.href = config.url;
-    } else {
-        try {
-            window.opener = null;
-            window.open('', '_self');
-            // 需要是由js跳转到这个页面才可以关闭这个页面
-            window.close();
-            window.history.back();
-        } catch (e) {
-            console.log(e);
-        }
-        setTimeout(() => {
-            // 否则执行跳转到 url
-            window.location.href = `https://tackchen.gitee.io/404.html?h=${encodeURIComponent(location.host)}`;
-        }, 500);
-    }
 }
 
 export function getNowTime () {
@@ -107,28 +83,24 @@ export function hackAlert (before, after) {
     window.prompt = mod(_prompt);
 }
 
-export function isQQBrowser () {
-    return hasUaName('qqbrowser');
-}
-
-export function isFirefox () {
-    return hasUaName('firefox');
-}
-
-export function isMacOs () {
-    return hasUaName('macintosh');
-}
-
 function hasUaName (name) {
     return navigator.userAgent.toLocaleLowerCase().indexOf(name) !== -1;
 }
 
-export function isInIframe () {
+export const isInIframe = (() => {
     try {
         return window.self !== window.top;
     } catch (e) {
         return true;
     }
-}
+})();
 
-export const log = console.log;
+export const isQQBrowser = hasUaName('qqbrowser');
+
+export const isFirefox = hasUaName('firefox');
+
+export const isMacOs = hasUaName('macintosh');
+
+export const isOldEdge = hasUaName('edge') && !hasUaName('chrome');
+
+export const isIE = isOldEdge || hasUaName('trident') || hasUaName('msie');

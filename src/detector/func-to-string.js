@@ -7,9 +7,9 @@
  * @Description: Coding something
  */
 
-import {registInterval} from '../interval';
+import {registInterval} from '../utils/interval';
 import {DETECTOR_TYPE, triggerOnDevOpen} from './detector';
-import {log} from '../util';
+import {log, clearLog} from '../utils/log';
  
 export default function detector () {
     let count = 0;
@@ -22,7 +22,7 @@ export default function detector () {
     const checkIsOpen = () => {
         count = 0;
         log(func);
-        console.clear();
+        clearLog();
         if (count >= 2) {
             triggerOnDevOpen(DETECTOR_TYPE.FUNC_TO_STRING);
         }

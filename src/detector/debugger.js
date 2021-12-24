@@ -7,7 +7,7 @@
  * @Description: Coding something
  */
 
-import {registInterval} from '../interval';
+import {registInterval} from '../utils/interval';
 import {DETECTOR_TYPE, triggerOnDevOpen} from './detector';
  
 export default function detector () {

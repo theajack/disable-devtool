@@ -1,8 +1,9 @@
-import {disableKeyAndMenu} from './key-menu';
-import {initInterval} from './interval';
-import {formatName, getUrlParam} from './util';
-import {mergeConfig, config} from './config';
-import md5 from './md5';
+import './utils/log';
+import {disableKeyAndMenu} from './utils/key-menu';
+import {initInterval} from './utils/interval';
+import {formatName, getUrlParam} from './utils/util';
+import {mergeConfig, config} from './utils/config';
+import md5 from './utils/md5';
 import version from './version';
 import {DETECTOR_TYPE, initDetectors} from './detector/detector';
 

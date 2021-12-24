@@ -105,7 +105,7 @@ declare interface optionStatic {
     md5?: string; // Bypass the disabled md5 value, see 3.2 for details, the bypass disable is not enabled by default
     url?: string; // Jump to the page when closing the page fails, the default value is localhost
     tkName?: string; // Bypass the url parameter name when disabled, the default is ddtk
-    ondevtoolopen?(type: DetectorType): void; // Callback for opening the developer panel, the url parameter is invalid when it is enabled, and the type is the monitoring mode, see 3.5 for details
+    ondevtoolopen?(type: DetectorType, next: Function): void; // Callback for opening the developer panel, the url parameter is invalid when it is enabled, and the type is the monitoring mode, see 3.5 for details
     interval?: number; // Timer interval is 200ms by default
     disableMenu?: boolean; // Whether to disable the right-click menu The default is true
     clearIntervalWhenDevOpenTrigger?: boolean; // Whether to stop monitoring after triggering The default is false

@@ -74,3 +74,9 @@
 
 ## 0.1.11
 1. 修复第三方 hack console.log方法 导致的误伤
+   
+## 0.1.12
+1. 增加 config.ondevtoolopen 第二个参数 next
+2. 增加 禁止审查元素和保存网页的快捷键操作
+3. 重构代码
+4. 修复ie不能缓存console上的方法导致的问题

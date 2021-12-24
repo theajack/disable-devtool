@@ -74,3 +74,8 @@
 
 ## 0.1.11
 1. Fix the accidental injury caused by the third-party hack console.log method
+## 0.1.12
+1. Add the second parameter of config.ondevtoolopen next
+2. Added shortcut key operations for prohibiting reviewing elements and saving web pages
+3. Refactor the code
+4. Fix the problem caused by the method on the console cannot be cached by ie

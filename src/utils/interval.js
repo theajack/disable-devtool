@@ -1,4 +1,5 @@
 import {config} from './config';
+import {clearLog} from './log';
 import {hackAlert, isPC, onPageShowHide} from './util';
 
 let interval = null, timer = null;
@@ -15,7 +16,7 @@ export function initInterval () {
     interval = window.setInterval(() => {
         if (_pause) return;
         calls.forEach(fn => {fn(time++);});
-        console.clear();
+        clearLog();
     }, config.interval);
     // stopIntervalTime 之后判断 如果不是pc去掉定时器interval，为了优化移动端的性能
     // 如果控制面板被打开了该定时器timer会被清除
