@@ -2,16 +2,19 @@
  * @Author: tackchen
  * @Date: 2021-11-15 22:26:57
  * @LastEditors: tackchen
- * @LastEditTime: 2021-11-15 23:49:07
+ * @LastEditTime: 2022-01-05 08:08:02
  * @FilePath: /disable-devtool/src/detector/func-to-string.js
  * @Description: Coding something
  */
+
+// // ! 会误伤ios mobile chrome 可能会误伤谷歌搜索seo 故放弃使用
 
 import {registInterval} from '../utils/interval';
 import {DETECTOR_TYPE, triggerOnDevOpen} from './detector';
 import {log, clearLog} from '../utils/log';
  
-export default function detector () {
+export default function detector (isTrueIOSChrome) {
+    if (isTrueIOSChrome) return;
     let count = 0;
     const func = () => {};
     func.toString = () => {

@@ -2,7 +2,7 @@
  * @Author: theajack
  * @Date: 2021-07-24 23:16:34
  * @LastEditor: theajack
- * @LastEditTime: 2021-12-24 15:17:10
+ * @LastEditTime: 2022-01-05 12:38:04
  * @Description: Coding something
  */
 
@@ -12,12 +12,11 @@ import DefineIdDetector from './define-id';
 import SizeDetector from './size';
 import DateToStringDetector from './date-to-string';
 import FuncToStringDetector from './func-to-string';
-// import DebuggerDetector from './debugger'; // 会debuger显示devtool
-// import LogTimeDetector from './log-time'; // 不准确 容易误伤
+import DebuggerDetector from './debugger';
+// import LogTimeDetector from './log-time'; // 不准确 容易误伤 故弃用
 import {clearDDInterval, clearDDTimeout} from '../utils/interval';
 import {closeWindow} from '../utils/close-window';
-
-const detectorList = [];
+import {isIOSChrome, isLogRegExpCount3} from '../utils/util';
 
 export const DETECTOR_TYPE = {
     UNKONW: -1,
@@ -37,19 +36,23 @@ const Detectors = {
     [DETECTOR_TYPE.DATE_TO_STRING]: DateToStringDetector,
     [DETECTOR_TYPE.FUNC_TO_STRING]: FuncToStringDetector,
     // [DETECTOR_TYPE.DEBUGGER]: DebuggerDetector,
+    // [DETECTOR_TYPE.LOG_TIME]: LogTimeDetector,
 };
 
-export function registDetector (detector) {
-    detectorList.push(detector);
-}
-
-export function initDetectors () {
+export async function initDetectors () {
+    // ! 判断是否是 ios chrome 真机， true时 禁用 date 和 func detector，因为会误伤。启用debugger detector兜底
+    const isTrueIOSChrome = isIOSChrome && (await isLogRegExpCount3());
+    
     const typeArray = config.detectors === 'all' ?
         Object.keys(Detectors) : config.detectors;
 
+    if (isTrueIOSChrome) {
+        typeArray.push(DebuggerDetector); // 会debuger显示devtool, 仅在ios chrome 真机生效
+    }
+
     typeArray.forEach(type => {
         if (Detectors[type]) {
-            Detectors[type]();
+            Detectors[type](isTrueIOSChrome);
         }
     });
 }
