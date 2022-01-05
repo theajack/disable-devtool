@@ -10,16 +10,17 @@ import {registInterval} from '../utils/interval';
 import {log} from '../utils/log';
 
 export default function detector () {
+    const type = DETECTOR_TYPE.DEFINE_ID;
     const div = document.createElement('div');
     div.__defineGetter__('id', function () {
-        triggerOnDevOpen(DETECTOR_TYPE.DEFINE_ID);
+        triggerOnDevOpen(type);
     });
     Object.defineProperty(div, 'id', {
         get: function () {
-            triggerOnDevOpen(DETECTOR_TYPE.DEFINE_ID);
+            triggerOnDevOpen(type);
         },
     });
-    registInterval(() => {
+    registInterval(type, () => {
         log(div);
     });
 }

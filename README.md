@@ -81,6 +81,7 @@ The library has the following features:
 7. Minimal use, small size (only 7kb)
 8. Support npm reference and script tag reference (attribute configuration)
 9. Identify the real mobile terminal and browser developer tool settings plug-in forged mobile terminal, saving performance for the mobile terminal
+10. Support for identifying developer tool shutdown events
 
 ## 3. Use
 
@@ -106,13 +107,14 @@ declare interface optionStatic {
     url?: string; // Jump to the page when closing the page fails, the default value is localhost
     tkName?: string; // Bypass the url parameter name when disabled, the default is ddtk
     ondevtoolopen?(type: DetectorType, next: Function): void; // Callback for opening the developer panel, the url parameter is invalid when it is enabled, and the type is the monitoring mode, see 3.5 for details
+    ondevtoolclose?(): void;
     interval?: number; // Timer interval is 200ms by default
     disableMenu?: boolean; // Whether to disable the right-click menu The default is true
-    clearIntervalWhenDevOpenTrigger?: boolean; // Whether to stop monitoring after triggering The default is false
+    clearIntervalWhenDevOpenTrigger?: boolean; // Whether to stop monitoring after triggering The default is false. This parameter is invalid when using ondevtoolclose
     detactors?: Array<DETECTOR_TYPE>; // Enabled detectors For details of detectors, see 3.5. The default is all, it is recommended to use all
 }
 
-declare type DETECTOR_TYPE = -1 | 0 | 1 | 2 | 3 | 4; // For details of the detector, see 3.5
+declare type DETECTOR_TYPE = -1 | 0 | 1 | 2 | 3 | 4 ｜ 5; // For details of the detector, see 3.5
 ```
 
 ### 3.2 md5 and tk bypass disable
@@ -174,6 +176,7 @@ const DETECTOR_TYPE = {
     SIZE: 2, // Detect according to window size
     DATE_TO_STRING: 3, // Check according to Date.toString
     FUNC_TO_STRING: 4, // Detect according to Function.toString
+    DEBUGGER: 5; // According to the breakpoint detection, it is only valid in the case of ios chrome real machine
 }
 ```
 

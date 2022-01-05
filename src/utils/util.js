@@ -110,22 +110,17 @@ export const isIE = isOldEdge || hasUaName('trident') || hasUaName('msie');
 export const isIOSChrome = hasUaName('crios');
 
 // ios chrome log regExp count=3 ， 以此区别真机和开发者工具模拟的
-export async function isLogRegExpCount3 () {
-    let count = 0;
-    const target = new RegExp();
-    target.toString = () => {
-        count ++;
-        return '';
-    };
-    log(target);
-    await delay(100);
-    return count === 3;
-}
-
-export function delay (time = 1000) {
+export function isLogRegExpCount3 () {
     return new Promise((resolve) => {
+        let count = 0;
+        const target = new RegExp();
+        target.toString = () => {
+            count ++;
+            return '';
+        };
+        log(target);
         setTimeout(() => {
-            resolve();
-        }, time);
+            resolve(count === 3);
+        }, 100);
     });
 }

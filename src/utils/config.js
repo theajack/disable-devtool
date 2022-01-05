@@ -3,6 +3,7 @@ import {closeWindow} from './close-window';
 export const config = {
     md5: '',
     ondevtoolopen: closeWindow, // ondevtoolopen 优先级高于 url
+    ondevtoolclose: null, // ondevtoolclose 监听
     url: '',
     tkName: 'ddtk',
     interval: 200,
@@ -12,15 +13,26 @@ export const config = {
     detectors: 'all',
 };
 
-const MultiTypeKeys = ['detectors'];
+const MultiTypeKeys = ['detectors', 'ondevtoolclose'];
 
 export function mergeConfig (opts = {}) {
     for (const k in config) {
         if (
             typeof opts[k] !== 'undefined' &&
-            (typeof config[k] === typeof opts[k] || MultiTypeKeys.includes(k))
+            (typeof config[k] === typeof opts[k] || MultiTypeKeys.indexOf(k) !== -1)
         ) {
             config[k] = opts[k];
         }
+    }
+    checkConfig();
+}
+
+function checkConfig () {
+    if (
+        typeof config.ondevtoolclose === 'function' &&
+        config.clearIntervalWhenDevOpenTrigger === true
+    ) {
+        config.clearIntervalWhenDevOpenTrigger = false;
+        console.warn('【DISABLE-DEVTOOL】clearIntervalWhenDevOpenTrigger 在使用 ondevtoolclose 时无效');
     }
 }

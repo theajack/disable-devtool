@@ -79,3 +79,9 @@
 2. Added shortcut key operations for prohibiting reviewing elements and saving web pages
 3. Refactor the code
 4. Fix the problem caused by the method on the console cannot be cached by ie
+
+## 0.2.1
+1. Add ondevtoolclose configuration
+2. Add isDevToolOpened api
+3. Fix the accidental injury problem of ios mobile chrome
+4. Added a debug page

@@ -6,6 +6,7 @@ import {mergeConfig, config} from './utils/config';
 import md5 from './utils/md5';
 import version from './version';
 import {DETECTOR_TYPE, initDetectors} from './detector/detector';
+import {isDevToolOpened} from './utils/open-state';
 
 export function disableDevtool (opts) {
     mergeConfig(opts);
@@ -18,6 +19,7 @@ export function disableDevtool (opts) {
 disableDevtool.md5 = md5;
 disableDevtool.version = version;
 disableDevtool.DETECTOR_TYPE = DETECTOR_TYPE;
+disableDevtool.isDevToolOpened = isDevToolOpened;
 
 function checkTk () {
     if (config.md5) { // 启用了 md5

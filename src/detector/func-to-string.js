@@ -2,7 +2,7 @@
  * @Author: tackchen
  * @Date: 2021-11-15 22:26:57
  * @LastEditors: tackchen
- * @LastEditTime: 2022-01-05 08:08:02
+ * @LastEditTime: 2022-01-05 22:39:48
  * @FilePath: /disable-devtool/src/detector/func-to-string.js
  * @Description: Coding something
  */
@@ -15,6 +15,7 @@ import {log, clearLog} from '../utils/log';
  
 export default function detector (isTrueIOSChrome) {
     if (isTrueIOSChrome) return;
+    const type = DETECTOR_TYPE.FUNC_TO_STRING;
     let count = 0;
     const func = () => {};
     func.toString = () => {
@@ -27,9 +28,9 @@ export default function detector (isTrueIOSChrome) {
         log(func);
         clearLog();
         if (count >= 2) {
-            triggerOnDevOpen(DETECTOR_TYPE.FUNC_TO_STRING);
+            triggerOnDevOpen(type);
         }
     };
 
-    registInterval(checkIsOpen);
+    registInterval(type, checkIsOpen);
 }

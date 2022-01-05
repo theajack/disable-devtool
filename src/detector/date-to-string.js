@@ -2,7 +2,7 @@
  * @Author: tackchen
  * @Date: 2021-11-15 22:26:57
  * @LastEditors: tackchen
- * @LastEditTime: 2022-01-05 09:02:19
+ * @LastEditTime: 2022-01-05 22:40:41
  * @FilePath: /disable-devtool/src/detector/date-to-string.js
  * @Description: Coding something
  */
@@ -13,6 +13,7 @@ import {clearLog, log} from '../utils/log';
  
 export default function detector (isTrueIOSChrome) {
     if (isTrueIOSChrome) return;
+    const type = DETECTOR_TYPE.DATE_TO_STRING;
     let count = 0;
     const date = new Date();
     date.toString = () => {
@@ -25,9 +26,9 @@ export default function detector (isTrueIOSChrome) {
         log(date);
         clearLog();
         if (count >= 2) {
-            triggerOnDevOpen(DETECTOR_TYPE.DATE_TO_STRING);
+            triggerOnDevOpen(type);
         }
     };
 
-    registInterval(checkIsOpen);
+    registInterval(type, checkIsOpen);
 }

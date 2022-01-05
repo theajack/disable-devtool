@@ -11,12 +11,22 @@ disableDevtool({
         // next();
         // console.log(next);
     },
+    ondevtoolclose: () => {
+        // window.location.href = 'https://www.qq.com';
+        
+        document.body.innerHTML = 'devtool closed!;';
+        // next();
+        // console.log(next);
+    },
     clearIntervalWhenDevOpenTrigger: true,
     interval: 1000,
     // tkName: 'ddtk',
     disableMenu: false,
     // url: 'https://www.baidu.com'
     // detectors: [disableDevtool.DETECTOR_TYPE.DATE_TO_STRING],
+});
+document.addEventListener('click', () => {
+    alert(disableDevtool.isDevToolOpened());
 });
 
 // console.log(disableDevtool.version);

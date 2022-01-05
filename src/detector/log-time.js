@@ -11,6 +11,7 @@
 // import {log, clearLog} from '../utils/log';
 
 // function logTime () {
+//     const type = DETECTOR_TYPE.LOG_TIME;
 //     const d = new Date();
 //     for (let i = 0; i < 2000; i++) {
 //         log(1);
@@ -18,12 +19,12 @@
 //     clearLog();
 //     if (new Date() - d > 100) {
 //         console.warn(new Date() - d);
-//         triggerOnDevOpen(DETECTOR_TYPE.LOG_TIME);
+//         triggerOnDevOpen(type);
 //     }
 // }
 
 // export default function detector () {
-//     registInterval((time) => {
+//     registInterval(type, (time) => {
 //         if (time % 5 === 0) {
 //             logTime();
 //         }

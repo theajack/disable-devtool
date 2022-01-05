@@ -82,6 +82,7 @@ disable-devtool 可以禁用所有一切可以进入开发者工具的方法，�
 7. 使用极简、体积小巧 (仅7kb)
 8. 支持npm引用和script标签引用(属性配置)
 9. 识别真移动端与浏览器开发者工具设置插件伪造的移动端，为移动端节省性能
+10. 支持识别开发者工具关闭事件
 
 ## 3. 使用
 
@@ -107,14 +108,15 @@ declare interface optionStatic {
     url?: string; // 关闭页面失败时的跳转页面，默认值为localhost
     tkName?: string; // 绕过禁用时的url参数名称，默认为 ddtk
     ondevtoolopen?(type: DetectorType, next: Function): void; // 开发者面板打开的回调，启用时url参数无效，type 为监测模式，详见3.5
+    ondevtoolclose?(): void;
     interval?: number; // 定时器的时间间隔 默认200ms
     disableMenu?: boolean; // 是否禁用右键菜单 默认为true
     stopIntervalTime?: number; // 在移动端时取消监视的等待时长
-    clearIntervalWhenDevOpenTrigger?: boolean; // 是否在触发之后停止监控 默认为false
+    clearIntervalWhenDevOpenTrigger?: boolean; // 是否在触发之后停止监控 默认为false， 在使用ondevtoolclose时该参数无效
     detactors?: Array<DETECTOR_TYPE>; // 启用的检测器 检测器详情见 3.5 默认为全部，建议使用全部
 }
 
-declare type DETECTOR_TYPE = -1 | 0 | 1 | 2 | 3 | 4; // 检测器详情见 3.5
+declare type DETECTOR_TYPE = -1 | 0 | 1 | 2 | 3 | 4 ｜ 5; // 检测器详情见 3.5
 ```
 
 ### 3.2 md5 与 tk 绕过禁用
@@ -176,6 +178,7 @@ const DETECTOR_TYPE = {
     SIZE: 2, // 根据窗口尺寸检测
     DATE_TO_STRING: 3, // 根据Date.toString 检测
     FUNC_TO_STRING: 4, // 根据Function.toString 检测
+    DEBUGGER: 5; // 根据断点检测，仅在ios chrome 真机情况下有效
 }
 ```
 
