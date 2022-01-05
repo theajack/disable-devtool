@@ -9,8 +9,14 @@ export function getNowTime () {
 }
 
 export function getUrlParam (name) {
-    const search = window.location.search;
-    if (search !== '') {
+    let {search} = window.location;
+    const {hash} = window.location;
+    // # 在 ? 之前，即 http://localhost/#file?key=value，会导致 search 为空。
+    if (search === '' && hash !== '') {
+        // 为 search 补上前缀'?'，以便后面的逻辑处理不变。
+        search = `?${hash.split('?')[1]}`;
+    }
+    if (search !== '' && search !== undefined) {
         const reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
         const r = search.substr(1).match(reg);
         if (r != null) {
