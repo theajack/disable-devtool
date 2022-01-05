@@ -1,5 +1,3 @@
-import {log} from './log';
-
 export function isPC () {
     return !/(iphone|ipad|ipod|ios|android)/i.test(navigator.userAgent.toLowerCase());
 }
@@ -114,19 +112,3 @@ export const isOldEdge = hasUaName('edge') && !hasUaName('chrome');
 export const isIE = isOldEdge || hasUaName('trident') || hasUaName('msie');
 
 export const isIOSChrome = hasUaName('crios');
-
-// ios chrome log regExp count=3 ， 以此区别真机和开发者工具模拟的
-export function isLogRegExpCount3 () {
-    return new Promise((resolve) => {
-        let count = 0;
-        const target = new RegExp();
-        target.toString = () => {
-            count ++;
-            return '';
-        };
-        log(target);
-        setTimeout(() => {
-            resolve(count === 3);
-        }, 100);
-    });
-}

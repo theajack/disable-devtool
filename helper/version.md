@@ -81,7 +81,7 @@
 3. 重构代码
 4. 修复ie不能缓存console上的方法导致的问题
 
-## 0.2.1
+## 0.2.1 - 0.2.2
 1. 增加 ondevtoolclose 配置
 2. 增加 isDevToolOpened api
 3. 修复 ios mobile chrome 的误伤问题
