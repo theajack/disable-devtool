@@ -11,6 +11,7 @@ export const config = {
     stopIntervalTime: 5000, // 在移动端时取消监视的等待时长
     clearIntervalWhenDevOpenTrigger: false, // 是否在触发之后停止监控
     detectors: 'all',
+    clearLog: true,
 };
 
 const MultiTypeKeys = ['detectors', 'ondevtoolclose'];

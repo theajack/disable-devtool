@@ -8,7 +8,7 @@
  */
 
 import {clearDevToolOpenState} from '../utils/open-state';
-import {isInIframe} from '../utils/util';
+import {isEdge, isInIframe} from '../utils/util';
 import {DETECTOR_TYPE, triggerOnDevOpen} from './detector';
 
 function checkWindowSizeUneven () {
@@ -44,6 +44,10 @@ function countScreenZoomRatio () {
 export default function detector () {
     if (isInIframe) {
         console.warn('SizeDetector is disabled in IFrame');
+        return;
+    }
+    if (isEdge) {
+        console.warn('SizeDetector is disabled in Edge');
         return;
     }
     checkWindowSizeUneven();

@@ -11,6 +11,7 @@ declare interface optionStatic {
     stopIntervalTime?: number; // 在移动端时取消监视的等待时长
     clearIntervalWhenDevOpenTrigger?: boolean; // 是否在触发之后停止监控
     detectors: Array<DETECTOR_TYPE>;  // 启用的监测器 默认为全部
+    clearLog?: boolean; // 是否每次都清除log
 }
 declare interface DDTStatic {
     (option?: optionStatic): void;

@@ -107,7 +107,9 @@ export const isFirefox = hasUaName('firefox');
 
 export const isMacOs = hasUaName('macintosh');
 
-export const isOldEdge = hasUaName('edge') && !hasUaName('chrome');
+export const isEdge = hasUaName('edge');
+
+export const isOldEdge = isEdge && !hasUaName('chrome');
 
 export const isIE = isOldEdge || hasUaName('trident') || hasUaName('msie');
 

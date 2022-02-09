@@ -112,6 +112,7 @@ declare interface optionStatic {
     disableMenu?: boolean; // Whether to disable the right-click menu The default is true
     clearIntervalWhenDevOpenTrigger?: boolean; // Whether to stop monitoring after triggering The default is false. This parameter is invalid when using ondevtoolclose
     detactors?: Array<DETECTOR_TYPE>; // Enabled detectors For details of detectors, see 3.5. The default is all, it is recommended to use all
+    clearLog?: boolean; // Whether to clear the log every time
 }
 
 declare type DETECTOR_TYPE = -1 | 0 | 1 | 2 | 3 | 4 ｜ 5; // For details of the detector, see 3.5

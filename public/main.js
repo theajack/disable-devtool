@@ -22,6 +22,7 @@ disableDevtool({
     interval: 1000,
     // tkName: 'ddtk',
     disableMenu: false,
+    clearLog: false,
     // url: 'https://www.baidu.com'
     // detectors: [disableDevtool.DETECTOR_TYPE.DATE_TO_STRING],
 });
