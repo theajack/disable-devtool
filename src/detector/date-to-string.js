@@ -8,11 +8,11 @@
  */
 
 import {registInterval} from '../utils/interval';
-import {DETECTOR_TYPE, triggerOnDevOpen} from './detector';
+import {triggerOnDevOpen} from './detector';
 import {clearLog, log} from '../utils/log';
+import {DETECTOR_TYPE} from '../utils/constant';
  
-export default function detector (isIOSChrome) {
-    if (isIOSChrome) return;
+export default function detector () {
     const type = DETECTOR_TYPE.DATE_TO_STRING;
     let count = 0;
     const date = new Date();

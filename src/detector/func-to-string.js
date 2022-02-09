@@ -2,7 +2,7 @@
  * @Author: tackchen
  * @Date: 2021-11-15 22:26:57
  * @LastEditors: tackchen
- * @LastEditTime: 2022-01-06 00:07:54
+ * @LastEditTime: 2022-02-09 21:22:03
  * @FilePath: /disable-devtool/src/detector/func-to-string.js
  * @Description: Coding something
  */
@@ -10,8 +10,9 @@
 // // ! 会误伤ios mobile chrome 可能会误伤谷歌搜索seo 故放弃使用
 
 import {registInterval} from '../utils/interval';
-import {DETECTOR_TYPE, triggerOnDevOpen} from './detector';
+import {triggerOnDevOpen} from './detector';
 import {log, clearLog} from '../utils/log';
+import {DETECTOR_TYPE} from '../utils/constant';
  
 export default function detector (isIOSChrome) {
     if (isIOSChrome) return;

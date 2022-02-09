@@ -5,7 +5,8 @@ import {formatName, getUrlParam} from './utils/util';
 import {mergeConfig, config} from './utils/config';
 import md5 from './utils/md5';
 import version from './version';
-import {DETECTOR_TYPE, initDetectors} from './detector/detector';
+import {initDetectors} from './detector/detector';
+import {DETECTOR_TYPE} from './utils/constant';
 import {isDevToolOpened} from './utils/open-state';
 
 export function disableDevtool (opts) {

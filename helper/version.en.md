@@ -89,3 +89,6 @@
 ## 0.2.3
 1. Opening the sidebar under edge will cause accidental injury, so disable sizeDetector under edge
 2. Increase the clearLog parameter to control whether the console is required for each situation, the default is true
+   
+## 0.2.4
+1. Fix wrong detect in ios Edge

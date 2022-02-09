@@ -2,14 +2,14 @@
  * @Author: theajack
  * @Date: 2021-07-24 23:15:54
  * @LastEditor: theajack
- * @LastEditTime: 2022-01-05 22:42:23
+ * @LastEditTime: 2022-02-09 21:23:26
  * @Description: Coding something
  * @FilePath: /disable-devtool/src/detector/size.js
  */
 
+import {DETECTOR_TYPE} from '../utils/constant';
 import {clearDevToolOpenState} from '../utils/open-state';
-import {isEdge, isInIframe} from '../utils/util';
-import {DETECTOR_TYPE, triggerOnDevOpen} from './detector';
+import {triggerOnDevOpen} from './detector';
 
 function checkWindowSizeUneven () {
     const screenRatio = countScreenZoomRatio();
@@ -42,14 +42,6 @@ function countScreenZoomRatio () {
 };
 
 export default function detector () {
-    if (isInIframe) {
-        console.warn('SizeDetector is disabled in IFrame');
-        return;
-    }
-    if (isEdge) {
-        console.warn('SizeDetector is disabled in Edge');
-        return;
-    }
     checkWindowSizeUneven();
     window.addEventListener('resize', () => {
         setTimeout(checkWindowSizeUneven, 100);

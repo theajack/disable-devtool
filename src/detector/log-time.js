@@ -6,9 +6,10 @@
  * @Description: Coding something
  */
 
-// import {DETECTOR_TYPE, triggerOnDevOpen} from './detector';
+// import {triggerOnDevOpen} from './detector';
 // import {registInterval} from '../utils/interval';
 // import {log, clearLog} from '../utils/log';
+// import {DETECTOR_TYPE} from '../utils/constant';
 
 // function logTime () {
 //     const type = DETECTOR_TYPE.LOG_TIME;

@@ -2,12 +2,12 @@
  * @Author: tackchen
  * @Date: 2022-01-05 22:27:40
  * @LastEditors: tackchen
- * @LastEditTime: 2022-01-05 23:14:21
+ * @LastEditTime: 2022-02-09 21:23:38
  * @FilePath: /disable-devtool/src/utils/open-state.js
  * @Description: Coding something
  */
 
-import {DETECTOR_TYPE} from '../detector/detector';
+import {DETECTOR_TYPE} from '../utils/constant';
 
 let isLastStateOpenedBool = false;
 

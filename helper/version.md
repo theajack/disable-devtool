@@ -90,3 +90,6 @@
 ## 0.2.3
 1. edge 下打开侧边栏会误伤，所以禁用edge下的sizeDetector
 2. 增加clearLog参数，控制是否需要每次情况控制台，默认为true
+
+## 0.2.4
+1. 修复iosEdge下会误伤的情况
