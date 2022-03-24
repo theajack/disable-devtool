@@ -92,3 +92,6 @@
    
 ## 0.2.4
 1. Fix wrong detect in ios Edge
+   
+## 0.2.5
+1. add disableSelect, disableCopy, disableCut config

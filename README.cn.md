@@ -115,6 +115,9 @@ declare interface optionStatic {
     clearIntervalWhenDevOpenTrigger?: boolean; // 是否在触发之后停止监控 默认为false， 在使用ondevtoolclose时该参数无效
     detactors?: Array<DETECTOR_TYPE>; // 启用的检测器 检测器详情见 3.5 默认为全部，建议使用全部
     clearLog?: boolean; // 是否每次都清除log
+    disableSelect?: boolean; // 是否禁用选择文本 默认为false
+    disableCopy?: boolean; // 是否禁用复制 默认为false
+    disableCut?: boolean; // 是否禁用剪切 默认为false
 }
 
 declare type DETECTOR_TYPE = -1 | 0 | 1 | 2 | 3 | 4 ｜ 5; // 检测器详情见 3.5

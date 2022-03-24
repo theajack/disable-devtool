@@ -27,12 +27,38 @@ export function disableKeyAndMenu () {
             return false;
         }
     }, true);
+
+    disableMenu();
+    disableSelect();
+    disableCopy();
+    disableCut();
+}
+
+function disableMenu () {
     if (config.disableMenu) {
-        window.addEventListener('contextmenu', (e) => {
-            e = e || window.event;
-            e.returnValue = false;
-            e.preventDefault();
-            return false;
-        }, true);
+        preventEvent(window, 'contextmenu');
     }
+}
+function disableSelect () {
+    if (config.disableSelect) {
+        preventEvent(window, 'selectstart');
+    }
+}
+function disableCopy () {
+    if (config.disableCopy) {
+        preventEvent(window, 'copy');
+    }
+}
+function disableCut () {
+    if (config.disableCut) {
+        preventEvent(window, 'cut');
+    }
+}
+function preventEvent (target, name) {
+    target.addEventListener(name, (e) => {
+        e = e || window.event;
+        e.returnValue = false;
+        e.preventDefault();
+        return false;
+    });
 }

@@ -93,3 +93,6 @@
 
 ## 0.2.4
 1. 修复iosEdge下会误伤的情况
+   
+## 0.2.5
+1. 增加disableSelect, disableCopy, disableCut配置

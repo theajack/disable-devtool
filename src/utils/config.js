@@ -12,6 +12,9 @@ export const config = {
     clearIntervalWhenDevOpenTrigger: false, // 是否在触发之后停止监控
     detectors: 'all',
     clearLog: true,
+    disableSelect: false,
+    disableCopy: false,
+    disableCut: false,
 };
 
 const MultiTypeKeys = ['detectors', 'ondevtoolclose'];

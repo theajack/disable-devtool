@@ -12,6 +12,9 @@ declare interface optionStatic {
     clearIntervalWhenDevOpenTrigger?: boolean; // 是否在触发之后停止监控
     detectors: Array<DETECTOR_TYPE>;  // 启用的监测器 默认为全部
     clearLog?: boolean; // 是否每次都清除log
+    disableSelect?: boolean; // 是否禁用选择文本 默认为false
+    disableCopy?: boolean; // 是否禁用复制 默认为false
+    disableCut?: boolean; // 是否禁用剪切 默认为false
 }
 declare interface DDTStatic {
     (option?: optionStatic): void;
