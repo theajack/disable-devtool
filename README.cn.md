@@ -36,7 +36,7 @@
     <a href="https://github.com/theajack/disable-devtool/blob/master/test/test-report.txt"><img src="https://img.shields.io/badge/test-passed-44BB44" alt="test"></a>
 </p>
 
-**[English](https://github.com/theajack/disable-devtool/blob/master/README.md) | [在线试用/文档](https://theajack.gitee.io/disable-devtool) | [更新日志](https://github.com/theajack/disable-devtool/blob/master/helper/version.md) | [Gitee](https://gitee.com/theajack/disable-devtool) | [留言板](https://theajack.gitee.io/message-board?app=disable-devtool)**
+**[English](https://github.com/theajack/disable-devtool/blob/master/README.md) | [在线试用/文档](https://theajack.github.io/disable-devtool) | [更新日志](https://github.com/theajack/disable-devtool/blob/master/helper/version.md) | [Gitee](https://gitee.com/theajack/disable-devtool) | [留言板](https://theajack.github.io/message-board?app=disable-devtool)**
 
 ## 1. 快速使用
 
