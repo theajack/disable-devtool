@@ -3,9 +3,9 @@ const util = require('./util');
 
 function modIndexHtmlVersion () {
     util.read('index.html', (html) => {
-        const res = html.match(new RegExp(`https://cdn.jsdelivr.net/npm/disable-devtool@.*/disable-devtool.min.js#use`));
+        const res = html.match(new RegExp(`https://fastly.jsdelivr.net/npm/disable-devtool@.*/disable-devtool.min.js#use`));
         if (res) {
-            util.write('index.html', html.replace(res[0], `https://cdn.jsdelivr.net/npm/disable-devtool@${pkg.version}/disable-devtool.min.js#use`));
+            util.write('index.html', html.replace(res[0], `https://fastly.jsdelivr.net/npm/disable-devtool@${pkg.version}/disable-devtool.min.js#use`));
         }
     });
 }

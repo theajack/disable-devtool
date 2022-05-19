@@ -40,7 +40,7 @@
                 src="https://img.shields.io/npm/v/disable-devtool.svg" alt="Version"></a>
         <a href="https://npmcharts.com/compare/disable-devtool?minimal=true"><img
                 src="https://img.shields.io/npm/dm/disable-devtool.svg" alt="Downloads"></a>
-        <a href="https://cdn.jsdelivr.net/gh/theajack/disable-devtool/dist/disable-devtool.latest.min.js"><img
+        <a href="https://fastly.jsdelivr.net/gh/theajack/disable-devtool/dist/disable-devtool.latest.min.js"><img
                 src="https://img.shields.io/bundlephobia/minzip/disable-devtool.svg" alt="Size"></a>
         <a href="https://github.com/theajack/disable-devtool/blob/master/LICENSE"><img
                 src="https://img.shields.io/npm/l/disable-devtool.svg" alt="License"></a>
@@ -74,14 +74,14 @@ disableDevtool();</code>
 
     <h3>1.2 script attribute configuration</h3>
 
-    <p><code>&lt;script disable-devtool-auto src=&#39;https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js&#39;&gt;&lt;/script&gt;</code></p>
+    <p><code>&lt;script disable-devtool-auto src=&#39;https://fastly.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js&#39;&gt;&lt;/script&gt;</code></p>
 
     <p>Or use cdn with version:</p>
 
     <p><code>&lt;!--Use a specific version-->
-&lt;script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@x.x.x/disable-devtool.min.js'>&lt;/script>
+&lt;script disable-devtool-auto src='https://fastly.jsdelivr.net/npm/disable-devtool@x.x.x/disable-devtool.min.js'>&lt;/script>
 &lt;!--Use latest version-->
-&lt;script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js'>&lt;/script></code></p>
+&lt;script disable-devtool-auto src='https://fastly.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js'>&lt;/script></code></p>
 
     <h2>2. Function</h2>
 
@@ -155,7 +155,7 @@ declare type DETECTOR_TYPE = -1 | 0 | 1 | 2 | 3 | 4 | 5;</code></p>
 
     <p><code>&lt;script
     disable-devtool-auto 
-    src=&#39;https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js&#39;
+    src=&#39;https://fastly.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js&#39;
     md5=&#39;xxx&#39;
     url=&#39;xxx&#39;
     tk-name=&#39;xxx&#39;
@@ -174,7 +174,7 @@ declare type DETECTOR_TYPE = -1 | 0 | 1 | 2 | 3 | 4 | 5;</code></p>
 
     <h3>3.3 script does not use attribute configuration</h3>
 
-    <p><code>&lt;script src=&#39;https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js&#39;&gt;&lt;/script&gt;
+    <p><code>&lt;script src=&#39;https://fastly.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js&#39;&gt;&lt;/script&gt;
 &lt;script&gt;
     DisableDevtool({
         // The parameters are the same as in 3.1
@@ -183,7 +183,7 @@ declare type DETECTOR_TYPE = -1 | 0 | 1 | 2 | 3 | 4 | 5;</code></p>
     <script 
         disable-devtool-auto 
         md5='1aabac6d068eef6a7bad3fdf50a05cc8' 
-        src='https://cdn.jsdelivr.net/npm/disable-devtool@0.2.5/disable-devtool.min.js#use'
+        src='https://fastly.jsdelivr.net/npm/disable-devtool@0.2.5/disable-devtool.min.js#use'
     ></script>
     <!-- <script disable-devtool-auto md5='1aabac6d068eef6a7bad3fdf50a05cc8' src='./npm/disable-devtool.min.js'></script> -->
     <script>
@@ -203,7 +203,7 @@ declare type DETECTOR_TYPE = -1 | 0 | 1 | 2 | 3 | 4 | 5;</code></p>
             setText(DisableDevtool.md5(key));
         }
     </script>  
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/theajack/cdn/js/stat.js"></script>
+    <script type="text/javascript" src="https://fastly.jsdelivr.net/gh/theajack/cdn/js/stat.js"></script>
 </body>
 
 </html>

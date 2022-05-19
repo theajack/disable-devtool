@@ -29,7 +29,7 @@
     <a href="https://www.github.com/theajack/disable-devtool/blob/master/LICENSE" target="_black">
         <img src="https://img.shields.io/github/license/theajack/disable-devtool?color=%232DCE89&logo=github" alt="license" />
     </a>
-    <a href="https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js"><img src="https://img.shields.io/bundlephobia/minzip/disable-devtool.svg" alt="Size"></a>
+    <a href="https://fastly.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js"><img src="https://img.shields.io/bundlephobia/minzip/disable-devtool.svg" alt="Size"></a>
     <a href="https://github.com/theajack/disable-devtool/search?l=javascript"><img src="https://img.shields.io/github/languages/top/theajack/disable-devtool.svg" alt="TopLang"></a>
     <a href="https://www.github.com/theajack/disable-devtool"><img src="https://img.shields.io/librariesio/dependent-repos/npm/disable-devtool.svg" alt="Dependent"></a>
     <a href="https://github.com/theajack/disable-devtool/blob/master/test/test-report.txt"><img src="https://img.shields.io/badge/test-passed-44BB44" alt="test"></a>
@@ -54,16 +54,16 @@ disableDevtool();
 ### 1.2 script attribute configuration
 
 ```html
-<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'></script>
+<script disable-devtool-auto src='https://fastly.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'></script>
 ```
 
 Or use cdn with version:
 
 ```html
 <!--Use a specific version-->
-<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@x.x.x/disable-devtool.min.js'></script>
+<script disable-devtool-auto src='https://fastly.jsdelivr.net/npm/disable-devtool@x.x.x/disable-devtool.min.js'></script>
 <!--Use latest version-->
-<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js'></script>
+<script disable-devtool-auto src='https://fastly.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js'></script>
 ```
 
 ## 2. Function
@@ -140,7 +140,7 @@ disableDevtool.md5('xxx');
 ```html
 <script
     disable-devtool-auto
-    src='https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'
+    src='https://fastly.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'
     md5='xxx'
     url='xxx'
     tk-name='xxx'
@@ -160,7 +160,7 @@ Note:
 ### 3.4 script does not use attribute configuration
 
 ```html
-<script src='https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'></script>
+<script src='https://fastly.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'></script>
 <script>
     DisableDevtool({
         // The parameters are the same as in 3.1
