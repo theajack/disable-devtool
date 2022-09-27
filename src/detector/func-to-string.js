@@ -1,8 +1,8 @@
 /*
  * @Author: tackchen
  * @Date: 2021-11-15 22:26:57
- * @LastEditors: tackchen
- * @LastEditTime: 2022-02-09 21:22:03
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-09-27 20:46:44
  * @FilePath: /disable-devtool/src/detector/func-to-string.js
  * @Description: Coding something
  */
@@ -14,8 +14,7 @@ import {triggerOnDevOpen} from './detector';
 import {log, clearLog} from '../utils/log';
 import {DETECTOR_TYPE} from '../utils/constant';
  
-export default function detector (isIOSChrome) {
-    if (isIOSChrome) return;
+export default function detector () {
     const type = DETECTOR_TYPE.FUNC_TO_STRING;
     let count = 0;
     const func = () => {};

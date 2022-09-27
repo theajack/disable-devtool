@@ -180,7 +180,8 @@ const DETECTOR_TYPE = {
     SIZE: 2, // Detect according to window size
     DATE_TO_STRING: 3, // Check according to Date.toString
     FUNC_TO_STRING: 4, // Detect according to Function.toString
-    DEBUGGER: 5; // According to the breakpoint detection, it is only valid in the case of ios chrome real machine
+    DEBUGGER: 5, // According to the breakpoint detection, it is only valid in the case of ios chrome real machine
+    PERFORMANCE: 6, // Printing big data performance test
 }
 ```
 

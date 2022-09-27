@@ -13,6 +13,7 @@ import SizeDetector from './size';
 import DateToStringDetector from './date-to-string';
 import FuncToStringDetector from './func-to-string';
 import DebuggerDetector from './debugger';
+import PerforceDetector from './performance';
 // import LogTimeDetector from './log-time'; // 不准确 容易误伤 故弃用
 import {clearDDInterval, clearDDTimeout} from '../utils/interval';
 import {closeWindow} from '../utils/close-window';
@@ -27,6 +28,7 @@ const Detectors = {
     [DETECTOR_TYPE.DATE_TO_STRING]: DateToStringDetector,
     [DETECTOR_TYPE.FUNC_TO_STRING]: FuncToStringDetector,
     [DETECTOR_TYPE.DEBUGGER]: DebuggerDetector,
+    [DETECTOR_TYPE.PERFORMANCE]: PerforceDetector,
     // [DETECTOR_TYPE.LOG_TIME]: LogTimeDetector,
 };
 

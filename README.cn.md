@@ -120,7 +120,7 @@ declare interface optionStatic {
     disableCut?: boolean; // 是否禁用剪切 默认为false
 }
 
-declare type DETECTOR_TYPE = -1 | 0 | 1 | 2 | 3 | 4 ｜ 5; // 检测器详情见 3.5
+declare type DETECTOR_TYPE = -1 | 0 | 1 | 2 | 3 | 4 ｜ 5 | 6; // 检测器详情见 3.5
 ```
 
 ### 3.2 md5 与 tk 绕过禁用
@@ -182,7 +182,8 @@ const DETECTOR_TYPE = {
     SIZE: 2, // 根据窗口尺寸检测
     DATE_TO_STRING: 3, // 根据Date.toString 检测
     FUNC_TO_STRING: 4, // 根据Function.toString 检测
-    DEBUGGER: 5; // 根据断点检测，仅在ios chrome 真机情况下有效
+    DEBUGGER: 5, // 根据断点检测，仅在ios chrome 真机情况下有效
+    PERFORMANCE: 6, // 打印大数据性能检测
 }
 ```
 

@@ -1,13 +1,13 @@
 /*
  * @Author: tackchen
  * @Date: 2022-02-09 20:55:52
- * @LastEditors: tackchen
- * @LastEditTime: 2022-02-09 21:20:49
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-09-27 20:46:01
  * @FilePath: /disable-devtool/src/detector/enable.js
  * @Description: 统一处理各种探测器是否开启
  */
 
-import {isEdge, isFirefox, isInIframe, isIOSChrome, isIOSEdge, isQQBrowser} from '../utils/util';
+import {isChrome, isEdge, isFirefox, isInIframe, isIOSChrome, isIOSEdge, isQQBrowser} from '../utils/util';
 import {DETECTOR_TYPE} from '../utils/constant';
 
 const EnableMap = {
@@ -19,6 +19,7 @@ const EnableMap = {
     [DETECTOR_TYPE.DATE_TO_STRING]: (!isIOSChrome && !isIOSEdge),
     [DETECTOR_TYPE.FUNC_TO_STRING]: (!isIOSChrome && !isIOSEdge),
     [DETECTOR_TYPE.DEBUGGER]: (isIOSChrome || isIOSEdge),
+    [DETECTOR_TYPE.PERFORMANCE]: (isChrome),
 };
 
 export function processDetectorEnableStatus (name, detector) {
@@ -31,7 +32,6 @@ export function processDetectorEnableStatus (name, detector) {
     } else if (typeof value === 'function') {
         value = value();
     }
-
     if (value === true) {
         detector();
     }

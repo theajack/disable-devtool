@@ -1,3 +1,8 @@
+/*
+ * @Author: tackchen
+ * @Date: 2022-08-28 23:46:43
+ * @Description: Coding something,
+ */
 import disableDevtool from '../src';
 // import disableDevtool from '../npm';
 
@@ -23,6 +28,8 @@ disableDevtool({
     // tkName: 'ddtk',
     disableMenu: false,
     clearLog: false,
+    disableSelect: true,
+    disableCopy: true,
     // url: 'https://www.baidu.com'
     // detectors: [disableDevtool.DETECTOR_TYPE.DATE_TO_STRING],
 });

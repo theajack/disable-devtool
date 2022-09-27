@@ -116,3 +116,5 @@ export const isIE = isOldEdge || hasUaName('trident') || hasUaName('msie');
 export const isIOSChrome = hasUaName('crios');
 
 export const isIOSEdge = hasUaName('edgios');
+
+export const isChrome = hasUaName('chrome') || isIOSChrome;

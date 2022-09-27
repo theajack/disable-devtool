@@ -11,16 +11,14 @@ import {DETECTOR_TYPE} from '../utils/constant';
 import {registInterval} from '../utils/interval';
 import {triggerOnDevOpen} from './detector';
 
-export default function detector (isIOSChrome) {
-    if (isIOSChrome) {
-        const type = DETECTOR_TYPE.DEBUGGER;
-        // 仅在 ios chrome 下生效
-        registInterval(type, () => {
-            const date = Date.now();
-            (() => {debugger;})();
-            if (Date.now() - date > 100) {
-                triggerOnDevOpen(type);
-            }
-        });
-    }
+export default function detector () {
+    const type = DETECTOR_TYPE.DEBUGGER;
+    // 仅在 ios chrome 下生效
+    registInterval(type, () => {
+        const date = Date.now();
+        (() => {debugger;})();
+        if (Date.now() - date > 100) {
+            triggerOnDevOpen(type);
+        }
+    });
 }

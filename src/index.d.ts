@@ -1,3 +1,8 @@
+/*
+ * @Author: tackchen
+ * @Date: 2022-08-28 20:56:33
+ * @Description: Coding something
+ */
 
 declare type DETECTOR_TYPE = -1 | 0 | 1 | 2 | 3 | 4;
 declare interface optionStatic {
@@ -27,6 +32,7 @@ declare interface DDTStatic {
         DATE_TO_STRING: 3;
         FUNC_TO_STRING: 4;
         DEBUGGER: 5;
+        PERFORMANCE: 6;
         // LOG_TIME: 6;
     }
     version: string;

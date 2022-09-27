@@ -1,8 +1,8 @@
 /*
  * @Author: tackchen
  * @Date: 2022-02-09 21:20:15
- * @LastEditors: tackchen
- * @LastEditTime: 2022-02-09 21:20:29
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-09-27 20:32:54
  * @FilePath: /disable-devtool/src/utils/constant.js
  * @Description: Coding something
  */
@@ -15,5 +15,6 @@ export const DETECTOR_TYPE = {
     DATE_TO_STRING: 3,
     FUNC_TO_STRING: 4,
     DEBUGGER: 5,
+    PERFORMANCE: 6,
     // LOG_TIME: 6,
 };
