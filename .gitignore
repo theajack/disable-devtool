@@ -1,1 +1,7 @@
-/node_modules
+node_modules
+dist
+cdn
+.pnpm-debug.log
+npm
+old
+docs

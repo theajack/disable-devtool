@@ -1,6 +1,15 @@
 {
+    "scripts": {
+        "lint": "eslint src --ext ts",
+        "_dev": "node scripts/dev.js",
+        "_serve": "serve scripts/dev",
+        "dev": "run-p _dev _serve",
+        "build": "node scripts/build/build.js",
+        "sync-version": "node helper/mod-index-html-version.js",
+        "build:docs": "node scripts/build/docs/build-docs.js"
+    },
     "name": "disable-devtool",
-    "version": "0.2.5",
+    "version": "0.4.0",
     "description": "Disable web developer tools from the f12 button, right-click and browser ",
     "main": "disable-devtool.min.js",
     "unpkg": "disable-devtool.min.js",
@@ -10,14 +19,6 @@
         "url": "https://github.com/theajack/disable-devtool/issues"
     },
     "homepage": "",
-    "scripts": {
-        "dev": "webpack-dev-server --open --config webpack-config/dev.js",
-        "start": "npm run dev",
-        "build": "webpack --config webpack-config/build.js",
-        "publish": "npm publish npm",
-        "lint": "eslint src --ext js",
-        "sync-version": "node helper/mod-index-html-version.js"
-    },
     "author": "theajack",
     "repository": {
         "type": "git",
@@ -30,33 +31,32 @@
     ],
     "license": "MIT",
     "devDependencies": {
-        "@babel/core": "^7.6.4",
-        "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
-        "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-        "@babel/preset-env": "^7.6.3",
-        "@commitlint/cli": "^8.2.0",
-        "@commitlint/config-conventional": "^8.2.0",
-        "babel-eslint": "^10.0.3",
-        "babel-loader": "^8.0.6",
-        "babel-plugin-transform-object-rest-spread": "^6.26.0",
-        "eslint": "^6.5.1",
-        "eslint-config-standard": "^14.1.0",
-        "eslint-loader": "^3.0.2",
-        "eslint-plugin-import": "^2.18.2",
-        "eslint-plugin-node": "^10.0.0",
-        "eslint-plugin-promise": "^4.2.1",
-        "gulp": "^4.0.2",
-        "gulp-babel": "^8.0.0",
-        "gulp-rename": "^2.0.0",
-        "husky": "^3.0.9",
-        "lint-staged": "^9.4.2",
-        "webpack": "^4.41.2",
-        "webpack-cli": "^3.3.9",
-        "webpack-dev-server": "^3.8.2"
+        "@babel/core": "^7.18.5",
+        "@babel/preset-env": "^7.18.2",
+        "@babel/preset-typescript": "^7.17.12",
+        "@rollup/plugin-babel": "^5.3.1",
+        "@rollup/plugin-commonjs": "^22.0.1",
+        "@rollup/plugin-node-resolve": "^13.3.0",
+        "@rollup/plugin-replace": "^4.0.0",
+        "@rollup/plugin-yaml": "^3.1.0",
+        "@types/node": "^18.0.1",
+        "@typescript-eslint/eslint-plugin": "^5.29.0",
+        "@typescript-eslint/parser": "^5.29.0",
+        "esbuild": "^0.14.47",
+        "esbuild-plugin-d.ts": "^1.1.0",
+        "esbuild-plugin-yaml": "^0.0.1",
+        "eslint": "^8.18.0",
+        "execa": "4.0.2",
+        "lerna": "^5.1.5",
+        "npm-run-all": "^4.1.5",
+        "rollup": "^2.75.7",
+        "rollup-plugin-dts": "^4.2.2",
+        "rollup-plugin-typescript2": "^0.32.1",
+        "rollup-plugin-uglify": "^6.0.4",
+        "serve": "^13.0.2",
+        "typescript": "^4.7.4"
     },
-    "husky": {
-        "hooks": {
-            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-        }
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org"
     }
 }

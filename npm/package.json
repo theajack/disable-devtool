@@ -1,6 +1,6 @@
 {
     "name": "disable-devtool",
-    "version": "0.2.5",
+    "version": "0.4.0",
     "description": "Disable web developer tools from the f12 button, right-click and browser ",
     "main": "disable-devtool.min.js",
     "unpkg": "disable-devtool.min.js",
@@ -20,5 +20,6 @@
     "bugs": {
         "url": "https://github.com/theajack/disable-devtool/issues"
     },
-    "homepage": ""
+    "homepage": "",
+    "dependencies": ""
 }

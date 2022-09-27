@@ -1,0 +1,55 @@
+name: Docs
+on:
+  push:
+    tags:
+      - d*.*.*
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          registry-url: https://registry.npmjs.org
+
+      - name: Determine npm cache directory
+        id: npm-cache
+        run: |
+          echo "::set-output name=dir::$(npm config get cache)"
+
+      - name: Restore npm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.npm-cache.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      
+      - name: Npm Install
+        run: npm install
+
+      - name: Version
+        id: version
+        run: |
+          tag=${GITHUB_REF/refs\/tags\//}
+          version=${tag#d}
+          echo "::set-output name=version::${version}"
+
+      - name: Build docs # build npm
+        run: npm run eb:docs -- ${{ steps.version.outputs.version }}
+
+      - name: Pages # github pages
+        uses: JamesIves/github-pages-deploy-action@v4.3.0
+        with:
+          branch: gh-pages
+          folder: docs
+      
+      - name: Purge # purge cdn # 此处只需要purge docs即可
+        run: npm run eb:purge -- ${{ steps.version.outputs.version }}
