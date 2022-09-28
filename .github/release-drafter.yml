@@ -3,40 +3,33 @@ tag-template: 'v$RESOLVED_VERSION'
 template: |
   # What's Changed
 
-  ### [Version Log](todo: add version log)
+  ### [Version Log](https://github.com/theajack/disable-devtool/blob/master/helper/version.en.md)
 
   **Full Changelog**: https://github.com/$OWNER/$REPOSITORY/compare/$PREVIOUS_TAG...v$RESOLVED_VERSION
 
 categories:
-  - title: 'Breaking'
-    label: 'type: breaking'
+  # - title: 'Breaking'
+  #   label: 'type: feat'
   - title: 'New'
-    label: 'type: feature'
+    label: 'type: feat'
   - title: 'Bug Fixes'
-    label: 'type: bug'
-  - title: 'Maintenance'
-    label: 'type: maintenance'
+    label: 'type: fix'
   - title: 'Documentation'
     label: 'type: docs'
   - title: 'Other changes'
-  - title: 'Dependency Updates'
-    label: 'type: dependencies'
     collapse-after: 5
 
 version-resolver:
   major:
     labels:
-      - 'type: breaking'
-  minor:
-    labels:
-      - 'type: feature'
+      - 'type: feat'
+  # minor:
+  #   labels:
+  #     - 'type: feat'
   patch:
     labels:
-      - 'type: bug'
-      - 'type: maintenance'
+      - 'type: fix'
       - 'type: docs'
-      - 'type: dependencies'
-      - 'type: security'
 
 exclude-labels:
   - 'skip-changelog'

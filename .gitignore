@@ -1,7 +1,5 @@
 node_modules
-dist
-cdn
+/dist
 .pnpm-debug.log
-npm
-old
-docs
+/npm
+/docs

@@ -29,7 +29,7 @@
     <a href="https://www.github.com/theajack/disable-devtool/blob/master/LICENSE" target="_black">
         <img src="https://img.shields.io/github/license/theajack/disable-devtool?color=%232DCE89&logo=github" alt="license" />
     </a>
-    <a href="https://fastly.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js"><img src="https://img.shields.io/bundlephobia/minzip/disable-devtool.svg" alt="Size"></a>
+    <a href="https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js"><img src="https://img.shields.io/bundlephobia/minzip/disable-devtool.svg" alt="Size"></a>
     <a href="https://github.com/theajack/disable-devtool/search?l=javascript"><img src="https://img.shields.io/github/languages/top/theajack/disable-devtool.svg" alt="TopLang"></a>
     <a href="https://www.github.com/theajack/disable-devtool"><img src="https://img.shields.io/librariesio/dependent-repos/npm/disable-devtool.svg" alt="Dependent"></a>
     <a href="https://github.com/theajack/disable-devtool/blob/master/test/test-report.txt"><img src="https://img.shields.io/badge/test-passed-44BB44" alt="test"></a>
@@ -54,16 +54,16 @@ disableDevtool();
 ### 1.2 script attribute configuration
 
 ```html
-<script disable-devtool-auto src='https://fastly.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'></script>
+<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'></script>
 ```
 
 Or use cdn with version:
 
 ```html
 <!--Use a specific version-->
-<script disable-devtool-auto src='https://fastly.jsdelivr.net/npm/disable-devtool@x.x.x/disable-devtool.min.js'></script>
+<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@x.x.x/disable-devtool.min.js'></script>
 <!--Use latest version-->
-<script disable-devtool-auto src='https://fastly.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js'></script>
+<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js'></script>
 ```
 
 ## 2. Function
@@ -111,14 +111,14 @@ declare interface optionStatic {
     interval?: number; // Timer interval is 200ms by default
     disableMenu?: boolean; // Whether to disable the right-click menu The default is true
     clearIntervalWhenDevOpenTrigger?: boolean; // Whether to stop monitoring after triggering The default is false. This parameter is invalid when using ondevtoolclose
-    detactors?: Array<DETECTOR_TYPE>; // Enabled detectors For details of detectors, see 3.5. The default is all, it is recommended to use all
+    detactors?: Array<DetectorType>; // Enabled detectors For details of detectors, see 3.5. The default is all, it is recommended to use all
     clearLog?: boolean; // Whether to clear the log every time
     disableSelect?: boolean; // Whether to disable select text The default is true
     disableCopy?: boolean; // Whether to disable copy text The default is true
     disableCut?: boolean; // Whether to disable cut text The default is true
 }
 
-declare type DETECTOR_TYPE = -1 | 0 | 1 | 2 | 3 | 4 ｜ 5; // For details of the detector, see 3.5
+declare type DetectorType = -1 | 0 | 1 | 2 | 3 | 4 ｜ 5; // For details of the detector, see 3.5
 ```
 
 ### 3.2 md5 and tk bypass disable
@@ -140,7 +140,7 @@ disableDevtool.md5('xxx');
 ```html
 <script
     disable-devtool-auto
-    src='https://fastly.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'
+    src='https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'
     md5='xxx'
     url='xxx'
     tk-name='xxx'
@@ -160,7 +160,7 @@ Note:
 ### 3.4 script does not use attribute configuration
 
 ```html
-<script src='https://fastly.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'></script>
 <script>
     DisableDevtool({
         // The parameters are the same as in 3.1
@@ -170,10 +170,10 @@ Note:
 
 ### 3.5 Monitoring Mode
 
-Disable-Devtool has five monitoring modes, DisableDevtool.DETECTOR_TYPE is an enumeration of all monitoring modes
+Disable-Devtool has five monitoring modes, DisableDevtool.DetectorType is an enumeration of all monitoring modes
 
 ```js
-const DETECTOR_TYPE = {
+const DetectorType = {
     UNKONW: -1,
     REG_TO_STRING: 0, // According to regular detection
     DEFINE_ID: 1, // Detect according to dom id

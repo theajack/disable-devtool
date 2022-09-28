@@ -6,10 +6,11 @@
         "dev": "run-p _dev _serve",
         "build": "node scripts/build/build.js",
         "sync-version": "node helper/mod-index-html-version.js",
-        "build:docs": "node scripts/build/docs/build-docs.js"
+        "build:docs": "node scripts/build/docs/build-docs.js",
+        "purge": "node scripts/purge-cdn.js"
     },
     "name": "disable-devtool",
-    "version": "0.4.0",
+    "version": "0.3.0",
     "description": "Disable web developer tools from the f12 button, right-click and browser ",
     "main": "disable-devtool.min.js",
     "unpkg": "disable-devtool.min.js",

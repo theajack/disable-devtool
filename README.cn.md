@@ -30,7 +30,7 @@
     <a href="https://www.github.com/theajack/disable-devtool/blob/master/LICENSE" target="_black">
         <img src="https://img.shields.io/github/license/theajack/disable-devtool?color=%232DCE89&logo=github" alt="license" />
     </a>
-    <a href="https://fastly.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js"><img src="https://img.shields.io/bundlephobia/minzip/disable-devtool.svg" alt="Size"></a>
+    <a href="https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js"><img src="https://img.shields.io/bundlephobia/minzip/disable-devtool.svg" alt="Size"></a>
     <a href="https://github.com/theajack/disable-devtool/search?l=javascript"><img src="https://img.shields.io/github/languages/top/theajack/disable-devtool.svg" alt="TopLang"></a>
     <a href="https://www.github.com/theajack/disable-devtool"><img src="https://img.shields.io/librariesio/dependent-repos/npm/disable-devtool.svg" alt="Dependent"></a>
     <a href="https://github.com/theajack/disable-devtool/blob/master/test/test-report.txt"><img src="https://img.shields.io/badge/test-passed-44BB44" alt="test"></a>
@@ -55,16 +55,16 @@ disableDevtool();
 ### 1.2 script属性配置
 
 ```html
-<script disable-devtool-auto src='https://fastly.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'></script>
+<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'></script>
 ```
 
 或者通过版本引用:
 
 ```html
 <!--使用指定版本-->
-<script disable-devtool-auto src='https://fastly.jsdelivr.net/npm/disable-devtool@x.x.x/disable-devtool.min.js'></script>
+<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@x.x.x/disable-devtool.min.js'></script>
 <!--使用最新版本-->
-<script disable-devtool-auto src='https://fastly.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js'></script>
+<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js'></script>
 ```
 
 ## 2.功能
@@ -113,14 +113,14 @@ declare interface optionStatic {
     disableMenu?: boolean; // 是否禁用右键菜单 默认为true
     stopIntervalTime?: number; // 在移动端时取消监视的等待时长
     clearIntervalWhenDevOpenTrigger?: boolean; // 是否在触发之后停止监控 默认为false， 在使用ondevtoolclose时该参数无效
-    detactors?: Array<DETECTOR_TYPE>; // 启用的检测器 检测器详情见 3.5 默认为全部，建议使用全部
+    detactors?: Array<DetectorType>; // 启用的检测器 检测器详情见 3.5 默认为全部，建议使用全部
     clearLog?: boolean; // 是否每次都清除log
     disableSelect?: boolean; // 是否禁用选择文本 默认为false
     disableCopy?: boolean; // 是否禁用复制 默认为false
     disableCut?: boolean; // 是否禁用剪切 默认为false
 }
 
-declare type DETECTOR_TYPE = -1 | 0 | 1 | 2 | 3 | 4 ｜ 5; // 检测器详情见 3.5
+declare type DetectorType = -1 | 0 | 1 | 2 | 3 | 4 ｜ 5; // 检测器详情见 3.5
 ```
 
 ### 3.2 md5 与 tk 绕过禁用
@@ -142,13 +142,18 @@ disableDevtool.md5('xxx');
 ```html
 <script 
     disable-devtool-auto
-    src='https://fastly.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'
+    src='https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'
     md5='xxx'
     url='xxx'
     tk-name='xxx'
     interval='xxx'
     disable-menu='xxx'
     detectors='xxx'
+    clear-log='true'
+    disable-select='true'
+    disable-copy='true'
+    disable-cut='true'
+    disable-paste='true'
 ></script>
 ```
 
@@ -162,7 +167,7 @@ disableDevtool.md5('xxx');
 ### 3.4 script不使用属性配置
 
 ```html
-<script src='https://fastly.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'></script>
 <script>
     DisableDevtool({
         // 参数与3.1中一致
@@ -172,10 +177,10 @@ disableDevtool.md5('xxx');
 
 ### 3.5 监测模式
 
-Disable-Devtool 有五种监测模式, DisableDevtool.DETECTOR_TYPE 为所有的监测模式枚举
+Disable-Devtool 有五种监测模式, DisableDevtool.DetectorType 为所有的监测模式枚举
 
 ```js
-const DETECTOR_TYPE = {
+const DetectorType = {
     UNKONW: -1,
     REG_TO_STRING: 0, // 根据正则检测
     DEFINE_ID: 1, // 根据dom id检测

@@ -31,7 +31,7 @@ disableDevtool({
   disableSelect: true,
   disablePaste: true,
   // url: 'https://www.baidu.com'
-  // detectors: [disableDevtool.DETECTOR_TYPE.DATE_TO_STRING],
+  // detectors: [disableDevtool.DetectorType.DATE_TO_STRING],
 });
 document.addEventListener('click', () => {
   const div = document.createElement('div');

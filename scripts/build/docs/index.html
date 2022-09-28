@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一行代码搞定禁用web开发者工具</title>
+    <style>
+        code{
+            white-space: pre;
+            font-family: Consolas, "Courier New", monospace;
+            color: #fff;
+            background-color: #444;
+            display: block;
+            overflow-x: auto;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        body{
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1><a style='color:#222' href='https://www.github.com/theajack/disable-devtool'>Disable-devtool</a></h1>
+    
+    <h3>
+        Now that the devtool on this page has been disabled, use the <a href='https://theajack.github.io/disable-devtool?ddtk=dd'>?ddtk=dd</a> url parameter to un-disable (ddtk value is configurable)
+    </h3>
+
+    <h2>🚀 Disable web developer tools with one line </h2>
+    
+    <p>
+        <a href="https://www.github.com/theajack/disable-devtool/stargazers" target="_black">
+            <img src="https://img.shields.io/github/stars/theajack/disable-devtool?logo=github" alt="stars" />
+        </a>
+        <a href="https://www.github.com/theajack/disable-devtool/network/members" target="_black">
+            <img src="https://img.shields.io/github/forks/theajack/disable-devtool?logo=github" alt="forks" />
+        </a>
+        <a href="https://www.npmjs.com/package/disable-devtool" target="_black">
+            <img src="https://img.shields.io/npm/v/disable-devtool?logo=npm" alt="version" />
+        </a>
+        <a href="https://www.npmjs.com/package/disable-devtool" target="_black">
+            <img src="https://img.shields.io/npm/dm/disable-devtool?color=%23ffca28&logo=npm" alt="downloads" />
+        </a>
+        <a href="https://www.jsdelivr.com/package/npm/disable-devtool" target="_black">
+            <img src="https://data.jsdelivr.com/v1/package/npm/disable-devtool/badge" alt="jsdelivr" />
+        </a>
+        <a href="https://github.com/theajack/disable-devtool/issues"><img src="https://img.shields.io/github/issues-closed/theajack/disable-devtool.svg" alt="issue"></a>
+    </p>
+    <p>
+        <a href="https://github.com/theajack" target="_black">
+            <img src="https://img.shields.io/badge/Author-%20theajack%20-7289da.svg?&logo=github" alt="author" />
+        </a>
+        <a href="https://www.github.com/theajack/disable-devtool/blob/master/LICENSE" target="_black">
+            <img src="https://img.shields.io/github/license/theajack/disable-devtool?color=%232DCE89&logo=github" alt="license" />
+        </a>
+        <a href="https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js"><img src="https://img.shields.io/bundlephobia/minzip/disable-devtool.svg" alt="Size"></a>
+        <a href="https://github.com/theajack/disable-devtool/search?l=javascript"><img src="https://img.shields.io/github/languages/top/theajack/disable-devtool.svg" alt="TopLang"></a>
+        <a href="https://www.github.com/theajack/disable-devtool"><img src="https://img.shields.io/librariesio/dependent-repos/npm/disable-devtool.svg" alt="Dependent"></a>
+        <a href="https://github.com/theajack/disable-devtool/blob/master/test/test-report.txt"><img src="https://img.shields.io/badge/test-passed-44BB44" alt="test"></a>
+    </p>
+
+    <p>
+       <strong> 
+            <a href='https://www.github.com/theajack/disable-devtool'>Github</a></h1>
+            | <a href="https://github.com/theajack/disable-devtool/blob/master/README.cn.md">中文文档</a>
+            | <a href="https://github.com/theajack/disable-devtool/blob/master/README.md">English Docs</a>
+            | <a href="https://github.com/theajack/disable-devtool/blob/master/helper/version.en.md">Version Log</a>
+            | <a href="https://theajack.github.io/message-board?app=disable-devtool">Message Board</a>
+       </strong>
+    </p>
+
+    <h2>1. Quick use</h2>
+
+
+    <h3>1.1 npm reference</h3>
+
+    <p><code>npm i disable-devtool</code></p>
+
+    <p>
+        <code>import disableDevtool from&#39;disable-devtool&#39;;
+disableDevtool();</code>
+    </p>
+
+    <h3>1.2 script attribute configuration</h3>
+
+    <p><code>&lt;script disable-devtool-auto src=&#39;https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js&#39;&gt;&lt;/script&gt;</code></p>
+
+    <p>Or use cdn with version:</p>
+
+    <p><code>&lt;!--Use a specific version-->
+&lt;script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@x.x.x/disable-devtool.min.js'>&lt;/script>
+&lt;!--Use latest version-->
+&lt;script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js'>&lt;/script></code></p>
+
+    <div style="margin-bottom: 50px">
+        TOOL:
+        <input type="text" id='md5_key' placeholder="Enter a key">
+        <button onclick="generateMd5()">Generate md5 tk</button>
+        <span id='md5_value'></span>
+    </div>
+
+    <script 
+        disable-devtool-auto 
+        disable-select="true"
+        md5='1aabac6d068eef6a7bad3fdf50a05cc8' 
+        src='https://cdn.jsdelivr.net/npm/disable-devtool@0.2.6/disable-devtool.min.js#use'
+    ></script>
+    <!-- <script disable-devtool-auto md5='1aabac6d068eef6a7bad3fdf50a05cc8' src='./npm/disable-devtool.min.js'></script> -->
+    <script>
+        function setText(text){
+            document.getElementById('md5_value').innerText = text;
+        }
+        function generateMd5(){
+            if(!window.DisableDevtool){
+                alert('DisableDevtool not ready');
+                return;
+            }
+            let key = document.getElementById('md5_key').value;
+            if(!key){
+                alert('Key is empty');
+                return;
+            }
+            setText(DisableDevtool.md5(key));
+        }
+    </script>  
+</body>
+
+</html>
