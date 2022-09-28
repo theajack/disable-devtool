@@ -30,9 +30,9 @@ async function main () {
     await delTag(tagName);
   }
   console.log(`Start create tag ${tagName}...`);
-  //   await exec(`git tag -m "version ${tagName}" ${tagName} master`);
+  await exec(`git tag -m "version ${tagName}" ${tagName} master`);
   console.log(`Start push tag ${tagName}...`);
-  //   await exec('git push --tags');
+  await exec('git push --tags');
   console.log('Finished!');
 }
 
