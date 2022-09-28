@@ -2,7 +2,7 @@
  * @Author: theajack
  * @Date: 2021-07-24 23:16:34
  * @LastEditor: theajack
- * @LastEditTime: 2022-09-27 23:57:26
+ * @LastEditTime: 2022-09-28 21:15:17
  * @Description: Coding something
  */
 
@@ -14,6 +14,7 @@ import DateToStringDetector from './sub-detector/date-to-string';
 import FuncToStringDetector from './sub-detector/func-to-string';
 import DebuggerDetector from './sub-detector/debugger';
 import PerformanceDetector from './sub-detector/performance';
+import DebugLibDetector from './sub-detector/debug-lib';
 
 import {DetectorType} from '../utils/enum';
 
@@ -25,6 +26,7 @@ const Detectors = {
   [DetectorType.FuncToString]: FuncToStringDetector,
   [DetectorType.Debugger]: DebuggerDetector,
   [DetectorType.Performance]: PerformanceDetector,
+  [DetectorType.DebugLib]: DebugLibDetector,
 };
 
 export function initDetectors () {
