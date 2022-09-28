@@ -1,0 +1,34 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "outDir": "dist",
+        "sourceMap": false,
+        "target": "es2016",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "allowJs": true,
+        "noUnusedLocals": true,
+        "strictNullChecks": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "experimentalDecorators": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "removeComments": false,
+        "jsx": "preserve",
+        "lib": ["esnext", "dom"],
+        "types": ["node"],
+        "rootDir": ".",
+        "noEmit": false,
+        "paths": {}
+    },
+    "include": [
+        ".eslintrc.js",
+        "babel.config.js",
+        "scripts/**/*",
+        "src/**/*"
+    ],
+    "exclude": [
+        "./node_modules"
+    ]
+}

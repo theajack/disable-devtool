@@ -1,0 +1,29 @@
+name: Docs
+on:
+  push:
+    tags:
+      - d*.*.*
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          registry-url: https://registry.npmjs.org
+
+      - name: Build docs # build npm
+        run: npm run build:docs -- latest
+
+      - name: Pages # github pages
+        uses: JamesIves/github-pages-deploy-action@v4.3.0
+        with:
+          branch: gh-pages
+          folder: docs
