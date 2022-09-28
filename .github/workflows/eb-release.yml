@@ -64,12 +64,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
-      # - name: Publish # npm publish
-      #   env:
-      #     NODE_AUTH_TOKEN: ${{ secrets.NPMJS_TOKEN }}
-      #   run: |
-      #     cd npm
-      #     npm publish
+      - name: Publish # npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPMJS_TOKEN }}
+        run: |
+          cd npm
+          npm publish
       
       - name: Purge # purge cdn
         run: npm run purge
