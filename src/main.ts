@@ -53,13 +53,24 @@ function checkScriptUse () {
   if (!dom) {
     return;
   }
+
+  const boolAttrs = [
+    'disable-menu', 'disable-select', 'disable-copy',
+    'disable-cut', 'disable-paste', 'clear-log'
+  ];
+
+  const intAttrs = ['interval'];
+
   const json: Record<string, any> = {};
-  ['md5', 'url', 'tk-name', 'interval', 'disable-menu', 'detectors'].forEach(name => {
+  [
+    'md5', 'url', 'tk-name', 'detectors',
+    ...boolAttrs, ...intAttrs
+  ].forEach(name => {
     let value: any = dom.getAttribute(name);
     if (value !== null) {
-      if (name === 'interval') {
+      if (intAttrs.indexOf(name) !== -1) {
         value = parseInt(value);
-      } else if (name === 'disable-menu') {
+      } else if (boolAttrs.indexOf(name) !== -1) {
         value = value === 'false' ? false : true;
       } else if (name === 'detector') {
         if (value !== 'all') {
