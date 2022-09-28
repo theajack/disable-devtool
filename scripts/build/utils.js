@@ -5,6 +5,7 @@
  */
 const fs = require('fs');
 const path = require('path');
+const childProcess = require('child_process');
 
 function resolveRootPath (str) {
   return path.resolve(__dirname, `../../${str}`);
@@ -81,6 +82,22 @@ function buildPackageJson (extract = {}) {
   writeJsonIntoFile('@npm/package.json', npmPkg);
 }
 
+async function exec (cmd) {
+  return new Promise(resolve => {
+    childProcess.exec(cmd, function (error, stdout, stderr) {
+      if (error) {
+        resolve({success: false, stdout, stderr});
+      } else {
+        resolve({
+          success: true,
+          stdout,
+          stderr
+        });
+      }
+    });
+  });
+}
+
 module.exports = {
   copyFile,
   resolveRootPath,
@@ -97,4 +114,5 @@ module.exports = {
   write: function (file, txt) {
     fs.writeFileSync(transfromFilePath(file), txt, 'utf8');
   },
+  exec,
 };

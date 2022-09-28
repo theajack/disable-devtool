@@ -7,7 +7,8 @@
         "build": "node scripts/build/build.js",
         "sync-version": "node helper/mod-index-html-version.js",
         "build:docs": "node scripts/build/docs/build-docs.js",
-        "purge": "node scripts/purge-cdn.js"
+        "purge": "node scripts/purge-cdn.js",
+        "release": "node scripts/push-release.js"
     },
     "name": "disable-devtool",
     "version": "0.3.0",
