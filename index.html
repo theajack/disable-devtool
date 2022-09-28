@@ -58,7 +58,7 @@
         <a href="https://www.github.com/theajack/disable-devtool/blob/master/LICENSE" target="_black">
             <img src="https://img.shields.io/github/license/theajack/disable-devtool?color=%232DCE89&logo=github" alt="license" />
         </a>
-        <a href="https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js"><img src="https://img.shields.io/bundlephobia/minzip/disable-devtool.svg" alt="Size"></a>
+        <a href="https://cdn.jsdelivr.net/npm/disable-devtool"><img src="https://img.shields.io/bundlephobia/minzip/disable-devtool.svg" alt="Size"></a>
         <a href="https://github.com/theajack/disable-devtool/search?l=javascript"><img src="https://img.shields.io/github/languages/top/theajack/disable-devtool.svg" alt="TopLang"></a>
         <a href="https://www.github.com/theajack/disable-devtool"><img src="https://img.shields.io/librariesio/dependent-repos/npm/disable-devtool.svg" alt="Dependent"></a>
         <a href="https://github.com/theajack/disable-devtool/blob/master/test/test-report.txt"><img src="https://img.shields.io/badge/test-passed-44BB44" alt="test"></a>
@@ -88,14 +88,14 @@ disableDevtool();</code>
 
     <h3>1.2 script attribute configuration</h3>
 
-    <p><code>&lt;script disable-devtool-auto src=&#39;https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js&#39;&gt;&lt;/script&gt;</code></p>
+    <p><code>&lt;script disable-devtool-auto src=&#39;https://cdn.jsdelivr.net/npm/disable-devtool&#39;&gt;&lt;/script&gt;</code></p>
 
     <p>Or use cdn with version:</p>
 
     <p><code>&lt;!--Use a specific version-->
-&lt;script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@x.x.x/disable-devtool.min.js'>&lt;/script>
+&lt;script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@x.x.x'>&lt;/script>
 &lt;!--Use latest version-->
-&lt;script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js'>&lt;/script></code></p>
+&lt;script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'>&lt;/script></code></p>
 
     <div style="margin-bottom: 50px">
         TOOL:
@@ -106,11 +106,9 @@ disableDevtool();</code>
 
     <script 
         disable-devtool-auto 
-        disable-select="true"
         md5='1aabac6d068eef6a7bad3fdf50a05cc8' 
         src='https://cdn.jsdelivr.net/npm/disable-devtool@0.2.6/disable-devtool.min.js#use'
     ></script>
-    <!-- <script disable-devtool-auto md5='1aabac6d068eef6a7bad3fdf50a05cc8' src='./npm/disable-devtool.min.js'></script> -->
     <script>
         function setText(text){
             document.getElementById('md5_value').innerText = text;

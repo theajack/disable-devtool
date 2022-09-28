@@ -30,7 +30,7 @@
     <a href="https://www.github.com/theajack/disable-devtool/blob/master/LICENSE" target="_black">
         <img src="https://img.shields.io/github/license/theajack/disable-devtool?color=%232DCE89&logo=github" alt="license" />
     </a>
-    <a href="https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js"><img src="https://img.shields.io/bundlephobia/minzip/disable-devtool.svg" alt="Size"></a>
+    <a href="https://cdn.jsdelivr.net/npm/disable-devtool"><img src="https://img.shields.io/bundlephobia/minzip/disable-devtool.svg" alt="Size"></a>
     <a href="https://github.com/theajack/disable-devtool/search?l=javascript"><img src="https://img.shields.io/github/languages/top/theajack/disable-devtool.svg" alt="TopLang"></a>
     <a href="https://www.github.com/theajack/disable-devtool"><img src="https://img.shields.io/librariesio/dependent-repos/npm/disable-devtool.svg" alt="Dependent"></a>
     <a href="https://github.com/theajack/disable-devtool/blob/master/test/test-report.txt"><img src="https://img.shields.io/badge/test-passed-44BB44" alt="test"></a>
@@ -55,16 +55,16 @@ DisableDevtool();
 ### 1.2 script属性配置
 
 ```html
-<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'></script>
+<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
 ```
 
 或者通过版本引用:
 
 ```html
 <!--使用指定版本-->
-<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@x.x.x/disable-devtool.min.js'></script>
+<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@x.x.x'></script>
 <!--使用最新版本-->
-<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js'></script>
+<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
 ```
 
 ## 2.功能
@@ -153,7 +153,7 @@ DisableDevtool.md5('xxx');
 ```html
 <script 
     disable-devtool-auto
-    src='https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'
+    src='https://cdn.jsdelivr.net/npm/disable-devtool'
     md5='xxx'
     url='xxx'
     tk-name='xxx'
@@ -178,7 +178,7 @@ DisableDevtool.md5('xxx');
 ### 3.4 script不使用属性配置
 
 ```html
-<script src='https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
 <script>
     DisableDevtool({
         // 参数与3.1中一致
