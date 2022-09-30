@@ -3,3 +3,5 @@ node_modules
 .pnpm-debug.log
 /npm
 /docs
+bundle.js
+bundle.js.map
