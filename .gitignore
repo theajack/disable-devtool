@@ -1,3 +1,7 @@
+node_modules
 /dist
+.pnpm-debug.log
+/npm
 /docs
-/node_modules
+bundle.js
+bundle.js.map
