@@ -7,6 +7,7 @@
 import {clearLog, log} from '../../utils/log';
 import {Detector} from '../detector';
 import {DetectorType} from 'src/utils/enum';
+import {isIOSChrome} from 'src/utils/util';
 
 export default class extends Detector {
 
@@ -15,7 +16,8 @@ export default class extends Detector {
 
   constructor () {
     super({
-      type: DetectorType.DateToString
+      type: DetectorType.DateToString,
+      enabled: !isIOSChrome, // iosChrome 中会有bug
     });
   }
 
