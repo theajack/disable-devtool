@@ -5,6 +5,10 @@
 -->
 # Version Log:
 
+## 0.3.1 
+
+1. 修复ios chrome中文的误识别
+
 ## 0.3.0
 
 1. ts重构，使用esbuild与rollup
