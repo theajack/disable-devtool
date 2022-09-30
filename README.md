@@ -41,21 +41,21 @@
 
 ### 1.1 npm reference
 
-````
+```
 npm i disable-devtool
-````
+```
 
-````js
+```js
 import DisableDevtool from 'disable-devtool';
 
 DisableDevtool();
-````
+```
 
 ### 1.2 script attribute configuration
 
 ```html
 <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
-````
+```
 
 Or cite by version:
 
@@ -64,7 +64,7 @@ Or cite by version:
 <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@x.x.x'></script>
 <!--Use latest version-->
 <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
-````
+```
 
 ## 2. Function
 
@@ -90,15 +90,15 @@ The library has the following features:
 
 install disable-devtool
 
-````
+```
 npm i disable-devtool
-````
+```
 
-````js
+```js
 import DisableDevtool from 'disable-devtool';
 
 DisableDevtool(options);
-````
+```
 
 The parameters and descriptions in options are as follows:
 
@@ -118,6 +118,7 @@ declare interface IConfig {
     disableSelect?: boolean; // Whether to disable selection text Default is false
     disableCopy?: boolean; // Whether to disable copying, default is false
     disableCut?: boolean; // Whether to disable cutting, default is false
+    disablePaste: boolean; // Whether to disable paste, default is false
 }
 
 enum DetectorType {
@@ -131,7 +132,7 @@ enum DetectorType {
   Performance, // Performance detection based on log big data
   DebugLib, // Detect third-party debugging tools eruda and vconsole
 };
-````
+```
 
 ### 3.2 md5 and tk bypass disabled
 
@@ -143,9 +144,9 @@ First specify a key a (the value should not be recorded in the code), use md5 en
 
 The disableDevtool object exposes the md5 method, which can be used by developers when encrypting:
 
-````js
+```js
 DisableDevtool.md5('xxx');
-````
+```
 
 ### 3.3 script uses attribute configuration
 
@@ -165,7 +166,7 @@ DisableDevtool.md5('xxx');
     disable-cut='true'
     disable-paste='true'
 ></script>
-````
+```
 
 Note:
 
@@ -183,7 +184,7 @@ Note:
         // The parameters are the same as in 3.1
     })
 </script>
-````
+```
 
 ### 3.5 Monitoring Mode
 
@@ -201,6 +202,15 @@ enum DetectorType {
   Performance, // Performance detection based on log big data
   DebugLib, // Detect third-party debugging tools
 };
-````
+```
 
 The callback parameter of the ondevtoolopen event is the triggered monitoring mode
+
+```ts
+DisableDevtool({
+    ondevtoolopen(type, next){
+        alert('Devtool opened with type:' + type);
+        next();
+    }
+});
+```

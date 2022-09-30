@@ -119,6 +119,7 @@ declare interface IConfig {
     disableSelect?: boolean; // 是否禁用选择文本 默认为false
     disableCopy?: boolean; // 是否禁用复制 默认为false
     disableCut?: boolean; // 是否禁用剪切 默认为false
+    disablePaste: boolean; // 是否禁用粘贴 默认为false
 }
 
 enum DetectorType {
@@ -205,3 +206,12 @@ enum DetectorType {
 ```
 
 ondevtoolopen 事件的回调参数就是被触发的监测模式
+
+```ts
+DisableDevtool({
+    ondevtoolopen(type, next){
+        alert('Devtool opened with type:' + type);
+        next();
+    }
+});
+```
