@@ -3,7 +3,7 @@ tag-template: 'v$RESOLVED_VERSION'
 template: |
   # What's Changed
 
-  ### [Version Log](https://github.com/theajack/disable-devtool/blob/master/helper/version.en.md)
+  ### [Version Log](https://github.com/theajack/disable-devtool/blob/master/scripts/version.en.md)
 
   **Full Changelog**: https://github.com/$OWNER/$REPOSITORY/compare/$PREVIOUS_TAG...v$RESOLVED_VERSION
 

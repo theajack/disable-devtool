@@ -1,10 +1,11 @@
-<h1><a href='https://www.github.com/theajack/disable-devtool'>Disable-devtool</a></h1>
 
-<h2>🚀 One line of code to disable web developer tools </h2>
+<p align="center">
+    <a href='https://www.github.com/theajack/disable-devtool'>
+        <img src='https://shiyix.cn/disable-devtool3.png' width='240px'/>
+    </a>
+</p> 
 
-----
-
-<p>
+<p align="center">
     <a href="https://www.github.com/theajack/disable-devtool/stargazers" target="_black">
         <img src="https://img.shields.io/github/stars/theajack/disable-devtool?logo=github" alt="stars" />
     </a>
@@ -22,7 +23,7 @@
     </a>
     <a href="https://github.com/theajack/disable-devtool/issues"><img src="https://img.shields.io/github/issues-closed/theajack/disable-devtool.svg" alt="issue"></a>
 </p>
-<p>
+<p align="center">
     <a href="https://github.com/theajack" target="_black">
         <img src="https://img.shields.io/badge/Author-%20theajack%20-7289da.svg?&logo=github" alt="author" />
     </a>
@@ -35,7 +36,11 @@
     <a href="https://github.com/theajack/disable-devtool/blob/master/test/test-report.txt"><img src="https://img.shields.io/badge/test-passed-44BB44" alt="test"></a>
 </p>
 
+<h2>🚀 One line of code to disable web developer tools </h2>
+
 **[中文](https://github.com/theajack/disable-devtool/blob/master/README.cn.md) | [Online Trial](https://theajack.github.io/disable-devtool) | [Changelog](https://github.com/theajack/disable-devtool/blob/master/helper/version.md) | [Gitee](https://gitee.com/theajack/disable-devtool) | [Message Board](https://theajack.github.io/message-board?app=disable-devtool) ｜ QQ Group: 720626970**
+
+----
 
 ## 1. Quick use
 

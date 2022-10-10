@@ -1,11 +1,11 @@
 
-<h1><a href='https://www.github.com/theajack/disable-devtool'>Disable-devtool</a></h1>
+<p align="center">
+    <a href='https://www.github.com/theajack/disable-devtool'>
+        <img src='https://shiyix.cn/disable-devtool3.png' width='240px'/>
+    </a>
+</p> 
 
-<h2>🚀 一行代码搞定禁用web开发者工具 </h2>
-
-----
-
-<p>
+<p align="center">
     <a href="https://www.github.com/theajack/disable-devtool/stargazers" target="_black">
         <img src="https://img.shields.io/github/stars/theajack/disable-devtool?logo=github" alt="stars" />
     </a>
@@ -23,7 +23,7 @@
     </a>
     <a href="https://github.com/theajack/disable-devtool/issues"><img src="https://img.shields.io/github/issues-closed/theajack/disable-devtool.svg" alt="issue"></a>
 </p>
-<p>
+<p align="center">
     <a href="https://github.com/theajack" target="_black">
         <img src="https://img.shields.io/badge/Author-%20theajack%20-7289da.svg?&logo=github" alt="author" />
     </a>
@@ -36,7 +36,11 @@
     <a href="https://github.com/theajack/disable-devtool/blob/master/test/test-report.txt"><img src="https://img.shields.io/badge/test-passed-44BB44" alt="test"></a>
 </p>
 
+<h2>🚀 一行代码搞定禁用web开发者工具 </h2>
+
 **[English](https://github.com/theajack/disable-devtool/blob/master/README.md) | [在线试用](https://theajack.github.io/disable-devtool) | [更新日志](https://github.com/theajack/disable-devtool/blob/master/helper/version.md) | [Gitee](https://gitee.com/theajack/disable-devtool) | [留言板](https://theajack.github.io/message-board?app=disable-devtool) ｜ QQ交流群: 720626970**
+
+----
 
 ## 1. 快速使用
 
