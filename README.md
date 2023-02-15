@@ -6,6 +6,14 @@
 </p> 
 
 <p align="center">
+    <a href="https://ko-fi.com/theajack">
+        <img src="https://img.shields.io/badge/Donate-Ko Fi-ff5f5f" alt="test">
+    </a>    
+    <a href="https://paypal.me/tackchen">
+        <img src="https://img.shields.io/badge/Donate-PayPal-142c8e" alt="test">
+    </a>
+</p>
+<p align="center">
     <a href="https://www.github.com/theajack/disable-devtool/stargazers" target="_black">
         <img src="https://img.shields.io/github/stars/theajack/disable-devtool?logo=github" alt="stars" />
     </a>
