@@ -11,6 +11,9 @@
     </a>    
     <a href="https://paypal.me/tackchen">
         <img src="https://img.shields.io/badge/Donate-PayPal-142c8e" alt="test">
+    </a>    
+    <a href="https://shiyix.cn/wx-pay.png">
+        <img src="https://img.shields.io/badge/Donate-Wechat Pay-00c250" alt="test">
     </a>
 </p>
 <p align="center">
