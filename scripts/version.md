@@ -5,9 +5,15 @@
 -->
 # Version Log:
 
+## 0.3.2
+
+1. 增加 isRunning 属性，返回检测器是否正在运行
+2. 增加 isSuspend 属性，设置检测器挂起 或 检测是否被挂起
+4. 增加 ignore 配置参数，用户匹配某些url不启用检测器
+
 ## 0.3.1 
 
-1. 修复ios chrome中文的误识别
+1. 修复ios chrome中的误识别
 
 ## 0.3.0
 

@@ -82,6 +82,59 @@ DisableDevtool();
 <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
 ```
 
+### 1.3 误触发问题定位帮助
+
+----
+
+<details>
+    <summary>如果您在使用过程中遇到问题，请点开我</summary>
+
+因为设备、浏览器、运行环境众多，难免会有一些该库无法兼容的场景，此部分用于开发者自查问题，然后细节反馈到 issues，以帮助我们定位和解决bug
+
+#### 1.3.1 探测器被错误地触发
+
+对于部分情况下，如果没有打开控制台但是页面没关闭了或是跳转走了的问题，原因是某个探测器被错误地触发了，请使用以下代码定位是哪个探测器被误触发了：
+
+```js
+DisableDevtool({
+    ondevtoolopen: (type) => {
+        const info = 'devtool opened!; type =' + type;
+        alert(info);
+        // 如果担心阻塞页面 请使用 console.warn(info); 并打开控制台查看
+    },
+})
+```
+
+上述代码在使用脚本引用时需要这样使用
+
+```html
+<script src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
+<script>
+    DisableDevtool({
+        ondevtoolopen: (type) => {
+            const info = 'devtool opened!; type =' + type;
+            alert(info); // 如果担心阻塞页面 请使用 console.warn(info); 并打开控制台查看
+        },
+    })
+</script>
+```
+
+#### 1.3.2 探测器没有被触发
+
+当通过任意方式打开了devtool，但是页面没有正确的关闭或者跳转时，首先请尝试打印以下内容，看看探测器是否在正常工作
+
+```js
+console.log(DisableDevtool.isRunning);
+```
+
+如果返回的是true，那么这就是一个不兼容的问题，原因是所有探测器都没有被触发，这种情况是比较棘手的，目前来看没有通用的定位方法
+
+请提交一个issue，尽可能详细地提供您使用的浏览器版本、设备型号及版本、运行环境，最好是有截图或者演示地址，我们后续会进行相应的问题排查
+
+</details>
+
+----
+
 ## 2.功能
 
 disable-devtool 可以禁用所有一切可以进入开发者工具的方法，防止通过开发者工具进行的 ‘代码搬运’
@@ -99,10 +152,14 @@ disable-devtool 可以禁用所有一切可以进入开发者工具的方法，�
 9.  支持识别开发者工具关闭事件
 10. 支持可配置是否禁用选择、复制、剪切、粘贴功能
 11. 支持识别 eruda 和 vconsole 调试工具
+12. 支持挂起和恢复探测器工作
+13. 支持配置ignore属性，用以自定义控制是否启用探测器
 
 ## 3. 使用
 
 ### 3.1 npm使用时的配置参数
+
+推荐使用这种方式安装使用，使用script脚本可以被代理单独拦截掉从而无法执行
 
 安装 disable-devtool
 
@@ -204,7 +261,7 @@ DisableDevtool.md5('xxx');
 
 ### 3.5 监测模式
 
-Disable-Devtool 有五种监测模式, DisableDevtool.DetectorType 为所有的监测模式枚举
+Disable-Devtool 有以下几种监测模式, DisableDevtool.DetectorType 为所有的监测模式枚举
 
 ```ts
 enum DetectorType {
