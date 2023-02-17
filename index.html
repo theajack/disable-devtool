@@ -26,7 +26,7 @@
 
 <body>
     <h1><a style='color:#222' href='https://www.github.com/theajack/disable-devtool'>Disable-devtool</a></h1>
-    
+    <h3 id="version"></h3>
     <h3>
         Now that the devtool on this page has been disabled, use the <a href='https://theajack.github.io/disable-devtool?ddtk=dd'>?ddtk=dd</a> url parameter to un-disable (ddtk value is configurable)
     </h3>
@@ -107,10 +107,11 @@ disableDevtool();</code>
     <script 
         disable-devtool-auto 
         md5='1aabac6d068eef6a7bad3fdf50a05cc8' 
-        src='https://cdn.jsdelivr.net/npm/disable-devtool@0.3.1/disable-devtool.min.js#use'
+        src='https://cdn.jsdelivr.net/npm/disable-devtool@0.3.2/disable-devtool.min.js#use'
     ></script>
     
     <script>
+        document.getElementById('version').innerText = 'version = ' + DisableDevtool.version;
         function setText(text){
             document.getElementById('md5_value').innerText = text;
         }
