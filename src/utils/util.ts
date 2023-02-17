@@ -114,7 +114,7 @@ export function initIS () {
   const iosChrome = has('crios');
   const iosEdge = has('edgios');
   const chrome = has('chrome') || iosChrome;
-  const seoBot = /(googlebot|baiduspider|bingbot|applebot|petalbot|yandexbot|bytespider)/i.test(ua);
+  const seoBot = /(googlebot|baiduspider|bingbot|applebot|petalbot|yandexbot|bytespider|chrome\-lighthouse)/i.test(ua);
 
   Object.assign(IS, {
     iframe, pc, qqBrowser, firefox, macos, edge, oldEdge,
