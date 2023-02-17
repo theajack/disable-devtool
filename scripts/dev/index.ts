@@ -4,7 +4,7 @@
  * @Description: Coding something
  */
 import disableDevtool from '../../src';
-// import disableDevtool from '../npm';
+// import disableDevtool from '../../npm';
 
 disableDevtool({
   md5: '0b9e05caf5000360ec1c263335bd83fe', // ddtk
