@@ -49,6 +49,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |
           npm run build -- ${{ steps.version.outputs.version }}
+          git config --global user.email "1506282385@qq.com"
+          git config --global user.name "theajack"
           git add .
           git commit -m "CI: push v${{ steps.version.outputs.version }}"
           git push
