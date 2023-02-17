@@ -5,6 +5,19 @@
 -->
 # Version Log:
 
+## 0.3.3
+
+1. Fixed the issue that an error may be reported in a non-browser environment
+2. Add SEO protection function, and add config.seo parameter to control whether it needs to be enabled, the default is true
+   
+## 0.3.2
+
+1. Add the isRunning property to return whether the detector is running
+2. Add the isSuspend property to set Detector Hang or Detect whether it is suspended
+3. Add the ignore configuration parameter, users matching certain URLs do not enable detectors
+4. Fixed the bug that the parent window can open the console in the iframe, and added the disableIframeParents parameter to control the behavior
+5. Fixed the issue that the default redirect link is invalid
+   
 ## 0.3.1
 
 1. Fixed false recognition in ios Chrome
