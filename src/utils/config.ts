@@ -23,6 +23,7 @@ export const config: IConfig = {
   disableCut: false,
   disablePaste: false,
   ignore: null,
+  disableIframeParents: true,
 };
 
 const MultiTypeKeys = ['detectors', 'ondevtoolclose', 'ignore'];

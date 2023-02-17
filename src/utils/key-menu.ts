@@ -3,10 +3,28 @@
  * @Date: 2022-09-27 22:16:40
  * @Description: Coding something
  */
+import {IDisableDevtool} from '../type';
+import {isIgnored} from '../plugins/ignore';
 import {config} from './config';
 import {isMacOs} from './util';
 
-export function disableKeyAndMenu () {
+let isSuspend = () => false;
+
+export function disableKeyAndMenu (dd: IDisableDevtool) {
+  isSuspend = () => dd.isSuspend;
+  
+  const top = window.top;
+  let parent = window.parent;
+  disableTarget(window);
+  if (!config.disableIframeParents || !top || !parent || top === window) return;
+  while (parent !== top) {
+    disableTarget(parent);
+    parent = parent.parent;
+  }
+  disableTarget(top);
+}
+
+function disableTarget (target: Window) {
   // let key1 = 'shiftKey', key2 = 'ctrlKey';
   // 'metaKey'; // mac 的 commond
   // 'altKey'; // mac 的 option
@@ -21,57 +39,60 @@ export function disableKeyAndMenu () {
     ((e: KeyboardEvent, code: number) => (e.metaKey && e.altKey && code === KEY.U) || (e.metaKey && code === KEY.S)) :
     ((e: KeyboardEvent, code: number) => (e.ctrlKey && (code === KEY.S || code === KEY.U)));
 
-  window.addEventListener('keydown', (e) => {
-    e = e || window.event;
+  target.addEventListener('keydown', (e) => {
+    e = e || target.event;
     const keyCode = e.keyCode || e.which;
     if (
       keyCode === KEY.F12 || // 禁用f12
       isOpenDevToolKey(e, keyCode) || // 禁用 ctrl + shift + i
       isViewSourceCodeKey(e, keyCode) // 禁用 ctrl + u 和 ctrl + s 查看和保存源码
     ) {
-      e.returnValue = false;
-      e.preventDefault();
-      return false;
+      return preventEvent(target, e);
     }
   }, true);
 
-  disableMenu();
-  disableSelect();
-  disableCopy();
-  disableCut();
-  disablePaste();
+  disableMenu(target);
+  disableSelect(target);
+  disableCopy(target);
+  disableCut(target);
+  disablePaste(target);
 }
 
-function disableMenu () {
+function disableMenu (target: Window) {
   if (config.disableMenu) {
-    preventEvent(window, 'contextmenu');
+    addPreventListener(target, 'contextmenu');
   }
 }
-function disableSelect () {
+function disableSelect (target: Window) {
   if (config.disableSelect) {
-    preventEvent(window, 'selectstart');
+    addPreventListener(target, 'selectstart');
   }
 }
-function disableCopy () {
+function disableCopy (target: Window) {
   if (config.disableCopy) {
-    preventEvent(window, 'copy');
+    addPreventListener(target, 'copy');
   }
 }
-function disableCut () {
+function disableCut (target: Window) {
   if (config.disableCut) {
-    preventEvent(window, 'cut');
+    addPreventListener(target, 'cut');
   }
 }
-function disablePaste () {
+function disablePaste (target: Window) {
   if (config.disablePaste) {
-    preventEvent(window, 'paste');
+    addPreventListener(target, 'paste');
   }
 }
-function preventEvent (target: Window & typeof globalThis, name: string) {
+function addPreventListener (target: Window, name: string) {
   target.addEventListener(name, (e: Event) => {
-    e = e || window.event;
-    e.returnValue = false;
-    e.preventDefault();
-    return false;
+    return preventEvent(target, e);
   });
+}
+
+function preventEvent (target: Window, e: Event) {
+  if (isIgnored() || isSuspend()) return;
+  e = e || target.event;
+  e.returnValue = false;
+  e.preventDefault();
+  return false;
 }

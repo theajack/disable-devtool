@@ -9,7 +9,7 @@ import disableDevtool from '../../src';
 disableDevtool({
   md5: '0b9e05caf5000360ec1c263335bd83fe', // ddtk
   // url: 'https://www.qq.com',
-  ondevtoolopen: (type) => {
+  ondevtoolopen: (type, next) => {
     // window.location.href = 'https://www.qq.com';
     document.body.innerHTML = 'devtool opened!; type =' + type;
     // next();
@@ -25,19 +25,26 @@ disableDevtool({
   clearIntervalWhenDevOpenTrigger: true,
   interval: 1000,
   // tkName: 'ddtk',
-  disableMenu: false,
-  clearLog: false,
+  // disableMenu: false,
+  // clearLog: false,
   disableCopy: true,
   disableSelect: true,
   disablePaste: true,
   // url: 'https://www.baidu.com'
   // detectors: [disableDevtool.DetectorType.DATE_TO_STRING],
+
+  // ignore: ['aaaa', /[xy]+/],
+  // ignore: () => window.ignore === undefined
 });
 document.addEventListener('click', () => {
   const div = document.createElement('div');
   div.innerText = `isOpen = ${disableDevtool.isDevToolOpened()}`;
   document.body.appendChild(div);
   // alert(disableDevtool.isDevToolOpened());
+
+
+  // disableDevtool.isSuspend = !disableDevtool.isSuspend;
+  // alert(disableDevtool.isSuspend);
 });
 
 // console.log(disableDevtool.version);

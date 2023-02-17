@@ -22,7 +22,8 @@ export interface IConfig {
     disableCopy: boolean; // 是否禁用复制 默认为false
     disableCut: boolean; // 是否禁用剪切 默认为false
     disablePaste: boolean; // 是否禁用粘贴 默认为false
-    ignore: (string|RegExp)[] | null | (()=>boolean);
+    ignore: (string|RegExp)[] | null | (()=>boolean); // 某些情况忽略禁用
+    disableIframeParents: boolean; // iframe中是否禁用所有父窗口，默认 true
 }
 
 export interface IDisableDevtool {

@@ -6,17 +6,6 @@
 </p> 
 
 <p align="center">
-    <a href="https://ko-fi.com/theajack">
-        <img src="https://img.shields.io/badge/Donate-Ko Fi-ff5f5f" alt="test">
-    </a>    
-    <a href="https://paypal.me/tackchen">
-        <img src="https://img.shields.io/badge/Donate-PayPal-142c8e" alt="test">
-    </a>    
-    <a href="https://shiyix.cn/wx-pay.png">
-        <img src="https://img.shields.io/badge/Donate-Wechat Pay-00c250" alt="test">
-    </a>
-</p>
-<p align="center">
     <a href="https://www.github.com/theajack/disable-devtool/stargazers" target="_black">
         <img src="https://img.shields.io/github/stars/theajack/disable-devtool?logo=github" alt="stars" />
     </a>
@@ -50,6 +39,22 @@
 <h2>🚀 One line of code to disable web developer tools </h2>
 
 **[中文](https://github.com/theajack/disable-devtool/blob/master/README.cn.md) | [Online Trial](https://theajack.github.io/disable-devtool) | [Changelog](https://github.com/theajack/disable-devtool/blob/master/helper/version.md) | [Gitee](https://gitee.com/theajack/disable-devtool) | [Message Board](https://theajack.github.io/message-board?app=disable-devtool) ｜ QQ Group: 720626970**
+
+----
+
+Open source maintenance is not easy, if you have the financial means, you can donate the author for a cup of coffee
+
+<p align="">
+    <a href="https://ko-fi.com/theajack">
+        <img src="https://img.shields.io/badge/Donate-Ko Fi-ff5f5f" alt="test">
+    </a>    
+    <a href="https://paypal.me/tackchen">
+        <img src="https://img.shields.io/badge/Donate-PayPal-142c8e" alt="test">
+    </a>    
+    <a href="https://shiyix.cn/wx-pay.png">
+        <img src="https://img.shields.io/badge/Donate-Wechat Pay-00c250" alt="test">
+    </a>
+</p>
 
 ----
 
@@ -100,7 +105,7 @@ DisableDevtool({
     ondevtoolopen: (type) => {
         const info = 'devtool opened!; type =' + type;
         alert(info);
-        If you are worried about blocking the page, use console.warn(info); and open the console to view
+        // If you are worried about blocking the page, use console.warn(info); and open the console to view
     },
 })
 ```
@@ -113,7 +118,7 @@ The above code needs to be used this when using script references
     DisableDevtool({
         ondevtoolopen: (type) => {
             const info = 'devtool opened!; type =' + type;
-            alert(info); If you are worried about blocking the page, use console.warn(info); and open the console to view
+            alert(info); // If you are worried about blocking the page, use console.warn(info); and open the console to view
         },
     })
 </script>
@@ -154,6 +159,7 @@ The library has the following features:
 11. Support to identify eruda and vconsole debugging tools
 12. Support suspending and resuming probe work
 13. Support configuring ignore attributes to customize whether to enable probes
+14. Support for configuring all parent pages in iframes to be disabled
     
 ## 3. Use
 
@@ -192,6 +198,8 @@ declare interface IConfig {
     disableCopy?: boolean; // Whether to disable copying, default is false
     disableCut?: boolean; // Whether to disable cutting, default is false
     disablePaste: boolean; // Whether to disable paste, default is false
+    ignore?: (string| RegExp)[] | null | (()=>boolean); // Some cases ignore the disablement
+    disableIframeParents?: boolean; // Whether all parent windows are disabled in the iframe
 }
 
 enum DetectorType {
@@ -279,6 +287,8 @@ enum DetectorType {
 
 The callback parameter of the ondevtoolopen event is the triggered monitoring mode
 
+You can execute business logic in OndevtoolOpen, such as data reporting, user behavior analysis, etc
+
 ```ts
 DisableDevtool({
     ondevtoolopen(type, next){
@@ -286,4 +296,60 @@ DisableDevtool({
         next();
     }
 });
+```
+
+### 3.6 Additional APIs
+
+#### 3.6.1 isRunning
+
+Used to get whether DisableDevtool is running (the pending or ignore state is also considered running because it can be turned on dynamically)
+
+```js
+DisableDevtool.isRunning;
+```
+
+#### 3.6.2 isSuspend
+
+Used to get or set whether DisableDevtool is suspended (suspended state, all disabled will be temporarily disabled)
+
+```js
+DisableDevtool.isSuspend = true;
+DisableDevtool.isSuspend = false;
+```
+
+#### 3.6.3 config.ignore
+
+ignore is used to customize certain ignored scenarios
+
+1. Pass in the array
+
+The incoming array is supported by strings and regular expressions that indicate whether the matching link contains the incoming content, using the following
+
+```js
+DisableDevtool({
+    ignore: [
+        '/user/login', // Disabled is temporarily ignored when the link contains this content
+        /\/user\/[0-9]{6}/, // When a link matches that regular, disabling is temporarily ignored
+    ]
+});
+```
+
+2. Pass in the function
+
+The passing function represents a custom judgment condition and returns a bool type, as follows
+
+```js
+DisableDevtool({
+    ignore: () => {
+        return userType === 'admin'; // Disable is ignored when you are an administrator
+    }
+});
+```
+
+#### 3.6.4 version
+
+Get DisableDevtool version
+
+```js
+DisableDevtool.version;
 ```

@@ -9,7 +9,9 @@
 
 1. 增加 isRunning 属性，返回检测器是否正在运行
 2. 增加 isSuspend 属性，设置检测器挂起 或 检测是否被挂起
-4. 增加 ignore 配置参数，用户匹配某些url不启用检测器
+3. 增加 ignore 配置参数，用户匹配某些url不启用检测器
+4. 修复iframe中，父窗口可以打开控制台的bug，并新增disableIframeParents参数控制该行为
+5. 修复默认跳转链接失效的问题
 
 ## 0.3.1 
 

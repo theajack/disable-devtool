@@ -20,7 +20,7 @@ export const disableDevtool: IDisableDevtool = Object.assign(((opts?: Partial<IC
   if (checkTk()) {return;}
   disableDevtool.isRunning = true;
   initInterval(disableDevtool);
-  disableKeyAndMenu();
+  disableKeyAndMenu(disableDevtool);
   initDetectors();
 }), {
   isRunning: false,

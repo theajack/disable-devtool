@@ -6,17 +6,6 @@
 </p> 
 
 <p align="center">
-    <a href="https://ko-fi.com/theajack">
-        <img src="https://img.shields.io/badge/Donate-Ko Fi-ff5f5f" alt="test">
-    </a>    
-    <a href="https://paypal.me/tackchen">
-        <img src="https://img.shields.io/badge/Donate-PayPal-142c8e" alt="test">
-    </a>    
-    <a href="https://shiyix.cn/wx-pay.png">
-        <img src="https://img.shields.io/badge/Donate-Wechat Pay-00c250" alt="test">
-    </a>
-</p>
-<p align="center">
     <a href="https://www.github.com/theajack/disable-devtool/stargazers" target="_black">
         <img src="https://img.shields.io/github/stars/theajack/disable-devtool?logo=github" alt="stars" />
     </a>
@@ -50,6 +39,22 @@
 <h2>🚀 一行代码搞定禁用web开发者工具 </h2>
 
 **[English](https://github.com/theajack/disable-devtool/blob/master/README.md) | [在线试用](https://theajack.github.io/disable-devtool) | [更新日志](https://github.com/theajack/disable-devtool/blob/master/helper/version.md) | [Gitee](https://gitee.com/theajack/disable-devtool) | [留言板](https://theajack.github.io/message-board?app=disable-devtool) ｜ QQ交流群: 720626970**
+
+----
+
+开源维护不易，如果您有经济条件的话，可以捐赠给作者一杯咖啡
+
+<p align="">
+    <a href="https://ko-fi.com/theajack">
+        <img src="https://img.shields.io/badge/Donate-Ko Fi-ff5f5f" alt="test">
+    </a>    
+    <a href="https://paypal.me/tackchen">
+        <img src="https://img.shields.io/badge/Donate-PayPal-142c8e" alt="test">
+    </a>    
+    <a href="https://shiyix.cn/wx-pay.png">
+        <img src="https://img.shields.io/badge/Donate-Wechat Pay-00c250" alt="test">
+    </a>
+</p>
 
 ----
 
@@ -154,6 +159,7 @@ disable-devtool 可以禁用所有一切可以进入开发者工具的方法，�
 11. 支持识别 eruda 和 vconsole 调试工具
 12. 支持挂起和恢复探测器工作
 13. 支持配置ignore属性，用以自定义控制是否启用探测器
+14. 支持配置iframe中所有父页面的开发者工具禁用
 
 ## 3. 使用
 
@@ -192,6 +198,8 @@ declare interface IConfig {
     disableCopy?: boolean; // 是否禁用复制 默认为false
     disableCut?: boolean; // 是否禁用剪切 默认为false
     disablePaste: boolean; // 是否禁用粘贴 默认为false
+    ignore?: (string|RegExp)[] | null | (()=>boolean); // 某些情况忽略禁用
+    disableIframeParents?: boolean; // iframe中是否禁用所有父窗口
 }
 
 enum DetectorType {
@@ -279,6 +287,8 @@ enum DetectorType {
 
 ondevtoolopen 事件的回调参数就是被触发的监测模式
 
+可以在 ondevtoolopen 里执行业务逻辑，比如做数据上报、用户行为分析等
+
 ```ts
 DisableDevtool({
     ondevtoolopen(type, next){
@@ -286,4 +296,60 @@ DisableDevtool({
         next();
     }
 });
+```
+
+### 3.6 其他 API
+
+#### 3.6.1 isRunning
+
+用于获取 DisableDevtool 是否正在运行中 (挂起或忽略状态也视为运行中，因为可以动态开启)
+
+```js
+DisableDevtool.isRunning;
+```
+
+#### 3.6.2 isSuspend
+
+用于获取或设置 DisableDevtool 是否被挂起 (挂起状态所有的禁用都将暂时失效)
+
+```js
+DisableDevtool.isSuspend = true;
+DisableDevtool.isSuspend = false;
+```
+
+#### 3.6.3 config.ignore
+
+ignore 用于自定义某些忽略的场景
+
+1. 传入数组
+
+传入数组是支持 字符串和正则表达式，表示匹配链接中是否含有传入的内容，使用如下
+
+```js
+DisableDevtool({
+    ignore: [
+        '/user/login', // 当链接中含有该内容时禁用暂时被忽略
+        /\/user\/[0-9]{6}/, // 当链接匹配该正则时禁用暂时被忽略
+    ]
+});
+```
+
+2. 传入函数
+
+传入函数表示自定义判断条件，返回一个bool类型，使用如下
+
+```js
+DisableDevtool({
+    ignore: () => {
+        return userType === 'admin'; // 当是管理员时忽略禁用
+    }
+});
+```
+
+#### 3.6.4 version
+
+用于获取 DisableDevtool 版本号
+
+```js
+DisableDevtool.version;
 ```
