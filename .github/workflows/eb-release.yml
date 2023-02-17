@@ -45,7 +45,13 @@ jobs:
           echo "::set-output name=version::${version}"
 
       - name: Build # build npm
-        run: npm run build -- ${{ steps.version.outputs.version }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        run: |
+          npm run build -- ${{ steps.version.outputs.version }}
+          git add .
+          git commit -m "CI: push v${{ steps.version.outputs.version }}"
+          git push
 
       - name: Build Docs
         run: npm run build:docs -- ${{ steps.version.outputs.version }}

@@ -6,7 +6,7 @@
 import {IDisableDevtool} from '../type';
 import {isIgnored} from '../plugins/ignore';
 import {config} from './config';
-import {isMacOs} from './util';
+import {IS} from './util';
 
 let isSuspend = () => false;
 
@@ -31,11 +31,11 @@ function disableTarget (target: Window) {
   const KEY = {J: 74, I: 73, U: 85, S: 83, F12: 123};
      
   // 禁用 ctrl + shift + i/j
-  const isOpenDevToolKey = isMacOs ?
+  const isOpenDevToolKey = IS.macos ?
     ((e: KeyboardEvent, code: number) => (e.metaKey && e.altKey && (code === KEY.I || code === KEY.J))) :
     ((e: KeyboardEvent, code: number) => (e.ctrlKey && e.shiftKey && (code === KEY.I || code === KEY.J)));
   
-  const isViewSourceCodeKey = isMacOs ?
+  const isViewSourceCodeKey = IS.macos ?
     ((e: KeyboardEvent, code: number) => (e.metaKey && e.altKey && code === KEY.U) || (e.metaKey && code === KEY.S)) :
     ((e: KeyboardEvent, code: number) => (e.ctrlKey && (code === KEY.S || code === KEY.U)));
 

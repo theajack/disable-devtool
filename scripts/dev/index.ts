@@ -12,7 +12,7 @@ disableDevtool({
   ondevtoolopen: (type, next) => {
     // window.location.href = 'https://www.qq.com';
     document.body.innerHTML = 'devtool opened!; type =' + type;
-    // next();
+    next();
     // console.log(next);
   },
   ondevtoolclose: () => {

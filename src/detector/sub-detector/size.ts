@@ -6,7 +6,7 @@
 
 import {Detector} from '../detector';
 import {DetectorType} from 'src/utils/enum';
-import {isEdge, isInIframe} from 'src/utils/util';
+import {IS} from 'src/utils/util';
 import {clearDevToolOpenState} from 'src/utils/open-state';
 
 
@@ -15,7 +15,7 @@ export default class extends Detector {
   constructor () {
     super({
       type: DetectorType.Size,
-      enabled: (!isInIframe && !isEdge)
+      enabled: (!IS.iframe && !IS.edge)
     });
   }
 

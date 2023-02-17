@@ -2,7 +2,7 @@
  * @Author: tackchen
  * @Date: 2021-11-15 22:26:57
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-09-28 00:05:24
+ * @LastEditTime: 2023-02-17 22:08:31
  * @FilePath: /disable-devtool/src/detector/func-to-string.js
  * @Description: Coding something
  */
@@ -10,7 +10,7 @@
 import {Detector} from '../detector';
 import {DetectorType} from 'src/utils/enum';
 import {clearLog, log} from 'src/utils/log';
-import {isIOSChrome, isIOSEdge} from 'src/utils/util';
+import {IS} from 'src/utils/util';
 
 export default class extends Detector {
   count: number;
@@ -19,7 +19,7 @@ export default class extends Detector {
   constructor () {
     super({
       type: DetectorType.FuncToString,
-      enabled: (!isIOSChrome && !isIOSEdge),
+      enabled: (!IS.iosChrome && !IS.iosEdge),
     });
   }
 

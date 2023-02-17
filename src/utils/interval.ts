@@ -8,7 +8,7 @@ import {Detector} from '../detector/detector';
 import {config} from './config';
 import {clearLog} from './log';
 import {clearDevToolOpenState, checkOnDevClose} from './open-state';
-import {hackAlert, isPC, onPageShowHide} from './util';
+import {hackAlert, IS, onPageShowHide} from './util';
 import {isIgnored} from 'src/plugins/ignore';
 
 let interval: any = 0, timer: any = 0;
@@ -34,7 +34,7 @@ export function initInterval (dd: IDisableDevtool) {
   // stopIntervalTime 之后判断 如果不是pc去掉定时器interval，为了优化移动端的性能
   // 如果控制面板被打开了该定时器timer会被清除
   timer = setTimeout(() => {
-    if (!isPC) {
+    if (!IS.pc) {
       clearDDInterval();
     }
   }, config.stopIntervalTime);

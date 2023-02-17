@@ -4,7 +4,11 @@
  * @Description: Coding something
 -->
 # Version Log:
+## 0.3.3
 
+1. 修复在非浏览器环境引入可能报错的问题
+2. 增加seo保护功能，并增加 config.seo 参数，用来控制是否需要开启，默认为true
+   
 ## 0.3.2
 
 1. 增加 isRunning 属性，返回检测器是否正在运行

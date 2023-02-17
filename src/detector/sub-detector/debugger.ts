@@ -9,14 +9,14 @@
 
 import {Detector} from '../detector';
 import {DetectorType} from 'src/utils/enum';
-import {now, isIOSChrome, isIOSEdge} from 'src/utils/util';
+import {now, IS} from 'src/utils/util';
 
 export default class extends Detector {
 
   constructor () {
     super({
       type: DetectorType.Debugger,
-      enabled: isIOSChrome || isIOSEdge,
+      enabled: IS.iosChrome || IS.iosEdge,
     });
   }
 

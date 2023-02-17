@@ -28,25 +28,6 @@ export function getUrlParam (name: string) {
   return '';
 }
 
-export function formatName (name: string) {
-  if (name.indexOf('-') === -1) {
-    return name;
-  }
-  let flag = false;
-  return name.split('').map(c => {
-    if (c === '-') {
-      flag = true;
-      return '';
-    }
-    if (flag) {
-      flag = false;
-      return c.toUpperCase();
-    }
-    return c;
-  }).join('');
-}
-
-
 export function onPageShowHide (
   onshow: ()=>void,
   onhide: ()=>void,
@@ -102,37 +83,44 @@ export function hackAlert (before?: ()=>void, after?: ()=>void) {
   }
 }
 
-function hasUaName (name: string): boolean {
-  return navigator.userAgent.toLocaleLowerCase().indexOf(name) !== -1;
+export const IS = {
+  iframe: false,
+  pc: false,
+  qqBrowser: false,
+  firefox: false,
+  macos: false,
+  edge: false,
+  oldEdge: false,
+  ie: false,
+  iosChrome: false,
+  iosEdge: false,
+  chrome: false,
+  seoBot: false,
+};
+
+export function initIS () {
+  const ua = navigator.userAgent.toLowerCase();
+
+  const has = (name: string) => ua.indexOf(name) !== -1;
+
+  const iframe = !!window.top && window !== window.top;
+  const pc = !/(iphone|ipad|ipod|ios|android)/i.test(ua);
+  const qqBrowser = has('qqbrowser');
+  const firefox = has('firefox');
+  const macos = has('macintosh');
+  const edge = has('edge');
+  const oldEdge = edge && !has('chrome');
+  const ie = oldEdge || has('trident') || has('msie');
+  const iosChrome = has('crios');
+  const iosEdge = has('edgios');
+  const chrome = has('chrome') || iosChrome;
+  const seoBot = /(googlebot|baiduspider|bingbot|applebot|petalbot|yandexbot|bytespider)/i.test(ua);
+
+  Object.assign(IS, {
+    iframe, pc, qqBrowser, firefox, macos, edge, oldEdge,
+    ie, iosChrome, iosEdge, chrome, seoBot,
+  });
 }
-
-export const isInIframe = (() => {
-  try {
-    return window.self !== window.top;
-  } catch (e) {
-    return true;
-  }
-})();
-
-export const isPC = !/(iphone|ipad|ipod|ios|android)/i.test(navigator.userAgent.toLowerCase());
-
-export const isQQBrowser = hasUaName('qqbrowser');
-
-export const isFirefox = hasUaName('firefox');
-
-export const isMacOs = hasUaName('macintosh');
-
-export const isEdge = hasUaName('edge');
-
-export const isOldEdge = isEdge && !hasUaName('chrome');
-
-export const isIE = isOldEdge || hasUaName('trident') || hasUaName('msie');
-
-export const isIOSChrome = hasUaName('crios');
-
-export const isIOSEdge = hasUaName('edgios');
-
-export const isChrome = hasUaName('chrome') || isIOSChrome;
 
 function createLargeObject () {
   const largeObject: Record<string, string> = {};

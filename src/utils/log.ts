@@ -5,7 +5,7 @@
  */
 
 import {config} from './config';
-import {isIE} from './util';
+import {IS} from './util';
 
 const console = window.console || {
   log: function () {
@@ -19,22 +19,24 @@ const console = window.console || {
   }
 };
 
-export const log = (() => {
-  // ie 不支持缓存使用 log等方法
-  return isIE ? ((...args: any[]) => {return console.log(...args);}) : console.log;
-})();
+export let log: (...data: any[]) => void;
+export let table: (...data: any[]) => void;
+let clear: () => void;
 
-export const table = (() => {
-  // ie 不支持缓存使用 log等方法
-  return isIE ? ((...args: any[]) => {return console.table(...args);}) : console.table;
-})();
-
-const clearLogFunc = (() => {
-  // ie 不支持缓存使用 log等方法
-  return isIE ? (() => {return console.clear();}) : console.clear;
-})();
+export function initLogs () {
+  if (IS.ie) {
+    // ie 不支持缓存使用 log等方法
+    log = (...args: any[]) => {return console.log(...args);};
+    table = (...args: any[]) => {return console.table(...args);};
+    clear = () => {return console.clear();};
+  } else {
+    log = console.log;
+    table = console.table;
+    clear = console.clear;
+  }
+}
 
 export function clearLog () {
   if (config.clearLog)
-    clearLogFunc();
+    clear();
 }

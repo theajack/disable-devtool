@@ -7,7 +7,7 @@
 import {Detector} from '../detector';
 import {DetectorType} from 'src/utils/enum';
 import {clearLog, log, table} from 'src/utils/log';
-import {calculateTime, isChrome, createLargeObjectArray} from 'src/utils/util';
+import {calculateTime, IS, createLargeObjectArray} from 'src/utils/util';
 
 export default class extends Detector {
   largeObjectArray: any;
@@ -16,7 +16,7 @@ export default class extends Detector {
   constructor () {
     super({
       type: DetectorType.Performance,
-      enabled: isChrome
+      enabled: IS.chrome
     });
   }
 
