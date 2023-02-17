@@ -82,6 +82,59 @@ Or cite by version:
 <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
 ```
 
+### 1.3 False trigger problem location help
+
+----
+
+<details>
+    <summary>If you have problems during use, please click on me</summary>
+
+Because there are many devices, browsers, and operating environments, it is inevitable that there will be some scenarios where the library is incompatible, and this part is used for developers to check the problem by themselves, and then feedback the details to issues to help us locate and solve bugs
+
+#### 1.3.1 The probe was triggered incorrectly
+
+In some cases, if the console is not opened but the page does not close or the jump is away, because a probe is triggered by error, use the following code to locate which probe was triggered by mistake:
+
+```js
+DisableDevtool({
+    ondevtoolopen: (type) => {
+        const info = 'devtool opened!; type =' + type;
+        alert(info);
+        If you are worried about blocking the page, use console.warn(info); and open the console to view
+    },
+})
+```
+
+The above code needs to be used this when using script references
+
+```html
+<script src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
+<script>
+    DisableDevtool({
+        ondevtoolopen: (type) => {
+            const info = 'devtool opened!; type =' + type;
+            alert(info); If you are worried about blocking the page, use console.warn(info); and open the console to view
+        },
+    })
+</script>
+```
+
+#### 1.3.2 The probe is not triggered
+
+When devtool is opened in any way, but the page does not close or jump correctly, first try printing the following to see if the detector is working properly
+
+```js
+console.log(DisableDevtool.isRunning);
+```
+
+If it returns true, then this is an incompatibility problem because none of the probes are triggered, which is tricky, and there is currently no universal way to locate it
+
+Please submit an issue, as detailed as possible with the browser version, device model and version, operating environment, preferably a screenshot or demo address, we will troubleshoot the corresponding problem later
+
+</details>
+
+----
+
 ## 2. Function
 
 disable-devtool disables all access to the devtools, preventing 'code porting' via the devtools
@@ -99,10 +152,14 @@ The library has the following features:
 9. Support for identifying developer tools close events
 10. Support configurable whether to disable selection, copy, cut, paste function
 11. Support to identify eruda and vconsole debugging tools
-
+12. Support suspending and resuming probe work
+13. Support configuring ignore attributes to customize whether to enable probes
+    
 ## 3. Use
 
 ### 3.1 Configuration parameters when using npm
+
+It is recommended to use this method of installation and use, and the script script can be intercepted by the agent separately and cannot be executed
 
 install disable-devtool
 
@@ -204,7 +261,7 @@ Note:
 
 ### 3.5 Monitoring Mode
 
-Disable-Devtool has five monitoring modes, DisableDevtool.DetectorType enumerates all monitoring modes
+Disable-Devtool has the following monitoring modes, DisableDevtool.DetectorType enumerates all monitoring modes
 
 ```ts
 enum DetectorType {
