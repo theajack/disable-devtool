@@ -5,6 +5,10 @@
 -->
 # Version Log:
 
+## 0.3.4
+
+Fix false detection issue in iOS Edge browser
+
 ## 0.3.3
 
 1. Fixed the issue that an error may be reported in a non-browser environment

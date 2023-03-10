@@ -17,7 +17,7 @@ export default class extends Detector {
   constructor () {
     super({
       type: DetectorType.DateToString,
-      enabled: !IS.iosChrome, // iosChrome 中会有bug
+      enabled: !IS.iosChrome && !IS.iosEdge, // iosChrome 中会有bug
     });
   }
 
