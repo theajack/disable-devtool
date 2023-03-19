@@ -1,7 +1,7 @@
 
 <p align="center">
     <a href='https://www.github.com/theajack/disable-devtool'>
-        <img src='https://shiyix.cn/disable-devtool3.png' width='240px'/>
+        <img src='https://shiyix.cn/images/disable-devtool3.png' width='240px'/>
     </a>
 </p> 
 
@@ -51,7 +51,7 @@
     <a href="https://paypal.me/tackchen">
         <img src="https://img.shields.io/badge/Donate-PayPal-142c8e" alt="test">
     </a>    
-    <a href="https://shiyix.cn/wx-pay.png">
+    <a href="https://shiyix.cn/images/wx-pay.png">
         <img src="https://img.shields.io/badge/Donate-Wechat Pay-00c250" alt="test">
     </a>
 </p>
