@@ -4,6 +4,11 @@
  * @Description: Coding something
 -->
 # Version Log:
+
+## 0.3.4
+
+1. 修复ios edge浏览器中的误检测问题
+
 ## 0.3.3
 
 1. 修复在非浏览器环境引入可能报错的问题
