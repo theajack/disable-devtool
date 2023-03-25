@@ -30,8 +30,7 @@ export abstract class Detector {
   }
 
   onDevToolOpen () {
-    console.warn(`You ar not allow to use DEVTOOL! 【type = ${this.type}】`);
-    // alert(`You ar not allow to use DEVTOOL! 【type = ${type}】`);
+    console.warn(`You don't have permission to use DEVTOOL!【type = ${this.type}】`);
     if (config.clearIntervalWhenDevOpenTrigger) {
       clearDDInterval();
     }
