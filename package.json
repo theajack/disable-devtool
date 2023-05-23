@@ -11,7 +11,7 @@
         "release": "node scripts/push-release.js"
     },
     "name": "disable-devtool",
-    "version": "0.3.4",
+    "version": "0.3.5",
     "description": "Disable web developer tools from the f12 button, right-click and browser ",
     "main": "disable-devtool.min.js",
     "unpkg": "disable-devtool.min.js",
