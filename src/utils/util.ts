@@ -116,7 +116,8 @@ export function initIS () {
   const iosChrome = has('crios');
   const iosEdge = has('edgios');
   const chrome = has('chrome') || iosChrome;
-  const seoBot = !mobile && /(googlebot|baiduspider|bingbot|applebot|petalbot|yandexbot|bytespider|chrome\-lighthouse)/i.test(ua);
+  // google lighthouse ua中有 moto g power
+  const seoBot = !mobile && /(googlebot|baiduspider|bingbot|applebot|petalbot|yandexbot|bytespider|chrome\-lighthouse|moto g power)/i.test(ua);
 
   Object.assign(IS, {
     iframe, pc, qqBrowser, firefox, macos, edge, oldEdge,
@@ -135,8 +136,8 @@ function isMobile () {
   }
   if (typeof platform === 'string') {
     const v = platform.toLowerCase();
-    if (/(mac|win)/.test(v)) return false;
-    else if (/(android|iphone|ipad|ipod|arch)/.test(v)) return true;
+    if (/(mac|win)/i.test(v)) return false;
+    else if (/(android|iphone|ipad|ipod|arch)/i.test(v)) return true;
   }
   return isMobileByUa();
 }

@@ -13,7 +13,7 @@ export const config: IConfig = {
   url: '',
   timeOutUrl: '',
   tkName: 'ddtk',
-  interval: 200,
+  interval: 500,
   disableMenu: true, // 是否禁用右键菜单
   stopIntervalTime: 5000, // 在移动端时取消监视的等待时长
   clearIntervalWhenDevOpenTrigger: false, // 是否在触发之后停止监控

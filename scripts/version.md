@@ -5,6 +5,12 @@
 -->
 # Version Log:
 
+## 0.3.6
+
+1. fix google lighthouse 新版本没有放行
+2. fix 移动端调试工具5s之后被放行
+3. 将interval默认时间设置为500ms
+   
 ## 0.3.5
 
 1. 修复pc端ios移动端中调试模式不起作用的问题

@@ -27,4 +27,7 @@ export default class extends Detector {
       this.onDevToolOpen();
     }
   }
+  static isUsing () {
+    return !!(window as any).eruda || !!(window as any)._vcOrigConsole;
+  }
 }

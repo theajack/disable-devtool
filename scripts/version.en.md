@@ -5,6 +5,12 @@
 -->
 # Version Log:
 
+## 0.3.6
+
+1. Fix The new version of Google Lighthouse is not released
+2. Fix The mobile debugging tool is allowed after 5s
+3. Set the interval default time to 500ms
+
 ## 0.3.5
 
 1. Fix the problem that the debugging mode in the PC iOS mobile terminal does not work
