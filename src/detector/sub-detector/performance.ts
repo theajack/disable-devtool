@@ -16,7 +16,7 @@ export default class extends Detector {
   constructor () {
     super({
       type: DetectorType.Performance,
-      enabled: IS.chrome
+      enabled: IS.chrome || !IS.mobile
     });
   }
 

@@ -11,12 +11,13 @@ export const config: IConfig = {
   ondevtoolopen: closeWindow, // ondevtoolopen 优先级高于 url
   ondevtoolclose: null, // ondevtoolclose 监听
   url: '',
+  timeOutUrl: '',
   tkName: 'ddtk',
   interval: 200,
   disableMenu: true, // 是否禁用右键菜单
   stopIntervalTime: 5000, // 在移动端时取消监视的等待时长
   clearIntervalWhenDevOpenTrigger: false, // 是否在触发之后停止监控
-  detectors: 'all',
+  detectors: [0, 1, 3, 4, 5, 6, 7], // 'all', ! 默认去掉sizeDetector 因为会误伤
   clearLog: true,
   disableSelect: false,
   disableCopy: false,

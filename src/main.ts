@@ -18,16 +18,20 @@ import {initLogs} from './utils/log';
 import {checkScriptUse} from './plugins/script-use';
 
 export const disableDevtool: IDisableDevtool = Object.assign(((opts?: Partial<IConfig>) => {
+  const r = (reason = '') => ({success: !reason, reason});
+  if (disableDevtool.isRunning) return r('already running');
   initIS(); // ! 首先初始化env
   initLogs(); // 然后初始化log
   mergeConfig(opts);
   // 被 token 绕过 或者
+  if (checkTk()) return r('token passed');
   // 开启了保护seo 并且 是seobot
-  if (checkTk() || (config.seo && IS.seoBot)) {return;}
+  if ((config.seo && IS.seoBot)) return r('seobot');
   disableDevtool.isRunning = true;
   initInterval(disableDevtool);
   disableKeyAndMenu(disableDevtool);
   initDetectors();
+  return r();
 }), {
   isRunning: false,
   isSuspend: false,

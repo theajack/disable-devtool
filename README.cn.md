@@ -25,15 +25,17 @@
 </p>
 <p align="center">
     <a href="https://github.com/theajack" target="_black">
-        <img src="https://img.shields.io/badge/Author-%20theajack%20-7289da.svg?&logo=github" alt="author" />
+        <img src="https://img.shields.io/badge/Author-%20theajack%20-7289da.svg?logo=github" alt="author" />
     </a>
     <a href="https://www.github.com/theajack/disable-devtool/blob/master/LICENSE" target="_black">
-        <img src="https://img.shields.io/github/license/theajack/disable-devtool?color=%232DCE89&logo=github" alt="license" />
+        <img src="https://img.shields.io/github/license/theajack/disable-devtool?color=%232DCE89" alt="license" />
     </a>
     <a href="https://cdn.jsdelivr.net/npm/disable-devtool"><img src="https://img.shields.io/bundlephobia/minzip/disable-devtool.svg" alt="Size"></a>
     <a href="https://github.com/theajack/disable-devtool/search?l=javascript"><img src="https://img.shields.io/github/languages/top/theajack/disable-devtool.svg" alt="TopLang"></a>
-    <a href="https://www.github.com/theajack/disable-devtool"><img src="https://img.shields.io/librariesio/dependent-repos/npm/disable-devtool.svg" alt="Dependent"></a>
-    <a href="https://github.com/theajack/disable-devtool/blob/master/test/test-report.txt"><img src="https://img.shields.io/badge/test-passed-44BB44" alt="test"></a>
+    <!-- <a href="https://www.github.com/theajack/disable-devtool"><img src="https://img.shields.io/librariesio/dependent-repos/npm/disable-devtool.svg" alt="Dependent"></a> -->
+    <img src="https://img.shields.io/badge/test-passed-44BB44" alt="test">
+    <img src="https://shiyix.cn/api2/util/badge/stat?c=Visitors-disabledevtool" alt="visitors">
+
 </p>
 
 <h2>🚀 一行代码搞定禁用web开发者工具 </h2>
@@ -179,10 +181,23 @@ import DisableDevtool from 'disable-devtool';
 DisableDevtool(options);
 ```
 
+#### 3.1.1 返回值
+
+返回值 DisableDevtool 的返回值为如下类型
+
+```ts
+interface IDDResult {
+    success: boolean; // 表示是否正常启用
+    reason: string; // 未正常启用的原因
+}
+```
+
+#### 3.1.2 参数
+
 options中的参数与说明如下：
 
 ```ts
-declare interface IConfig {
+interface IConfig {
     md5?: string; // 绕过禁用的md5值，详情见3.2，默认不启用绕过禁用
     url?: string; // 关闭页面失败时的跳转页面，默认值为localhost
     tkName?: string; // 绕过禁用时的url参数名称，默认为 ddtk
@@ -192,7 +207,7 @@ declare interface IConfig {
     disableMenu?: boolean; // 是否禁用右键菜单 默认为true
     stopIntervalTime?: number; // 在移动端时取消监视的等待时长
     clearIntervalWhenDevOpenTrigger?: boolean; // 是否在触发之后停止监控 默认为false， 在使用ondevtoolclose时该参数无效
-    detactors?: Array<DetectorType>; // 启用的检测器 检测器详情见 3.5 默认为全部，建议使用全部
+    detectors?: Array<DetectorType>; // 启用的检测器 检测器详情见 3.5 默认为全部，建议使用全部
     clearLog?: boolean; // 是否每次都清除log
     disableSelect?: boolean; // 是否禁用选择文本 默认为false
     disableCopy?: boolean; // 是否禁用复制 默认为false
@@ -200,6 +215,7 @@ declare interface IConfig {
     disablePaste: boolean; // 是否禁用粘贴 默认为false
     ignore?: (string|RegExp)[] | null | (()=>boolean); // 某些情况忽略禁用
     disableIframeParents?: boolean; // iframe中是否禁用所有父窗口
+    timeOutUrl?: // 关闭页面超时跳转的url;
 }
 
 enum DetectorType {
@@ -276,7 +292,7 @@ enum DetectorType {
   Unknown = -1,
   RegToString = 0, // 根据正则检测
   DefineId, // 根据dom id检测
-  Size, // 根据窗口尺寸检测
+  Size, // 根据窗口尺寸检测 // 0.3.5版本后该探测器默认不启用
   DateToString, // 根据Date.toString 检测
   FuncToString, // 根据Function.toString 检测
   Debugger, // 根据断点检测，仅在ios chrome 真机情况下有效

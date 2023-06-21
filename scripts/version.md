@@ -5,6 +5,14 @@
 -->
 # Version Log:
 
+## 0.3.5
+
+1. 修复pc端ios移动端中调试模式不起作用的问题
+2. 去除sizeDetector的默认启用
+3. 增加timeOutUrl，用来处理关闭页面超时的跳转
+4. 增加disableDevtool重复启用判断，增加返回值
+5. 优化seobot的判断
+
 ## 0.3.4
 
 1. 修复ios edge浏览器中的误检测问题

@@ -5,6 +5,14 @@
 -->
 # Version Log:
 
+## 0.3.5
+
+1. Fix the problem that the debugging mode in the PC iOS mobile terminal does not work
+2. Remove the default enablement of sizeDetector
+3. Add timeOutUrl to handle the jump that closes the page timeout
+4. Add disableDevtool to repeatedly enable judgment and increase the return value
+5. Optimize the judgment of seobot
+   
 ## 0.3.4
 
 Fix false detection issue in iOS Edge browser

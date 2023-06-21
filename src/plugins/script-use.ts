@@ -5,7 +5,7 @@
  */
 
 export function checkScriptUse () {
-  if (!window || !window.document) return null;
+  if ('undefined' === typeof window || !window.document) return null;
   const dom = document.querySelector('[disable-devtool-auto]');
   if (!dom) {
     return null;

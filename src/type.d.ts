@@ -9,6 +9,7 @@ import {DetectorType} from './utils/enum';
 export interface IConfig {
     md5: string; // 绕过禁用的md5值，详情见3.2，默认不启用绕过禁用
     url: string; // 关闭页面失败时的跳转页面，默认值为localhost
+    timeOutUrl: string; // 关闭页面超时跳转的url
     tkName: string; // 绕过禁用时的url参数名称，默认为 ddtk
     ondevtoolopen(type: DetectorType, next: Function): void; // 开发者面板打开的回调，启用时url参数无效
     ondevtoolclose: Function | null;
@@ -28,7 +29,7 @@ export interface IConfig {
 }
 
 export interface IDisableDevtool {
-    (opts?: Partial<IConfig>): void;
+    (opts?: Partial<IConfig>): {success:boolean, reason:string};
     isRunning: boolean;
     isSuspend: boolean;
     md5: (v: string) => string;

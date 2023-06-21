@@ -2,7 +2,7 @@
  * @Author: tackchen
  * @Date: 2021-12-24 15:14:06
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2023-02-16 23:27:03
+ * @LastEditTime: 2023-06-21 08:00:32
  * @FilePath: /disable-devtool/src/close-window.js
  * @Description: Coding something
  */
@@ -25,7 +25,7 @@ export function closeWindow () {
     }
     setTimeout(() => {
       // 否则执行跳转到 url
-      window.location.href = `https://theajack.github.io/disable-devtool/404.html?h=${encodeURIComponent(location.host)}`;
+      window.location.href = config.timeOutUrl || `https://theajack.github.io/disable-devtool/404.html?h=${encodeURIComponent(location.host)}`;
     }, 500);
   }
 }

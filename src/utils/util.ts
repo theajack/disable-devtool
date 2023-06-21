@@ -96,6 +96,7 @@ export const IS = {
   iosEdge: false,
   chrome: false,
   seoBot: false,
+  mobile: false,
 };
 
 export function initIS () {
@@ -103,8 +104,9 @@ export function initIS () {
 
   const has = (name: string) => ua.indexOf(name) !== -1;
 
+  const mobile = isMobile();
   const iframe = !!window.top && window !== window.top;
-  const pc = !/(iphone|ipad|ipod|ios|android)/i.test(ua);
+  const pc = !mobile;
   const qqBrowser = has('qqbrowser');
   const firefox = has('firefox');
   const macos = has('macintosh');
@@ -114,12 +116,29 @@ export function initIS () {
   const iosChrome = has('crios');
   const iosEdge = has('edgios');
   const chrome = has('chrome') || iosChrome;
-  const seoBot = /(googlebot|baiduspider|bingbot|applebot|petalbot|yandexbot|bytespider|chrome\-lighthouse)/i.test(ua);
+  const seoBot = !mobile && /(googlebot|baiduspider|bingbot|applebot|petalbot|yandexbot|bytespider|chrome\-lighthouse)/i.test(ua);
 
   Object.assign(IS, {
     iframe, pc, qqBrowser, firefox, macos, edge, oldEdge,
-    ie, iosChrome, iosEdge, chrome, seoBot,
+    ie, iosChrome, iosEdge, chrome, seoBot, mobile,
   });
+}
+
+function isMobileByUa () {
+  return /(iphone|ipad|ipod|ios|android)/i.test(navigator.userAgent.toLowerCase());
+}
+
+function isMobile () {
+  const {platform, maxTouchPoints} = navigator;
+  if (typeof maxTouchPoints === 'number') {
+    return maxTouchPoints > 1;
+  }
+  if (typeof platform === 'string') {
+    const v = platform.toLowerCase();
+    if (/(mac|win)/.test(v)) return false;
+    else if (/(android|iphone|ipad|ipod|arch)/.test(v)) return true;
+  }
+  return isMobileByUa();
 }
 
 function createLargeObject () {

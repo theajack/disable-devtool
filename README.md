@@ -25,15 +25,16 @@
 </p>
 <p align="center">
     <a href="https://github.com/theajack" target="_black">
-        <img src="https://img.shields.io/badge/Author-%20theajack%20-7289da.svg?&logo=github" alt="author" />
+        <img src="https://img.shields.io/badge/Author-%20theajack%20-7289da.svg?logo=github" alt="author" />
     </a>
     <a href="https://www.github.com/theajack/disable-devtool/blob/master/LICENSE" target="_black">
-        <img src="https://img.shields.io/github/license/theajack/disable-devtool?color=%232DCE89&logo=github" alt="license" />
+        <img src="https://img.shields.io/github/license/theajack/disable-devtool?color=%232DCE89" alt="license" />
     </a>
     <a href="https://cdn.jsdelivr.net/npm/disable-devtool"><img src="https://img.shields.io/bundlephobia/minzip/disable-devtool.svg" alt="Size"></a>
     <a href="https://github.com/theajack/disable-devtool/search?l=javascript"><img src="https://img.shields.io/github/languages/top/theajack/disable-devtool.svg" alt="TopLang"></a>
-    <a href="https://www.github.com/theajack/disable-devtool"><img src="https://img.shields.io/librariesio/dependent-repos/npm/disable-devtool.svg" alt="Dependent"></a>
-    <a href="https://github.com/theajack/disable-devtool/blob/master/test/test-report.txt"><img src="https://img.shields.io/badge/test-passed-44BB44" alt="test"></a>
+    <!-- <a href="https://www.github.com/theajack/disable-devtool"><img src="https://img.shields.io/librariesio/dependent-repos/npm/disable-devtool.svg" alt="Dependent"></a> -->
+    <img src="https://img.shields.io/badge/test-passed-44BB44" alt="test">
+    <img src="https://shiyix.cn/api2/util/badge/stat?c=Visitors-disabledevtool" alt="visitors">
 </p>
 
 <h2>🚀 One line of code to disable web developer tools </h2>
@@ -179,6 +180,19 @@ import DisableDevtool from 'disable-devtool';
 DisableDevtool(options);
 ```
 
+#### 3.1.1 Return value
+
+Return value DisableDevtool The return value is of the following type
+
+```ts
+interface IDDResult {
+    success: boolean; Indicates whether it is enabled normally
+    reason: string; The reason why it was not properly enabled
+}
+```
+
+#### 3.1.2 parameters
+
 The parameters and descriptions in options are as follows:
 
 ```ts
@@ -192,7 +206,7 @@ declare interface IConfig {
     disableMenu?: boolean; // Whether to disable the right-click menu Default is true
     stopIntervalTime?: number; // Waiting time to cancel monitoring on mobile
     clearIntervalWhenDevOpenTrigger?: boolean; // Whether to stop monitoring after triggering the default is false, this parameter is invalid when using ondevtoolclose
-    detactors?: Array<DetectorType>; // Enabled detectors See 3.5 for details of detectors. The default is all, it is recommended to use all
+    detectors?: Array<DetectorType>; // Enabled detectors See 3.5 for details of detectors. The default is all, it is recommended to use all
     clearLog?: boolean; // Whether to clear the log every time
     disableSelect?: boolean; // Whether to disable selection text Default is false
     disableCopy?: boolean; // Whether to disable copying, default is false
@@ -200,13 +214,14 @@ declare interface IConfig {
     disablePaste: boolean; // Whether to disable paste, default is false
     ignore?: (string| RegExp)[] | null | (()=>boolean); // Some cases ignore the disablement
     disableIframeParents?: boolean; // Whether all parent windows are disabled in the iframe
+    timeOutUrl?: // Turn off URLs that page timeouts forward towards
 }
 
 enum DetectorType {
   Unknown = -1,
   RegToString = 0, // Check according to regular
   DefineId, // detect based on dom id
-  Size, // Detect based on window size
+  Size, // Detect based on window size // After version 0.3.5, this probe is not enabled by default
   DateToString, // check against Date.toString
   FuncToString, // check according to Function.toString
   Debugger, // According to breakpoint detection, it is only valid in the case of ios chrome real machine
