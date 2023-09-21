@@ -43,8 +43,6 @@
 
 ----
 
-Open source maintenance is not easy, if you have the financial means, you can donate the author for a cup of coffee
-
 <p align="">
     <a href="https://ko-fi.com/theajack">
         <img src="https://img.shields.io/badge/Donate-Ko Fi-ff5f5f" alt="test">
@@ -58,6 +56,15 @@ Open source maintenance is not easy, if you have the financial means, you can do
 </p>
 
 ----
+
+## 0. Sponsor
+
+<p align="center">
+    <a href="https://alinsjs.github.io/docs">
+        <img width="130" src="https://shiyix.cn/images/alins.png" alt="alins">
+    </a>    
+    <p align="center"><a href="https://alins.github.io/docs">Alins - The Most Elegant JS FrameWork</a></p>
+</p>
 
 ## 1. Quick use
 
