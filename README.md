@@ -63,7 +63,7 @@
     <a href="https://alinsjs.github.io/docs">
         <img width="130" src="https://shiyix.cn/images/alins.png" alt="alins">
     </a>    
-    <p align="center"><a href="https://alins.github.io/docs">Alins - The Most Elegant JS FrameWork</a></p>
+    <p align="center"><a href="https://alinsjs.github.io/docs">Alins - The Most Elegant JS FrameWork</a></p>
 </p>
 
 ## 1. Quick use
