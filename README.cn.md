@@ -60,6 +60,15 @@
 
 ----
 
+## 0. 赞助商
+
+<p align="center">
+    <a href="https://alinsjs.github.io/docs">
+        <img width="130" src="https://shiyix.cn/images/alins.png" alt="alins">
+    </a>    
+    <p align="center"><a href="https://github.com/alinsjs/alins">Alins - 极致优雅的UI框架</a></p>
+</p>
+
 ## 1. 快速使用
 
 ### 1.1 npm 引用
