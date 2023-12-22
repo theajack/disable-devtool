@@ -60,7 +60,10 @@ function disableTarget (target: Window) {
 
 function disableMenu (target: Window) {
   if (config.disableMenu) {
-    addPreventListener(target, 'contextmenu');
+    target.addEventListener('contextmenu', (e: Event & {pointerType: string}) => {
+      if (e.pointerType === 'touch') return;
+      return preventEvent(target, e);
+    });
   }
 }
 function disableSelect (target: Window) {
