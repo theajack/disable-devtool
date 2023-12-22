@@ -2,17 +2,24 @@
  * @Author: tackchen
  * @Date: 2021-12-24 15:14:06
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2023-06-21 08:00:32
+ * @LastEditTime: 2023-12-22 09:57:58
  * @FilePath: /disable-devtool/src/close-window.js
  * @Description: Coding something
  */
 import {config} from './config';
-import {clearDDInterval} from './interval';
+// import {clearDDInterval} from './interval';
 
 export function closeWindow () {
-  clearDDInterval();
+  // clearDDInterval();
   if (config.url) {
     window.location.href = config.url;
+  } else if (config.rewriteHTML) {
+    try {
+      document.documentElement.innerHTML = config.rewriteHTML;
+    } catch (e) {
+      // for 'TrustedHTML' assignment
+      document.documentElement.innerText = config.rewriteHTML;
+    }
   } else {
     try {
       window.opener = null;

@@ -224,7 +224,8 @@ interface IConfig {
     disablePaste: boolean; // 是否禁用粘贴 默认为false
     ignore?: (string|RegExp)[] | null | (()=>boolean); // 某些情况忽略禁用
     disableIframeParents?: boolean; // iframe中是否禁用所有父窗口
-    timeOutUrl?: // 关闭页面超时跳转的url;
+    timeOutUrl?: string; // 关闭页面超时跳转的url;
+    rewriteHTML: string; // 检测到打开之后重写页面
 }
 
 enum DetectorType {

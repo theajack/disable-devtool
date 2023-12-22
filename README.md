@@ -221,7 +221,8 @@ declare interface IConfig {
     disablePaste: boolean; // Whether to disable paste, default is false
     ignore?: (string| RegExp)[] | null | (()=>boolean); // Some cases ignore the disablement
     disableIframeParents?: boolean; // Whether all parent windows are disabled in the iframe
-    timeOutUrl?: // Turn off URLs that page timeouts forward towards
+    timeOutUrl?: string; // Turn off URLs that page timeouts forward towards
+    rewriteHTML?: string; // Detecting the rewriting page after opening
 }
 
 enum DetectorType {

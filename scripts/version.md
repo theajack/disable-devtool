@@ -5,6 +5,12 @@
 -->
 # Version Log:
 
+## 0.3.7
+
+1. 修复移动端浏览器长按不弹出复制等按钮
+2. 增加 rewriteHTML 配置
+3. 移除 closeWindow 中的 clearDDInterval 调用
+   
 ## 0.3.6
 
 1. fix google lighthouse 新版本没有放行

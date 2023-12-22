@@ -5,6 +5,12 @@
 -->
 # Version Log:
 
+## 0.3.7
+
+1. Fix the movement of the mobile browser long press and not pop up the copy and other buttons
+2. Add REWRITEHTML configuration
+3. Remove CleardDinterval calls in Closewindow
+
 ## 0.3.6
 
 1. Fix The new version of Google Lighthouse is not released

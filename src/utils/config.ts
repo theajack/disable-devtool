@@ -26,6 +26,7 @@ export const config: IConfig = {
   ignore: null,
   disableIframeParents: true,
   seo: true,
+  rewriteHTML: '',
 };
 
 const MultiTypeKeys = ['detectors', 'ondevtoolclose', 'ignore'];
