@@ -4,4 +4,5 @@ scripts/dev/*.js
 **/libs/*.js
 npm
 docs
-dist
+output
+*.min.js

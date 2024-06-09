@@ -63,3 +63,10 @@ console.log(disableDevtool.md5('xx'));
 
 
 // window.log = log;
+
+// window.addEventListener('keydown', (e) => {
+//   const keyCode = e.keyCode || e.which;
+//   if ( keyCode === 123 ) {
+//     alert('xxxxxx');
+//   }
+// });

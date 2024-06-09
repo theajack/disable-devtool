@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "baseUrl": ".",
-        "outDir": "dist",
+        "outDir": "output",
         "sourceMap": false,
         "target": "es2016",
         "module": "esnext",
