@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <title>Disable web developer tools with one line</title>
     <style>
         code{
@@ -20,6 +22,7 @@
             max-width: 1000px;
             margin: 0 auto;
             padding: 0 20px;
+			font-family: "Poppins";
         }
     </style>
 </head>
@@ -32,7 +35,7 @@
     </h3>
 
     <h2>🚀 Disable web developer tools with one line </h2>
-    
+
     <p>
         <a href="https://www.github.com/theajack/disable-devtool/stargazers" target="_black">
             <img src="https://img.shields.io/github/stars/theajack/disable-devtool?logo=github" alt="stars" />
@@ -65,7 +68,7 @@
     </p>
 
     <p>
-       <strong> 
+       <strong>
             <a href='https://www.github.com/theajack/disable-devtool'>Github</a></h1>
             | <a href="https://github.com/theajack/disable-devtool/blob/master/README.cn.md">中文文档</a>
             | <a href="https://github.com/theajack/disable-devtool/blob/master/README.md">English Docs</a>
@@ -82,10 +85,10 @@
     <p>
         <a href="https://ko-fi.com/theajack">
             <img src="https://img.shields.io/badge/Donate-Ko Fi-ff5f5f" alt="test">
-        </a>    
+        </a>
         <a href="https://paypal.me/tackchen">
             <img src="https://img.shields.io/badge/Donate-PayPal-142c8e" alt="test">
-        </a>    
+        </a>
         <a href="https://shiyix.cn/images/wx-pay.png">
             <img src="https://img.shields.io/badge/Donate-Wechat Pay-00c250" alt="test">
         </a>
@@ -121,12 +124,12 @@ disableDevtool();</code>
         <span id='md5_value'></span>
     </div>
 
-    <script 
-        disable-devtool-auto 
-        md5='1aabac6d068eef6a7bad3fdf50a05cc8' 
+    <script
+        disable-devtool-auto
+        md5='1aabac6d068eef6a7bad3fdf50a05cc8'
         src='https://cdn.jsdelivr.net/npm/disable-devtool@0.3.7/disable-devtool.min.js#use'
     ></script>
-    
+
     <script>
         document.getElementById('version').innerText = 'version = ' + DisableDevtool.version;
         function setText(text){
