@@ -178,7 +178,6 @@ function str2binl (str: string)
   return bin;
 }
  
- 
 /*
  * Convert an array of little-endian words to a hex string.
  */

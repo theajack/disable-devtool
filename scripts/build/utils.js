@@ -66,7 +66,12 @@ function clearDirectoryBase (dirPath) {
 function buildPackageJson (extract = {}) {
   const pkg = require(resolveRootPath('package.json'));
 
-  const attrs = ['name', 'version', 'description', 'main', 'unpkg', 'jsdelivr', 'typings', 'repository', 'keywords', 'author', 'license', 'bugs', 'homepage', 'dependencies'];
+  const attrs = [
+    'name', 'version', 'description', 'main', 'unpkg',
+    'jsdelivr', 'typings', 'repository', 'keywords',
+    'author', 'license', 'bugs', 'homepage', 'dependencies',
+    'publishConfig',
+  ];
 
   const npmPkg = {};
 
