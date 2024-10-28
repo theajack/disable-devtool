@@ -52,7 +52,7 @@ function countScreenZoomRatio () {
     return window.devicePixelRatio;
   }
   const screen = window.screen as any;
-  if (checkExist(screen)) {
+  if (!checkExist(screen)) {
     return false;
   }
   if (screen.deviceXDPI && screen.logicalXDPI) {
