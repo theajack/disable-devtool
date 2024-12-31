@@ -226,7 +226,7 @@ declare interface IConfig {
     disablePaste: boolean; // Whether to disable paste, default is false
     ignore?: (string| RegExp)[] | null | (()=>boolean); // Some cases ignore the disablement
     disableIframeParents?: boolean; // Whether all parent windows are disabled in the iframe
-    timeOutUrl?: string; // Turn off URLs that page timeouts forward towards
+    timeOutUrl?: string; // Turn off URLs that page timeouts forward towards, the default is https://theajack.github.io/disable-devtool/404.html?h=${encodeURIComponent(location.host)}
     rewriteHTML?: string; // Detecting the rewriting page after opening
 }
 

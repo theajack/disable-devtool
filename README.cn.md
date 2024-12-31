@@ -224,7 +224,7 @@ interface IConfig {
     disablePaste: boolean; // 是否禁用粘贴 默认为false
     ignore?: (string|RegExp)[] | null | (()=>boolean); // 某些情况忽略禁用
     disableIframeParents?: boolean; // iframe中是否禁用所有父窗口
-    timeOutUrl?: string; // 关闭页面超时跳转的url;
+    timeOutUrl?: string; // 关闭页面超时跳转的url，默认为https://theajack.github.io/disable-devtool/404.html?h=${encodeURIComponent(location.host)}
     rewriteHTML: string; // 检测到打开之后重写页面
 }
 
