@@ -29,7 +29,7 @@ export function checkScriptUse () {
         value = parseInt(value);
       } else if (boolAttrs.indexOf(name) !== -1) {
         value = value === 'false' ? false : true;
-      } else if (name === 'detector') {
+      } else if (name === 'detectors') {
         if (value !== 'all') {
           value = value.split(' ');
         }
