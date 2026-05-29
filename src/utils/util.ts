@@ -130,9 +130,11 @@ function isMobileByUa () {
 }
 
 function isMobile () {
-  const {platform, maxTouchPoints} = navigator;
-  if (typeof maxTouchPoints === 'number') {
-    return maxTouchPoints > 1;
+  // @ts-ignore
+  const {platform, maxTouchPoints, userAgentData} = navigator;
+  //  userAgentData 是较新的 API，直接提供 mobile 属性
+  if (userAgentData?.mobile) {
+    return userAgentData.mobile;
   }
   if (typeof platform === 'string') {
     const v = platform.toLowerCase();
