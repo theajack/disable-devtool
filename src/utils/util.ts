@@ -1,7 +1,9 @@
 
 
 export function now () {
-  return new Date().getTime();
+  return (typeof performance !== 'undefined' && performance.now)
+    ? performance.now()
+    : new Date().getTime();
 }
 
 export function calculateTime (func: Function) {
