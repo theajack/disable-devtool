@@ -6,7 +6,7 @@
 
 import {Detector} from '../detector';
 import {DetectorType} from 'src/utils/enum';
-import {clearLog, log, table} from 'src/utils/log';
+import {clearLog, table} from 'src/utils/log';
 import {calculateTime, IS, createLargeObjectArray} from 'src/utils/util';
 
 export default class extends Detector {
@@ -17,7 +17,7 @@ export default class extends Detector {
   constructor () {
     super({
       type: DetectorType.Performance,
-      enabled: IS.chrome || !IS.mobile
+      enabled: IS.chrome || !IS.mobile,
     });
   }
 
@@ -28,8 +28,8 @@ export default class extends Detector {
 
   detect () {
     const tablePrintTime = calculateTime(() => {table(this.largeObjectArray);});
-    const logPrintTime = calculateTime(() => {log(this.largeObjectArray);});
-    this.maxPrintTime = Math.max(this.maxPrintTime, logPrintTime);
+    const jsBaselineTime = calculateTime(() => {JSON.stringify(this.largeObjectArray);});
+    this.maxPrintTime = Math.max(this.maxPrintTime, jsBaselineTime);
 
     clearLog();
 
